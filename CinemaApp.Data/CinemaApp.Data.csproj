@@ -6,8 +6,20 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+<<<<<<< HEAD
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.16" />
+=======
+ 
+
+  <ItemGroup>
+    <None Remove="Seeding\Dtos\movies.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />
+>>>>>>> 2affda0 (Add project files.)
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.16">
       <PrivateAssets>all</PrivateAssets>
@@ -23,8 +35,11 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <Folder Include="Configuration\" />
     <Folder Include="Migrations\" />
+=======
+>>>>>>> 2affda0 (Add project files.)
     <Folder Include="Repository\" />
     <Folder Include="Seeding\Dtos\" />
     <Folder Include="Seeding\Input\" />

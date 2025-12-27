@@ -1,0 +1,57 @@
+﻿@using CinemaApp.Web.ViewModels.Movie
+@model MovieDetailsViewModel
+
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Poster -->
+        <div class="col-md-5">
+            <img src="@Model.ImageUrl"
+                 class="img-fluid rounded shadow"
+                 alt="@Model.Title">
+        </div>
+
+        <!-- Movie Info -->
+        <div class="col-md-7">
+            <h2 class="fw-bold text-primary mb-3">@Model.Title</h2>
+
+            <p><strong>Genre:</strong> @Model.Genre</p>
+            <p><strong>Release Date:</strong> @Model.ReleaseDate.ToString("yyyy-MM-dd")</p>
+            <p><strong>Director:</strong> @Model.Director</p>
+            <p><strong>Duration:</strong> @Model.Duration minutes</p>
+            <hr />
+            <h5 class="mt-3">Description</h5>
+            <p>@Model.Description</p>
+
+            @if (!string.IsNullOrEmpty(Model.TrailerUrl))
+            {
+                <div class="mt-4">
+                    <h5>Trailer</h5>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="@Model.TrailerUrl"
+                                title="@Model.Title Trailer"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            }
+        </div> <!-- col-md-7 -->
+    </div> <!-- row -->
+
+    <div class="mt-4">
+        <a asp-action="Index" asp-controller="Movies" class="btn btn-secondary">
+            <i class="bi bi-arrow-left-circle"></i> Back to All Movies
+        </a>
+
+        @if (User?.Identity?.IsAuthenticated ?? false)
+        {
+            <a asp-controller="Watchlist" asp-action="Add" asp-route-id="@Model.Id" class="btn btn-warning ms-2">
+                Add to Watchlist
+            </a>
+        }
+    </div>
+</div> <!-- container -->

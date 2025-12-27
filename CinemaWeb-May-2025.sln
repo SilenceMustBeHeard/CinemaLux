@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.13.35919.96 d17.13
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaApp.Web", "CinemaApp\CinemaApp.Web.csproj", "{17F82044-4AD7-4113-94C9-7E24C28D5F5D}"
 EndProject
@@ -36,6 +36,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaApp.Web.Infrastructure", "CinemaApp.Web.Infrastructure\CinemaApp.Web.Infrastructure.csproj", "{3DDA2216-F3A3-49AC-A6BB-FC8103CDE50E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaApp.Web.ViewModels", "CinemaApp.Web.ViewModels\CinemaApp.Web.ViewModels.csproj", "{C9D77A74-05B7-4F4F-BB89-E20CBAB4780F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services (2)", "Services (2)", "{C26EE27E-AA3F-4C2C-87A8-C675AE88C71B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

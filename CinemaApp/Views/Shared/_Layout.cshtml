@@ -3,7 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
     <title>@ViewData["Title"] - CinemaApp</title>
+=======
+    <title>@ViewData["Title"] - CinemaLux</title>
+>>>>>>> 2affda0 (Add project files.)
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -13,6 +17,7 @@
 
     <!-- User luxury theme (dark + light mode) -->
     <link rel="stylesheet" href="~/css/user-theme.css" asp-append-version="true" />
+<<<<<<< HEAD
 </head>
 <body>
     <header>
@@ -38,12 +43,99 @@
                         <!-- Light/Dark Mode Toggle -->
                         <button id="themeToggle" class="btn btn-secondary me-3">🌙</button>
 
+=======
+    <!-- HomePage -->
+    <link rel="stylesheet" href="~/css/hero.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <header>
+
+
+
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="/">CinemaLux</a>
+
+                <!-- Toggle for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link glass-btn" href="/Movies">Movies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link glass-btn" href="/About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link glass-btn" href="/Contact">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex align-items-center ms-3">
+                        <!-- Theme Toggle -->
+                        <button id="themeToggle" class="glass-btn">🌙</button>
+>>>>>>> 2affda0 (Add project files.)
                         <partial name="_LoginPartial" />
                     </div>
                 </div>
             </div>
         </nav>
+<<<<<<< HEAD
     </header>
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 2affda0 (Add project files.)
 
     <div class="container">
         <main role="main" class="pb-3">

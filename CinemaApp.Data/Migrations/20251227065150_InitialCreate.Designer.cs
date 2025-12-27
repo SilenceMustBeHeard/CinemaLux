@@ -4,6 +4,7 @@ using CinemaApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,23 +12,19 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaApp.Data.Migrations
 {
     [DbContext(typeof(CinemaAppDbContext))]
-    partial class CinemaAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251227065150_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-<<<<<<< HEAD
-                .HasAnnotation("ProductVersion", "8.0.16")
-=======
                 .HasAnnotation("ProductVersion", "8.0.22")
->>>>>>> 2affda0 (Add project files.)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-<<<<<<< HEAD
-=======
             modelBuilder.Entity("CinemaApp.Data.Models.Movie", b =>
                 {
                     b.Property<Guid>("Id")
@@ -76,7 +73,6 @@ namespace CinemaApp.Data.Migrations
                     b.ToTable("Movies");
                 });
 
->>>>>>> 2affda0 (Add project files.)
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")

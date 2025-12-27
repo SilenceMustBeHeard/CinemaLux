@@ -2,6 +2,7 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
+<<<<<<< HEAD
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
@@ -23,4 +24,42 @@ else
         <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
 }
+=======
+<ul class="navbar-nav d-flex align-items-center">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <!-- User greeting (glass, disabled) -->
+        <li class="nav-item me-3">
+            <span class="nav-link glass-btn disabled" style="opacity:0.6; cursor:default;">
+                Hello @User.Identity?.Name!
+            </span>
+        </li>
+
+        <!-- Logout button -->
+        <li class="nav-item">
+            <form class="d-inline" asp-area="Identity" asp-page="/Account/Logout"
+                  asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="glass-btn">
+                    Logout
+                </button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <!-- Register button -->
+        <li class="nav-item me-2">
+            <a class="glass-btn" asp-area="Identity" asp-page="/Account/Register">
+                Register
+            </a>
+        </li>
+
+        <!-- Login button -->
+        <li class="nav-item">
+            <a class="glass-btn" asp-area="Identity" asp-page="/Account/Login">
+                Login
+            </a>
+        </li>
+    }
+>>>>>>> 2affda0 (Add project files.)
 </ul>
