@@ -58,7 +58,7 @@ namespace CinemaApp.Web
        .AddRazorRuntimeCompilation();
 
 
-            // Add Identity
+            // Add Identity 
             builder.Services.AddDefaultIdentity<IdentityUser>(options =>
             {  // for production use the following options
 
