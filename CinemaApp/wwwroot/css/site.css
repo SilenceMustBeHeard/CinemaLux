@@ -28,7 +28,7 @@ body {
     color: var(--text-main);
     font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
-<<<<<<< HEAD
+
 
 /* =========================
    Navbar
@@ -49,7 +49,7 @@ body {
         color: var(--accent-gold) !important;
     }
 
-=======
+
 /* =========================
    Navbar Glass + Luxury Buttons
    ========================= */
@@ -102,7 +102,7 @@ body {
     }
 
 
->>>>>>> 2affda0 (Add project files.)
+
 /* =========================
    Cards
    ========================= */
@@ -142,17 +142,13 @@ body {
 
     .movie-card img {
         width: 100%;
-<<<<<<< HEAD
-        height: 420px;
-=======
+
         height: 520px;
->>>>>>> 2affda0 (Add project files.)
+
         object-fit: cover;
         transition: transform 0.6s ease;
     }
 
-<<<<<<< HEAD
-=======
 .movie-card-overlay {
     position: absolute;
     inset: 0;
@@ -184,28 +180,19 @@ body {
 }
 
 
->>>>>>> 2affda0 (Add project files.)
     .movie-card:hover img {
         transform: scale(1.06);
     }
 
     .movie-card::after {
-<<<<<<< HEAD
+
         content: "";
         position: absolute;
         inset: 0;
         background: linear-gradient( to top, rgba(11, 15, 20, 0.95), rgba(11, 15, 20, 0.25), transparent );
     }
 
-.movie-card-content {
-    position: absolute;
-    bottom: 0;
-    padding: 1.4rem;
-    z-index: 2;
-}
-=======
-        background: linear-gradient( to top, rgba(11, 15, 20, 0.75), rgba(11, 15, 20, 0.15), transparent );
-    }
+
 
 
 .movie-card-content {
@@ -218,8 +205,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem; 
-}}
->>>>>>> 2affda0 (Add project files.)
+}
+
 
 .movie-card-title {
     color: var(--accent-gold);
@@ -228,11 +215,9 @@ body {
 }
 
 .movie-card-meta {
-<<<<<<< HEAD
+
     color: var(--text-muted);
-=======
-    color: whitesmoke;
->>>>>>> 2affda0 (Add project files.)
+
     font-size: 0.9rem;
 }
 

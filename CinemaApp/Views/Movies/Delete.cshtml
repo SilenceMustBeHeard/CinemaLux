@@ -1,0 +1,27 @@
+﻿@model CinemaApp.Web.ViewModels.Movie.MovieFormModelDelete
+
+@{
+    ViewData["Title"] = "Delete Movie";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center text-danger fw-bold">Delete Movie</h2>
+    <hr class="mb-4" />
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="bg-dark text-light p-4 rounded shadow-lg">
+
+                <h4 class="text-warning">@Model.Title</h4>
+           
+
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" class="btn btn-danger">Delete Movie</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>

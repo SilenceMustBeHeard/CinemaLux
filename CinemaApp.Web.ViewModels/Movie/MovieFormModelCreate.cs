@@ -19,7 +19,7 @@ namespace CinemaApp.Web.ViewModels.Movie
         }
 
 
-        public string Id { get; set; } 
+       
 
         [Required(ErrorMessage = "Title is required.")]
         [MaxLength(200, ErrorMessage = "Title cannot exceed 200 characters.")]

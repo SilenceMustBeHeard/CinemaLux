@@ -15,10 +15,16 @@ namespace CinemaApp.Services.Core.Interfaces
         Task AddMovieAsync(MovieFormModelCreate model);
         Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string id);
 
-        Task<MovieFormModelCreate?> GetMovieForEditByIdAsync(string id);
+        Task<MovieFormModelEdit?> GetMovieForEditByIdAsync(string id);
 
-        Task EditMovieAsync(string id, MovieFormModelCreate model);
+        Task EditMovieAsync(MovieFormModelEdit model);
 
+
+        Task <MovieFormModelDelete?> GetMovieForDeleteByIdAsync(string id);
+
+        Task<bool> SoftDeleteMovieAsync(string? id);
+        Task<bool> DeleteMovieAsync(string? id);
 
     }
 }
+

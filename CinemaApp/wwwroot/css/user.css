@@ -1,19 +1,11 @@
 /* =====================================================
    CINEMA APP – USER THEME
-<<<<<<< HEAD
-   Luxury Dark + Light Mode
-=======
+
    Luxury Dark + Light Mode (Glass Buttons)
->>>>>>> 2affda0 (Add project files.)
+
    ===================================================== */
 
-/* =========================
-   CSS Variables
-   ========================= */
-<<<<<<< HEAD
 
-=======
->>>>>>> 2affda0 (Add project files.)
 :root {
     --bg-main: #0b0f14;
     --bg-secondary: #121826;
@@ -29,10 +21,7 @@
 /* =========================
    Global
    ========================= */
-<<<<<<< HEAD
 
-=======
->>>>>>> 2affda0 (Add project files.)
 body {
     background-color: var(--bg-main);
     color: var(--text-main);
@@ -42,10 +31,7 @@ body {
 /* =========================
    Navbar
    ========================= */
-<<<<<<< HEAD
 
-=======
->>>>>>> 2affda0 (Add project files.)
 .navbar {
     background-color: var(--bg-secondary) !important;
     border-bottom: 1px solid var(--border-soft);
@@ -55,25 +41,17 @@ body {
 .navbar-brand,
 .nav-link {
     color: var(--text-main) !important;
-<<<<<<< HEAD
-}
 
-=======
     transition: all 0.3s ease;
 }
 
     .navbar-brand:hover,
->>>>>>> 2affda0 (Add project files.)
     .nav-link:hover {
         color: var(--accent-gold) !important;
     }
 
-/* =========================
-<<<<<<< HEAD
-   Cards
-   ========================= */
 
-=======
+/* =========================
    Glass Buttons (Navbar + Cards + General)
    ========================= */
 .btn, .glass-btn {
@@ -110,7 +88,7 @@ body {
 /* =========================
    Cards
    ========================= */
->>>>>>> 2affda0 (Add project files.)
+
 .card {
     background-color: var(--bg-card);
     border-radius: 18px;
@@ -135,10 +113,7 @@ body {
 /* =========================
    Movie Cards
    ========================= */
-<<<<<<< HEAD
 
-=======
->>>>>>> 2affda0 (Add project files.)
 .movie-card {
     position: relative;
     overflow: hidden;
@@ -184,7 +159,7 @@ body {
 }
 
 /* =========================
-<<<<<<< HEAD
+
    Buttons
    ========================= */
 
@@ -226,10 +201,7 @@ body {
    Forms
    ========================= */
 
-=======
-   Forms
-   ========================= */
->>>>>>> 2affda0 (Add project files.)
+
 .form-control {
     background-color: var(--bg-secondary);
     border-radius: 14px;
@@ -245,22 +217,16 @@ body {
         background-color: var(--bg-secondary);
         color: var(--text-main);
         border-color: var(--accent-gold);
-<<<<<<< HEAD
+
         box-shadow: 0 0 0 0.15rem rgba(212, 175, 55, 0.25);
     }
 
-/* =========================
-   Glass Panel
-   ========================= */
 
-=======
-        box-shadow: 0 0 0 0.15rem rgba(212,175,55,0.25);
-    }
 
 /* =========================
    Glass Panels
    ========================= */
->>>>>>> 2affda0 (Add project files.)
+
 .glass-panel {
     background: rgba(18, 24, 38, 0.65);
     backdrop-filter: blur(14px);
@@ -271,14 +237,11 @@ body {
 }
 
 /* =========================
-<<<<<<< HEAD
+
    Dark Sections
    ========================= */
 
-=======
-   Sections
-   ========================= */
->>>>>>> 2affda0 (Add project files.)
+
 .section-dark {
     background-color: var(--bg-secondary);
     border-radius: 28px;
@@ -287,7 +250,7 @@ body {
 }
 
 /* =========================
-<<<<<<< HEAD
+
    Tables
    ========================= */
 
@@ -308,10 +271,8 @@ body {
    Links
    ========================= */
 
-=======
-   Links
-   ========================= */
->>>>>>> 2affda0 (Add project files.)
+
+
 a {
     color: var(--accent-soft);
     text-decoration: none;
@@ -324,10 +285,7 @@ a {
 /* =========================
    Footer
    ========================= */
-<<<<<<< HEAD
 
-=======
->>>>>>> 2affda0 (Add project files.)
 footer {
     background-color: var(--bg-secondary);
     color: var(--text-muted);
@@ -337,10 +295,7 @@ footer {
 /* =========================
    Animations
    ========================= */
-<<<<<<< HEAD
 
-=======
->>>>>>> 2affda0 (Add project files.)
 .fade-in {
     animation: fadeInUp 0.8s ease forwards;
     opacity: 0;
@@ -361,23 +316,15 @@ footer {
 /* =========================
    Light Mode Overrides
    ========================= */
-<<<<<<< HEAD
 
-=======
->>>>>>> 2affda0 (Add project files.)
 body.light-mode {
     --bg-main: #f5f7fa;
     --bg-secondary: #ffffff;
     --bg-card: #f1f3f7;
     --text-main: #111827;
     --text-muted: #4b5563;
-<<<<<<< HEAD
     --border-soft: rgba(0, 0, 0, 0.08);
     --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-=======
-    --border-soft: rgba(0,0,0,0.08);
-    --shadow-soft: 0 10px 30px rgba(0,0,0,0.15);
 }
 
     body.light-mode .btn, body.light-mode .glass-btn {
@@ -391,4 +338,4 @@ body.light-mode {
             color: #d4af37;
             box-shadow: 0 6px 20px rgba(212,175,55,0.5);
         }
->>>>>>> 2affda0 (Add project files.)
+

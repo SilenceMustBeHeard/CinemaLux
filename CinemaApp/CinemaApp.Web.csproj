@@ -5,20 +5,19 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-CinemaApp-fb67cf4f-5dd5-440c-aa61-357b7c80d9cd</UserSecretsId>
-<<<<<<< HEAD
-=======
+
     <StartupObject>CinemaApp.Web.Program</StartupObject>
->>>>>>> 2affda0 (Add project files.)
+
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.16" />
-<<<<<<< HEAD
+
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.16" />
-=======
+
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.22" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.22" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />
@@ -29,10 +28,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.22" />
->>>>>>> 2affda0 (Add project files.)
+
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CinemaApp.Data.Models\CinemaApp.Data.Models.csproj" />
     <ProjectReference Include="..\CinemaApp.Data\CinemaApp.Data.csproj" />
     <ProjectReference Include="..\CinemaApp.GCommon\CinemaApp.GCommon.csproj" />
     <ProjectReference Include="..\CinemaApp.Services.Core\CinemaApp.Services.Core.csproj" />
@@ -40,8 +40,7 @@
     <ProjectReference Include="..\CinemaApp.Web.ViewModels\CinemaApp.Web.ViewModels.csproj" />
   </ItemGroup>
 
-<<<<<<< HEAD
-=======
+
   <ItemGroup>
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
@@ -52,5 +51,5 @@
     </Content>
   </ItemGroup>
 
->>>>>>> 2affda0 (Add project files.)
+
 </Project>

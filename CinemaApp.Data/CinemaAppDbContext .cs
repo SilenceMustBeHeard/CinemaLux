@@ -6,7 +6,7 @@
     using Microsoft.EntityFrameworkCore;
     using System.Reflection;
 
-    public class CinemaAppDbContext : IdentityDbContext<IdentityUser>
+    public class CinemaAppDbContext : IdentityDbContext<AppUser>
     {
         public CinemaAppDbContext(DbContextOptions<CinemaAppDbContext> options)
             : base(options)
@@ -15,6 +15,8 @@
 
 
         public virtual DbSet<Movie> Movies { get; set; } = null!;
+
+        public virtual DbSet<AppUser> AppUserMovies { get; set; } = null!;
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

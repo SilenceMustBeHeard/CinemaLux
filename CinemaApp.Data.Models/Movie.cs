@@ -42,5 +42,8 @@ namespace CinemaApp.Data.Models
         public string? TrailerUrl { get; set; }
 
         public bool IsDeleted { get; set; } = false;
+
+        public ICollection<AppUserMovie> AppUserMovies { get; set; }
+       = new HashSet<AppUserMovie>();
     }
 }
