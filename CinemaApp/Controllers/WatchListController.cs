@@ -1,15 +1,25 @@
-﻿using CinemaApp.Web.ViewModels.WatchList;
+﻿using CinemaApp.Data.Models;
+using CinemaApp.Services.Core.Interfaces;
+using CinemaApp.Web.ViewModels.WatchList;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaApp.Web.Controllers
 {
-    public class WatchListController : Controller
+    public class WatchListController : BaseController
     {
-        [HttpGet]
-        public IActionResult Index()
+        private readonly IWatchListService _watchListService;
+
+        public WatchListController(IWatchListService watchListService, UserManager<AppUser> userManager)
+       : base(userManager) 
         {
-            IEnumerable<WatchListViewModel> watchList 
-                = new HashSet<WatchListViewModel>();
+            _watchListService = watchListService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            IEnumerable<WatchListViewModel> watchList = await _watchListService.GetWatchListByUserIdAsync(User.Identity.Name);
             return View(watchList);
         }
     }

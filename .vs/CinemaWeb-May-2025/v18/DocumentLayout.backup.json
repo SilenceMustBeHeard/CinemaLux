@@ -3,24 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp.services.core\\watchlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|solutionrelative:cinemaapp.services.core\\watchlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp\\views\\movies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\views\\movies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp\\views\\movies\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\views\\movies\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp\\views\\movies\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\views\\movies\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp\\controllers\\watchlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\controllers\\watchlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9D77A74-05B7-4F4F-BB89-E20CBAB4780F}|CinemaApp.Web.ViewModels\\CinemaApp.Web.ViewModels.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp.web.viewmodels\\watchlist\\watchlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9D77A74-05B7-4F4F-BB89-E20CBAB4780F}|CinemaApp.Web.ViewModels\\CinemaApp.Web.ViewModels.csproj|solutionrelative:cinemaapp.web.viewmodels\\watchlist\\watchlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp.services.core\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|solutionrelative:cinemaapp.services.core\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D1A47D-9414-4ED3-8F00-0AE89D29A8F8}|CinemaApp.Data.Models\\CinemaApp.Data.Models.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp.data.models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3D1A47D-9414-4ED3-8F00-0AE89D29A8F8}|CinemaApp.Data.Models\\CinemaApp.Data.Models.csproj|solutionrelative:cinemaapp.data.models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3D1A47D-9414-4ED3-8F00-0AE89D29A8F8}|CinemaApp.Data.Models\\CinemaApp.Data.Models.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp.data.models\\appusermovie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3D1A47D-9414-4ED3-8F00-0AE89D29A8F8}|CinemaApp.Data.Models\\CinemaApp.Data.Models.csproj|solutionrelative:cinemaapp.data.models\\appusermovie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp.services.core\\interfaces\\iwatchlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,24 +63,8 @@
       "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\views\\watchlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{737FCBAF-0C43-442A-8766-DED1901E84B0}|CinemaApp.Data\\CinemaApp.Data.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp.data\\configuration\\appusermovieconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{737FCBAF-0C43-442A-8766-DED1901E84B0}|CinemaApp.Data\\CinemaApp.Data.csproj|solutionrelative:cinemaapp.data\\configuration\\appusermovieconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{737FCBAF-0C43-442A-8766-DED1901E84B0}|CinemaApp.Data\\CinemaApp.Data.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp.data\\cinemaappdbcontext .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{737FCBAF-0C43-442A-8766-DED1901E84B0}|CinemaApp.Data\\CinemaApp.Data.csproj|solutionrelative:cinemaapp.data\\cinemaappdbcontext .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17F82044-4AD7-4113-94C9-7E24C28D5F5D}|CinemaApp\\CinemaApp.Web.csproj|solutionrelative:cinemaapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E3D1A47D-9414-4ED3-8F00-0AE89D29A8F8}|CinemaApp.Data.Models\\CinemaApp.Data.Models.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp.data.models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E3D1A47D-9414-4ED3-8F00-0AE89D29A8F8}|CinemaApp.Data.Models\\CinemaApp.Data.Models.csproj|solutionrelative:cinemaapp.data.models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|c:\\users\\samae\\source\\projects\\cinemalux\\cinemalux\\cinemaapp.services.core\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0104AE5A-487F-4602-9EB1-32EDB014A0A0}|CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj|solutionrelative:cinemaapp.services.core\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,46 +90,124 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Add.cshtml",
+              "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Views\\Movies\\Add.cshtml",
+              "RelativeDocumentMoniker": "CinemaApp\\Views\\Movies\\Add.cshtml",
+              "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Views\\Movies\\Add.cshtml",
+              "RelativeToolTip": "CinemaApp\\Views\\Movies\\Add.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAQwFkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-28T18:54:05.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Views\\Movies\\Edit.cshtml",
+              "RelativeDocumentMoniker": "CinemaApp\\Views\\Movies\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Views\\Movies\\Edit.cshtml",
+              "RelativeToolTip": "CinemaApp\\Views\\Movies\\Edit.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwCgAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-28T18:53:51.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Views\\Movies\\Delete.cshtml",
+              "RelativeDocumentMoniker": "CinemaApp\\Views\\Movies\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Views\\Movies\\Delete.cshtml",
+              "RelativeToolTip": "CinemaApp\\Views\\Movies\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-28T18:53:33.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Data.Models\\AppUser.cs",
+              "RelativeDocumentMoniker": "CinemaApp.Data.Models\\AppUser.cs",
+              "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Data.Models\\AppUser.cs",
+              "RelativeToolTip": "CinemaApp.Data.Models\\AppUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-28T18:26:37.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AppUserMovie.cs",
+              "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Data.Models\\AppUserMovie.cs",
+              "RelativeDocumentMoniker": "CinemaApp.Data.Models\\AppUserMovie.cs",
+              "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Data.Models\\AppUserMovie.cs",
+              "RelativeToolTip": "CinemaApp.Data.Models\\AppUserMovie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-28T18:23:01.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "CinemaApp\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "CinemaApp\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAqwBwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-28T18:05:04.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Controllers\\BaseController.cs",
+              "RelativeDocumentMoniker": "CinemaApp\\Controllers\\BaseController.cs",
+              "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Controllers\\BaseController.cs",
+              "RelativeToolTip": "CinemaApp\\Controllers\\BaseController.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAswBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-28T18:03:16.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "WatchListService.cs",
               "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Services.Core\\WatchListService.cs",
               "RelativeDocumentMoniker": "CinemaApp.Services.Core\\WatchListService.cs",
               "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Services.Core\\WatchListService.cs",
               "RelativeToolTip": "CinemaApp.Services.Core\\WatchListService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAiwCcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-28T14:12:28.66Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "IWatchListService.cs",
               "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Services.Core\\Interfaces\\IWatchListService.cs",
               "RelativeDocumentMoniker": "CinemaApp.Services.Core\\Interfaces\\IWatchListService.cs",
               "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Services.Core\\Interfaces\\IWatchListService.cs",
               "RelativeToolTip": "CinemaApp.Services.Core\\Interfaces\\IWatchListService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-28T14:10:05.464Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "WatchListViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Web.ViewModels\\WatchList\\WatchListViewModel.cs",
-              "RelativeDocumentMoniker": "CinemaApp.Web.ViewModels\\WatchList\\WatchListViewModel.cs",
-              "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Web.ViewModels\\WatchList\\WatchListViewModel.cs",
-              "RelativeToolTip": "CinemaApp.Web.ViewModels\\WatchList\\WatchListViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T14:06:10.716Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Views\\WatchList\\Index.cshtml",
               "RelativeDocumentMoniker": "CinemaApp\\Views\\WatchList\\Index.cshtml",
@@ -121,90 +215,63 @@
               "RelativeToolTip": "CinemaApp\\Views\\WatchList\\Index.cshtml",
               "ViewState": "AgIAAA4AAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-28T14:01:31.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-28T14:01:31.742Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "WatchListController.cs",
               "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Controllers\\WatchListController.cs",
               "RelativeDocumentMoniker": "CinemaApp\\Controllers\\WatchListController.cs",
               "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Controllers\\WatchListController.cs",
               "RelativeToolTip": "CinemaApp\\Controllers\\WatchListController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-28T14:00:35.484Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Views\\Movies\\Index.cshtml",
               "RelativeDocumentMoniker": "CinemaApp\\Views\\Movies\\Index.cshtml",
               "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Views\\Movies\\Index.cshtml",
               "RelativeToolTip": "CinemaApp\\Views\\Movies\\Index.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAABQAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAuwEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-28T13:37:00.252Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "MoviesController.cs",
               "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Controllers\\MoviesController.cs",
               "RelativeDocumentMoniker": "CinemaApp\\Controllers\\MoviesController.cs",
               "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Controllers\\MoviesController.cs",
               "RelativeToolTip": "CinemaApp\\Controllers\\MoviesController.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAAADgAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-28T13:33:42.371Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CinemaAppDbContext .cs",
-              "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Data\\CinemaAppDbContext .cs",
-              "RelativeDocumentMoniker": "CinemaApp.Data\\CinemaAppDbContext .cs",
-              "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Data\\CinemaAppDbContext .cs",
-              "RelativeToolTip": "CinemaApp.Data\\CinemaAppDbContext .cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T11:45:28.371Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AppUserMovieConfig.cs",
-              "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Data\\Configuration\\AppUserMovieConfig.cs",
-              "RelativeDocumentMoniker": "CinemaApp.Data\\Configuration\\AppUserMovieConfig.cs",
-              "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Data\\Configuration\\AppUserMovieConfig.cs",
-              "RelativeToolTip": "CinemaApp.Data\\Configuration\\AppUserMovieConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T11:45:02.297Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Program.cs",
               "RelativeDocumentMoniker": "CinemaApp\\Program.cs",
               "ToolTip": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp\\Program.cs",
               "RelativeToolTip": "CinemaApp\\Program.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAgwDMAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-28T11:30:49.928Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "Movie.cs",
               "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Data.Models\\Movie.cs",
               "RelativeDocumentMoniker": "CinemaApp.Data.Models\\Movie.cs",
@@ -216,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 8,
               "Title": "MovieService.cs",
               "DocumentMoniker": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Services.Core\\MovieService.cs",
               "RelativeDocumentMoniker": "CinemaApp.Services.Core\\MovieService.cs",
@@ -224,7 +291,8 @@
               "RelativeToolTip": "CinemaApp.Services.Core\\MovieService.cs",
               "ViewState": "AgIAAJ0AAAAAAAAAAAAQwK0AAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-27T15:05:36.716Z"
+              "WhenOpened": "2025-12-27T15:05:36.716Z",
+              "EditorCaption": ""
             }
           ]
         }
