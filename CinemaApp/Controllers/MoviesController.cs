@@ -49,11 +49,18 @@ public class MoviesController : BaseController
     [AllowAnonymous]
     public async Task<IActionResult> Details(string id)
     {
-        var movie = await _movieService.GetMovieDetailsByIdAsync(id);
-        if (movie == null) 
+        string? userId = GetUserId(); // от BaseController
+
+        var model = await _movieService.GetMovieDetailsByIdAsync(id, userId);
+
+        if (model == null)
+        {
             return NotFound();
-        return View(movie);
+        }
+
+        return View(model);
     }
+
 
     [HttpGet]
     [Authorize(Roles = "Admin")]

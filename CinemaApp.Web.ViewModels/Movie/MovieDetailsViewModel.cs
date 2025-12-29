@@ -17,5 +17,7 @@ namespace CinemaApp.Web.ViewModels.Movie
         public string Description { get; set; } = null!;
         public string ImageUrl { get; set; } = null!;
         public string TrailerUrl { get; set; } = null!;
+        public bool IsInWatchList { get; set; }
+
     }
 }

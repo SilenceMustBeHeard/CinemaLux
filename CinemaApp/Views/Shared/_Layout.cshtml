@@ -3,55 +3,93 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>@ViewData["Title"] - CinemaLux</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
-    <!-- Default site styles -->
+    <!-- Site styles -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
-    <!-- User luxury theme (dark + light mode) -->
     <link rel="stylesheet" href="~/css/user-theme.css" asp-append-version="true" />
-
-    <!-- Home page hero + fonts -->
     <link rel="stylesheet" href="~/css/hero.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+            z-index: 1050;
+        }
+
+        .dropdown-menu {
+            z-index: 1060;
+        }
+        /* Fix dropdown over hero/banner */
+        .navbar {
+            position: relative;
+            z-index: 1050;
+        }
+
+        .dropdown-menu {
+            z-index: 1060;
+        }
+    </style>
 
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <!-- Logo -->
                 <a class="navbar-brand" href="/">CinemaLux</a>
-
-                <!-- Toggle for mobile -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Navigation -->
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link glass-btn" href="/Movies">Movies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link glass-btn" href="/About">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link glass-btn" href="/Contact">Contact</a>
-                        </li>
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="/Movies">Movies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/About">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Contact">Contact</a></li>
                     </ul>
 
-                    <div class="d-flex align-items-center ms-3">
-                        <!-- Theme Toggle -->
-                        <button id="themeToggle" class="glass-btn">🌙</button>
-                        <partial name="_LoginPartial" />
+                    <div class="d-flex align-items-center">
+                        <!-- Theme toggle -->
+                        <button id="themeToggle" class="btn btn-sm btn-outline-light me-2">🌙</button>
+
+                        <!-- User dropdown / Login -->
+                        @if (User.Identity?.IsAuthenticated ?? false)   // Check if user is logged in
+                        {
+                            <div class="dropdown">
+                                <a class="btn btn-outline-light dropdown-toggle" href="#" role="button"
+                                   id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    @User.Identity.Name
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" asp-controller="Profile" asp-action="Index">Profile</a></li>
+                                    <li><a class="dropdown-item" asp-controller="WatchList" asp-action="Index">Watchlist</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form method="post" asp-controller="Account" asp-action="Logout">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="dropdown-item">Logout</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+                        else   // if not - show register
+                        {
+                            <div class="dropdown">
+                                <a class="btn btn-outline-light dropdown-toggle" href="#" role="button" id="guestDropdown"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    Account
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="guestDropdown">
+                                    <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Login</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Account" asp-action="Register">Register</a></li>
+                                </ul>
+                            </div>
+                        }
+
                     </div>
                 </div>
             </div>
@@ -75,17 +113,14 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    <!-- Light/Dark Mode Toggle Script -->
     <script>
+        // Light/Dark Mode Toggle
         const toggleBtn = document.getElementById("themeToggle");
         const body = document.body;
-
-        // Load saved theme
         if (localStorage.getItem("theme") === "light") {
             body.classList.add("light-mode");
             toggleBtn.textContent = "🌞";
         }
-
         toggleBtn.addEventListener("click", () => {
             body.classList.toggle("light-mode");
             const isLight = body.classList.contains("light-mode");

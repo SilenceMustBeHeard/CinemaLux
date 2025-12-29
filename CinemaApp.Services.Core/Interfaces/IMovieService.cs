@@ -13,7 +13,7 @@ namespace CinemaApp.Services.Core.Interfaces
         Task<IEnumerable<AllMoviesIndexViewModel>> GetAllMoviesAsync();
 
         Task AddMovieAsync(MovieFormModelCreate model);
-        Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string id);
+    
 
         Task<MovieFormModelEdit?> GetMovieForEditByIdAsync(string id);
 
@@ -24,6 +24,8 @@ namespace CinemaApp.Services.Core.Interfaces
 
         Task<bool> SoftDeleteMovieAsync(string? id);
         Task<bool> DeleteMovieAsync(string? id);
+        Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string movieId, string? userId);
+
 
     }
 }

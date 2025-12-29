@@ -12,10 +12,16 @@ namespace CinemaApp.Services.Core
     {
         private readonly CinemaAppDbContext _context;
 
-        public MovieService(CinemaAppDbContext context)
+        private readonly IWatchListService _watchListService;
+
+        public MovieService(
+            CinemaAppDbContext context,
+            IWatchListService watchListService)
         {
             _context = context;
+            _watchListService = watchListService;
         }
+
 
         // -------------------- ADD --------------------
         public async Task AddMovieAsync(MovieFormModelCreate model)
@@ -59,16 +65,18 @@ namespace CinemaApp.Services.Core
         }
 
         // -------------------- DETAILS --------------------
-        public async Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string id)
+        public async Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(
+      string movieId,
+      string? userId)
         {
-            if (!Guid.TryParse(id, out Guid movieId))
+            if (!Guid.TryParse(movieId, out Guid guid))
             {
                 return null;
             }
 
-            return await _context.Movies
+            var model = await _context.Movies
                 .AsNoTracking()
-                .Where(m => m.Id == movieId)
+                .Where(m => m.Id == guid && !m.IsDeleted)
                 .Select(m => new MovieDetailsViewModel
                 {
                     Id = m.Id.ToString(),
@@ -79,10 +87,22 @@ namespace CinemaApp.Services.Core
                     Duration = m.Duration,
                     Description = m.Description,
                     ImageUrl = m.ImageUrl,
-                    TrailerUrl = m.TrailerUrl
+                    TrailerUrl = m.TrailerUrl,
+                    IsInWatchList = false // default
                 })
                 .FirstOrDefaultAsync();
+
+            if (model == null || string.IsNullOrEmpty(userId))
+            {
+                return model;
+            }
+
+            model.IsInWatchList =
+                await _watchListService.IsMovieInWatchListAsync(userId, model.Id);
+
+            return model;
         }
+
 
         // -------------------- EDIT (GET) --------------------
         public async Task<MovieFormModelEdit?> GetMovieForEditByIdAsync(string id)
@@ -108,6 +128,7 @@ namespace CinemaApp.Services.Core
                 })
                 .FirstOrDefaultAsync();
         }
+      
 
         // -------------------- EDIT (POST) --------------------
         public async Task EditMovieAsync(MovieFormModelEdit model)

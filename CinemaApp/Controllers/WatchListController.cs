@@ -10,8 +10,10 @@ namespace CinemaApp.Web.Controllers
     {
         private readonly IWatchListService _watchListService;
 
-        public WatchListController(IWatchListService watchListService, UserManager<AppUser> userManager)
-       : base(userManager) 
+        public WatchListController(
+            IWatchListService watchListService,
+            UserManager<AppUser> userManager)
+            : base(userManager)
         {
             _watchListService = watchListService;
         }
@@ -19,24 +21,29 @@ namespace CinemaApp.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            IEnumerable<WatchListViewModel> watchList = await _watchListService.GetWatchListByUserIdAsync(User.Identity.Name);
+            string userId = GetUserId();
+
+            IEnumerable<WatchListViewModel> watchList =
+                await _watchListService.GetWatchListByUserIdAsync(userId);
+
             return View(watchList);
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Toggle(string movieId)
+        {
+            if (string.IsNullOrWhiteSpace(movieId))
+            {
+                return BadRequest();
+            }
+
+            string userId = GetUserId();
+
+            await _watchListService.ToggleWatchListAsync(userId, movieId);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
