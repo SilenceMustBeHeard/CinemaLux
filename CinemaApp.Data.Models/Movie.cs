@@ -43,7 +43,12 @@ namespace CinemaApp.Data.Models
 
         public bool IsDeleted { get; set; } = false;
 
-        public ICollection<AppUserMovie> AppUserMovies { get; set; }
+        public virtual ICollection<AppUserMovie> AppUserMovies { get; set; }
        = new HashSet<AppUserMovie>();
+
+
+
+        public virtual ICollection<CinemaMovie> MovieProjections { get; set; }
+        = new HashSet<CinemaMovie>();
     }
 }

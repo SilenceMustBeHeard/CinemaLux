@@ -9,7 +9,7 @@ namespace CinemaApp.Data.Models
 {
     public class AppUser : IdentityUser
     {
-        public ICollection<AppUserMovie> WatchList { get; set; }
+        public virtual ICollection<AppUserMovie> WatchList { get; set; }
             = new HashSet<AppUserMovie>();
     }
 

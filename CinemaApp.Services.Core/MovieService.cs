@@ -40,10 +40,9 @@ namespace CinemaApp.Services.Core
             await _movieRepository.AddAsync(movie);
         }
 
-        // -------------------- ALL --------------------
+        // -------------------- GET ALL --------------------
         public async Task<IEnumerable<AllMoviesIndexViewModel>> GetAllMoviesAsync()
-        {
-            return await _movieRepository.GetAllAttached()
+            => await _movieRepository.GetAllAttached()
                 .AsNoTracking()
                 .Where(m => !m.IsDeleted)
                 .Select(m => new AllMoviesIndexViewModel
@@ -59,7 +58,6 @@ namespace CinemaApp.Services.Core
                     TrailerUrl = m.TrailerUrl
                 })
                 .ToListAsync();
-        }
 
         // -------------------- DETAILS --------------------
         public async Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string movieId, string? userId)
@@ -81,12 +79,13 @@ namespace CinemaApp.Services.Core
                     Description = m.Description,
                     ImageUrl = m.ImageUrl,
                     TrailerUrl = m.TrailerUrl,
-                    IsInWatchList = false // default it can be used with connection for AppUserMovie
+                    IsInWatchList = false 
                 })
                 .FirstOrDefaultAsync();
         }
 
-        // -------------------- EDIT (GET) --------------------
+
+        // -------------------- EDIT --------------------
         public async Task<MovieFormModelEdit?> GetMovieForEditByIdAsync(string id)
         {
             if (!Guid.TryParse(id, out Guid movieId))
@@ -110,7 +109,6 @@ namespace CinemaApp.Services.Core
                 .FirstOrDefaultAsync();
         }
 
-        // -------------------- EDIT (POST) --------------------
         public async Task EditMovieAsync(MovieFormModelEdit model)
         {
             if (!Guid.TryParse(model.Id, out Guid movieId))
@@ -158,6 +156,7 @@ namespace CinemaApp.Services.Core
             return await _movieRepository.HardDeleteAsync(movie);
         }
 
+
         // -------------------- GET FOR DELETE VIEW --------------------
         public async Task<MovieFormModelDelete?> GetMovieForDeleteByIdAsync(string id)
         {
@@ -174,5 +173,6 @@ namespace CinemaApp.Services.Core
                 })
                 .FirstOrDefaultAsync();
         }
+
     }
 }

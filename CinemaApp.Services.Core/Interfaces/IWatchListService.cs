@@ -4,6 +4,10 @@ namespace CinemaApp.Services.Core.Interfaces
 {
     public interface IWatchListService
     {
+
+
+
+
         Task<IEnumerable<WatchListViewModel>> GetWatchListByUserIdAsync(string userId);
 
         Task ToggleWatchListAsync(string userId, string movieId);

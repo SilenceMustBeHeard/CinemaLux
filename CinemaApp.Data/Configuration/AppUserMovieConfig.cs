@@ -1,11 +1,6 @@
 ﻿using CinemaApp.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Data.Configuration
 {
@@ -13,19 +8,29 @@ namespace CinemaApp.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<AppUserMovie> builder)
         {
-            builder.HasKey(x => new { x.AppUserId, x.MovieId });
+            // Composite Key
+            builder.HasKey(um => new { um.AppUserId, um.MovieId });
 
-            builder.HasOne(x => x.AppUser)
-                .WithMany(u => u.WatchList)  
-                .HasForeignKey(x => x.AppUserId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // Navigation props
+            builder.HasOne(um => um.AppUser)
+                   .WithMany(u => u.WatchList)
+                   .HasForeignKey(um => um.AppUserId)
+                   .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(x => x.Movie)
-                .WithMany(m => m.AppUserMovies)
-                .HasForeignKey(x => x.MovieId)
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(um => um.Movie)
+                   .WithMany(m => m.AppUserMovies)
+                   .HasForeignKey(um => um.MovieId)
+                   .OnDelete(DeleteBehavior.Cascade);
+
+            // Default values
+            builder.Property(um => um.IsActive)
+                   .HasDefaultValue(true);
+
+            builder.Property(um => um.AddedOn)
+                   .HasDefaultValueSql("GETUTCDATE()");
+
+            builder.Property(um => um.IsLiked)
+                   .HasDefaultValue(false);
         }
     }
-
-
 }

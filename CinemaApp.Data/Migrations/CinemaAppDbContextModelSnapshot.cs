@@ -96,19 +96,91 @@ namespace CinemaApp.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("AddedOn")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<bool>("IsLiked")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.HasKey("AppUserId", "MovieId");
 
                     b.HasIndex("MovieId");
 
                     b.ToTable("AppUserMovies");
+                });
+
+            modelBuilder.Entity("CinemaApp.Data.Models.Cinema", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name", "Location")
+                        .IsUnique();
+
+                    b.ToTable("Cinemas");
+                });
+
+            modelBuilder.Entity("CinemaApp.Data.Models.CinemaMovie", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AvailableTickets")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<Guid>("CinemaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<Guid>("MovieId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ShowTimes")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CinemaId");
+
+                    b.HasIndex("MovieId", "CinemaId", "ShowTimes")
+                        .IsUnique();
+
+                    b.ToTable("CinemaMovies");
                 });
 
             modelBuilder.Entity("CinemaApp.Data.Models.Movie", b =>
@@ -157,6 +229,37 @@ namespace CinemaApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("CinemaApp.Data.Models.Ticket", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CinemaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CinemaMovieId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CinemaId");
+
+                    b.HasIndex("CinemaMovieId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Tickets");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -297,18 +400,64 @@ namespace CinemaApp.Data.Migrations
                     b.HasOne("CinemaApp.Data.Models.AppUser", "AppUser")
                         .WithMany("WatchList")
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CinemaApp.Data.Models.Movie", "Movie")
                         .WithMany("AppUserMovies")
                         .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AppUser");
 
                     b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("CinemaApp.Data.Models.CinemaMovie", b =>
+                {
+                    b.HasOne("CinemaApp.Data.Models.Cinema", "Cinema")
+                        .WithMany("CinemaMovies")
+                        .HasForeignKey("CinemaId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CinemaApp.Data.Models.Movie", "Movie")
+                        .WithMany("MovieProjections")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Cinema");
+
+                    b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("CinemaApp.Data.Models.Ticket", b =>
+                {
+                    b.HasOne("CinemaApp.Data.Models.Cinema", "Cinema")
+                        .WithMany("Tickets")
+                        .HasForeignKey("CinemaId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("CinemaApp.Data.Models.CinemaMovie", "CinemaMovieProjections")
+                        .WithMany("Tickets")
+                        .HasForeignKey("CinemaMovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CinemaApp.Data.Models.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cinema");
+
+                    b.Navigation("CinemaMovieProjections");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -367,9 +516,23 @@ namespace CinemaApp.Data.Migrations
                     b.Navigation("WatchList");
                 });
 
+            modelBuilder.Entity("CinemaApp.Data.Models.Cinema", b =>
+                {
+                    b.Navigation("CinemaMovies");
+
+                    b.Navigation("Tickets");
+                });
+
+            modelBuilder.Entity("CinemaApp.Data.Models.CinemaMovie", b =>
+                {
+                    b.Navigation("Tickets");
+                });
+
             modelBuilder.Entity("CinemaApp.Data.Models.Movie", b =>
                 {
                     b.Navigation("AppUserMovies");
+
+                    b.Navigation("MovieProjections");
                 });
 #pragma warning restore 612, 618
         }

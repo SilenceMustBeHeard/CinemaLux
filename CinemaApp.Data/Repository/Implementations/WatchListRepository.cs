@@ -35,7 +35,7 @@ namespace CinemaApp.Data.Repository.Implementations
                     um.IsActive);
 
         public async Task<AppUserMovie?> GetByCompositeKeyAsync(string userId, Guid movieId)
-            => await _context.AppUserMovies
+          =>   await _context.AppUserMovies
                 .FirstOrDefaultAsync(um =>
                     um.AppUserId == userId &&
                     um.MovieId == movieId);
