@@ -11,38 +11,40 @@ using System.Threading.Tasks;
 
 namespace CinemaApp.Data.Repository.Implementations
 {
-    public class WatchListRepository 
-        : BaseRepository<AppUserMovie, object>, IWatchListRepository
+    public class WatchListRepository : IWatchListRepository
     {
+        private readonly CinemaAppDbContext _context;
+
         public WatchListRepository(CinemaAppDbContext context)
-            : base(context)
         {
+            _context = context;
         }
 
-        public bool Exists(string userId, string movieId)
-              => GetAllAttached()
-            .Any(um
-            => um.AppUserId == userId
-            && um.MovieId.ToString() == movieId);
 
-        public AppUserMovie? GetByCompositeKey(string userId, string movieId)
-        => GetAllAttached()
-            .SingleOrDefault(um 
-            => um.AppUserId == userId 
-            && um.MovieId.ToString() == movieId);
+        public IQueryable<AppUserMovie> GetAllAttached()
+            => _context.AppUserMovies
+                .AsNoTracking()
+                .Where(um => um.IsActive)
+                .Include(um => um.Movie);
 
-        public Task<bool> ExistsAsync(string userId, string movieId)
-          => GetAllAttached()
-            .AnyAsync(um
-            => um.AppUserId == userId
-            && um.MovieId.ToString() == movieId);
+        public async Task<bool> ExistsAsync(string userId, Guid movieId)
+            => await _context.AppUserMovies
+                .AnyAsync(um =>
+                    um.AppUserId == userId &&
+                    um.MovieId == movieId &&
+                    um.IsActive);
 
-      
+        public async Task<AppUserMovie?> GetByCompositeKeyAsync(string userId, Guid movieId)
+            => await _context.AppUserMovies
+                .FirstOrDefaultAsync(um =>
+                    um.AppUserId == userId &&
+                    um.MovieId == movieId);
 
-        public  Task<AppUserMovie?> GetByCompositeKeyAsync(string userId, string movieId)
-            =>  GetAllAttached()
-            .SingleOrDefaultAsync(um
-            => um.AppUserId == userId
-            && um.MovieId.ToString() == movieId);
+        public async Task AddAsync(AppUserMovie entity)
+            => await _context.AppUserMovies.AddAsync(entity);
+
+        public async Task SaveChangesAsync()
+            => await _context.SaveChangesAsync();
     }
+
 }

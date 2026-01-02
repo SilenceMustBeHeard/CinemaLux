@@ -59,8 +59,11 @@ namespace CinemaApp.Web
             // ====== Add services ======
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
             builder.Services.AddRazorPages();
-            builder.Services.AddTransient<IMovieService, MovieService>();
+
+            builder.Services.AddScoped<IMovieService, MovieService>();
             builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+
+
             builder.Services.AddScoped<IWatchListRepository, WatchListRepository>();
             builder.Services.AddScoped<IWatchListService, WatchListService>();
             builder.Services.AddDatabaseDeveloperPageExceptionFilter(); 

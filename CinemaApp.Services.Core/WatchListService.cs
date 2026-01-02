@@ -1,33 +1,30 @@
-﻿using CinemaApp.Data;
-using CinemaApp.Data.Models;
+﻿using CinemaApp.Data.Models;
+using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Interfaces;
 using CinemaApp.Web.ViewModels.WatchList;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Services.Core
 {
-    public class WatchListService: IWatchListService
+    public class WatchListService : IWatchListService
     {
-    private readonly CinemaAppDbContext _context;
-        public WatchListService(CinemaAppDbContext context)
+        private readonly IWatchListRepository _watchListRepository;
+
+        public WatchListService(IWatchListRepository watchListRepository)
         {
-            _context = context;
+            _watchListRepository = watchListRepository;
         }
 
+        // -------------------- GET WATCHLIST --------------------
         public async Task<IEnumerable<WatchListViewModel>> GetWatchListByUserIdAsync(string userId)
         {
-            return await _context.AppUserMovies
+            return await _watchListRepository
+                .GetAllAttached()
                 .AsNoTracking()
                 .Where(um =>
                     um.AppUserId == userId &&
-                    um.IsActive)
+                    um.IsActive &&
+                    !um.Movie.IsDeleted)
                 .Select(um => new WatchListViewModel
                 {
                     MovieId = um.MovieId.ToString(),
@@ -40,22 +37,18 @@ namespace CinemaApp.Services.Core
                 .ToListAsync();
         }
 
-
+        // -------------------- TOGGLE WATCHLIST --------------------
         public async Task ToggleWatchListAsync(string userId, string movieId)
         {
-            if (!Guid.TryParse(movieId, out Guid movieGuid))
-            {
+            if (!Guid.TryParse(movieId, out var movieGuid))
                 return;
-            }
 
-            var entry = await _context.AppUserMovies
-                .FirstOrDefaultAsync(um =>
-                    um.AppUserId == userId &&
-                    um.MovieId == movieGuid);
+            var entry = await _watchListRepository
+                .GetByCompositeKeyAsync(userId, movieGuid);
 
             if (entry == null)
             {
-                _context.AppUserMovies.Add(new AppUserMovie
+                await _watchListRepository.AddAsync(new AppUserMovie
                 {
                     AppUserId = userId,
                     MovieId = movieGuid,
@@ -67,20 +60,16 @@ namespace CinemaApp.Services.Core
                 entry.IsActive = !entry.IsActive;
             }
 
-            await _context.SaveChangesAsync();
-        }
-        public async Task<bool> IsMovieInWatchListAsync(string userId, string movieId)
-        {
-            if (!Guid.TryParse(movieId, out Guid movieGuid))
-            {
-                return false;
-            }
-            return await _context.AppUserMovies
-                .AnyAsync(um =>
-                    um.AppUserId == userId &&
-                    um.MovieId == movieGuid &&
-                    um.IsActive);
+            await _watchListRepository.SaveChangesAsync();
         }
 
+        // -------------------- CHECK EXISTS --------------------
+        public async Task<bool> IsMovieInWatchListAsync(string userId, string movieId)
+        {
+            if (!Guid.TryParse(movieId, out var movieGuid))
+                return false;
+
+            return await _watchListRepository.ExistsAsync(userId, movieGuid);
+        }
     }
 }

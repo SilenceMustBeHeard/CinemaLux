@@ -1,22 +1,18 @@
 ﻿using CinemaApp.Data.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Data.Repository.Interfaces
 {
-    public interface IWatchListRepository:
-    IRepository<AppUserMovie, object>, IRepositoryAsync<AppUserMovie, object>
+    public interface IWatchListRepository
     {
+        IQueryable<AppUserMovie> GetAllAttached();
 
-        AppUserMovie? GetByCompositeKey(string userId, string movieId);
+        Task<AppUserMovie?> GetByCompositeKeyAsync(string userId, Guid movieId);
 
-        Task<AppUserMovie?> GetByCompositeKeyAsync(string userId, string movieId);
+        Task<bool> ExistsAsync(string userId, Guid movieId);
 
-        bool Exists(string userId, string movieId);
-        Task<bool> ExistsAsync(string userId, string movieId);
-      
+        Task AddAsync(AppUserMovie entity);
+
+        Task SaveChangesAsync();
     }
 }
