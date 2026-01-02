@@ -1,5 +1,7 @@
 using CinemaApp.Data;
 using CinemaApp.Data.Models;
+using CinemaApp.Data.Repository.Implementations;
+using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Data.Seeding;
 using CinemaApp.Services.Core;
 using CinemaApp.Services.Core.Interfaces;
@@ -30,13 +32,26 @@ namespace CinemaApp.Web
             // ====== Add Identity ======
             builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
             {
-                // ?? ???????: ??-????? ??????
+                // ====== Identity options ======
+                // ====== Less restrictive options ======
                 options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequiredLength = 3;
+
+
+
+                // ====== More restrictive options (commented out) ======
+
+                //options.SignIn.RequireConfirmedAccount = true;
+                //options.Password.RequireDigit = true;
+                //options.Password.RequireLowercase = true;
+                //options.Password.RequireUppercase = true;
+
+                //options.Password.RequireNonAlphanumeric = true;
+                //options.Password.RequiredLength = 16;
             })
             .AddEntityFrameworkStores<CinemaAppDbContext>()
             .AddDefaultTokenProviders();
@@ -45,8 +60,10 @@ namespace CinemaApp.Web
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
             builder.Services.AddRazorPages();
             builder.Services.AddTransient<IMovieService, MovieService>();
+            builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+            builder.Services.AddScoped<IWatchListRepository, WatchListRepository>();
             builder.Services.AddScoped<IWatchListService, WatchListService>();
-            builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+            builder.Services.AddDatabaseDeveloperPageExceptionFilter(); 
 
             var app = builder.Build();
 

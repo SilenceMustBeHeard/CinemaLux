@@ -1,55 +1,48 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-CinemaApp-fb67cf4f-5dd5-440c-aa61-357b7c80d9cd</UserSecretsId>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>aspnet-CinemaApp-fb67cf4f-5dd5-440c-aa61-357b7c80d9cd</UserSecretsId>
+		<StartupObject>CinemaApp.Web.Program</StartupObject>
+	</PropertyGroup>
 
-    <StartupObject>CinemaApp.Web.Program</StartupObject>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.22" />
 
-  </PropertyGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.22" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.22" />
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.16" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.22" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.22" />
 
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.16" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.16" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.16" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.16" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.22">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.22" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.22" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.22" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.22" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.22">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.22" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.22" />
+	</ItemGroup>
 
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\CinemaApp.Data.Models\CinemaApp.Data.Models.csproj" />
+		<ProjectReference Include="..\CinemaApp.Data\CinemaApp.Data.csproj" />
+		<ProjectReference Include="..\CinemaApp.GCommon\CinemaApp.GCommon.csproj" />
+		<ProjectReference Include="..\CinemaApp.Services.Core\CinemaApp.Services.Core.csproj" />
+		<ProjectReference Include="..\CinemaApp.Web.Infrastructure\CinemaApp.Web.Infrastructure.csproj" />
+		<ProjectReference Include="..\CinemaApp.Web.ViewModels\CinemaApp.Web.ViewModels.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CinemaApp.Data.Models\CinemaApp.Data.Models.csproj" />
-    <ProjectReference Include="..\CinemaApp.Data\CinemaApp.Data.csproj" />
-    <ProjectReference Include="..\CinemaApp.GCommon\CinemaApp.GCommon.csproj" />
-    <ProjectReference Include="..\CinemaApp.Services.Core\CinemaApp.Services.Core.csproj" />
-    <ProjectReference Include="..\CinemaApp.Web.Infrastructure\CinemaApp.Web.Infrastructure.csproj" />
-    <ProjectReference Include="..\CinemaApp.Web.ViewModels\CinemaApp.Web.ViewModels.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="wwwroot\Images\" />
+	</ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="wwwroot\Images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="wwwroot\data\movies.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
+	<ItemGroup>
+		<Content Update="wwwroot\data\movies.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
 </Project>

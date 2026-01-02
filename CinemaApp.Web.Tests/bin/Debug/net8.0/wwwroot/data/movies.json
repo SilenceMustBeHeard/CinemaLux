@@ -1,0 +1,224 @@
+[
+  {
+    "Id": "c1a00001-0000-4000-8000-000000000001",
+    "Title": "Dune",
+    "Genre": "Sci-Fi",
+    "ReleaseDate": "2021-10-22T00:00:00",
+    "Director": "Denis Villeneuve",
+    "Duration": 155,
+    "Description": "Paul Atreides leads a destiny-changing journey on the desert planet Arrakis.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=8g18jFHCLXk"
+  },
+  {
+    "Id": "c1a00002-0000-4000-8000-000000000002",
+    "Title": "Dune: Part Two",
+    "Genre": "Sci-Fi",
+    "ReleaseDate": "2024-03-01T00:00:00",
+    "Director": "Denis Villeneuve",
+    "Duration": 166,
+    "Description": "Paul Atreides unites with the Fremen to seek revenge.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/gho58bYmw9juYXmUSHRJKOngJGn.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=TOQv7xS2mMg"
+  },
+  {
+    "Id": "c1a00003-0000-4000-8000-000000000003",
+    "Title": "Interstellar",
+    "Genre": "Sci-Fi",
+    "ReleaseDate": "2014-11-07T00:00:00",
+    "Director": "Christopher Nolan",
+    "Duration": 169,
+    "Description": "Explorers travel through a wormhole to save humanity.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=zSWdZVtXT7E"
+  },
+  {
+    "Id": "c1a00004-0000-4000-8000-000000000004",
+    "Title": "The Matrix",
+    "Genre": "Sci-Fi",
+    "ReleaseDate": "1999-03-31T00:00:00",
+    "Director": "The Wachowskis",
+    "Duration": 136,
+    "Description": "A hacker discovers reality is a simulation.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=vKQi3bBA1y8"
+  },
+  {
+    "Id": "c1a00005-0000-4000-8000-000000000005",
+    "Title": "Blade Runner 2049",
+    "Genre": "Sci-Fi",
+    "ReleaseDate": "2017-10-06T00:00:00",
+    "Director": "Denis Villeneuve",
+    "Duration": 164,
+    "Description": "A blade runner uncovers a dangerous secret.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=gCcx85zbxz4"
+  },
+  {
+    "Id": "c1a00006-0000-4000-8000-000000000006",
+    "Title": "The Lord of the Rings: The Fellowship of the Ring",
+    "Genre": "Fantasy",
+    "ReleaseDate": "2001-12-19T00:00:00",
+    "Director": "Peter Jackson",
+    "Duration": 178,
+    "Description": "A hobbit begins a journey to destroy a powerful ring.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=V75dMMIW2B4"
+  },
+  {
+    "Id": "c1a00007-0000-4000-8000-000000000007",
+    "Title": "The Hobbit: An Unexpected Journey",
+    "Genre": "Fantasy",
+    "ReleaseDate": "2012-12-14T00:00:00",
+    "Director": "Peter Jackson",
+    "Duration": 169,
+    "Description": "Bilbo Baggins joins an epic quest.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/yHA9Fc37VmpUA5UncTxxo3rTGVA.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=SDnYMbYB-nU"
+  },
+  {
+    "Id": "c1a00008-0000-4000-8000-000000000008",
+    "Title": "Alien",
+    "Genre": "Horror",
+    "ReleaseDate": "1979-05-25T00:00:00",
+    "Director": "Ridley Scott",
+    "Duration": 117,
+    "Description": "A deadly alien stalks a spaceship crew.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=LjLamj-b0I8"
+  },
+  {
+    "Id": "c1a00009-0000-4000-8000-000000000009",
+    "Title": "The Conjuring",
+    "Genre": "Horror",
+    "ReleaseDate": "2013-07-19T00:00:00",
+    "Director": "James Wan",
+    "Duration": 112,
+    "Description": "Paranormal investigators face a dark presence.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=k10ETZ41q5o"
+  },
+  {
+    "Id": "c1a00010-0000-4000-8000-000000000010",
+    "Title": "Mad Max: Fury Road",
+    "Genre": "Action",
+    "ReleaseDate": "2015-05-15T00:00:00",
+    "Director": "George Miller",
+    "Duration": 120,
+    "Description": "A high-speed chase across a post-apocalyptic wasteland.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=hEJnMQG9ev8"
+  },
+
+
+
+  {
+    "Id": "c1a00012-0000-4000-8000-000000000012",
+    "Title": "Doctor Strange in the Multiverse of Madness",
+    "Genre": "Action",
+    "ReleaseDate": "2022-05-06T00:00:00",
+    "Director": "Sam Raimi",
+    "Duration": 126,
+    "Description": "Doctor Strange traverses multiple universes to stop a mysterious new threat.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=aWzlQ2N6qqg"
+  },
+  {
+    "Id": "c1a00013-0000-4000-8000-000000000013",
+    "Title": "The Batman",
+    "Genre": "Action",
+    "ReleaseDate": "2022-03-04T00:00:00",
+    "Director": "Matt Reeves",
+    "Duration": 175,
+    "Description": "Batman uncovers corruption and hunts the serial killer Riddler.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=mqqft2x_Aa4"
+  },
+  {
+    "Id": "c1a00014-0000-4000-8000-000000000014",
+    "Title": "Thor: Love and Thunder",
+    "Genre": "Action",
+    "ReleaseDate": "2022-07-08T00:00:00",
+    "Director": "Taika Waititi",
+    "Duration": 119,
+    "Description": "Thor faces Gorr the God Butcher while navigating his own personal journey.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=tgB1wUcmbbw"
+  },
+  {
+    "Id": "c1a00015-0000-4000-8000-000000000015",
+    "Title": "Nope",
+    "Genre": "Horror",
+    "ReleaseDate": "2022-07-22T00:00:00",
+    "Director": "Jordan Peele",
+    "Duration": 130,
+    "Description": "Residents in California witness a mysterious, terrifying phenomenon in the sky.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/AcKVlWaNVVVFQwro3nLXqPljcYA.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=3lmY3Fok6u4"
+  },
+
+  {
+    "Id": "c1a00017-0000-4000-8000-000000000017",
+    "Title": "Fantastic Beasts: The Secrets of Dumbledore",
+    "Genre": "Fantasy",
+    "ReleaseDate": "2022-04-08T00:00:00",
+    "Director": "David Yates",
+    "Duration": 142,
+    "Description": "Newt Scamander and Albus Dumbledore face a powerful dark wizard.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/wo3l9p0S7pcvwlzlndtKgq0peRJ.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=YbYWhdLO43Q"
+  },
+
+  {
+    "Id": "d1a00028-0000-4000-8000-000000000028",
+    "Title": "A Quiet Place",
+    "Genre": "Horror",
+    "ReleaseDate": "2018-04-06T00:00:00",
+    "Director": "John Krasinski",
+    "Duration": 90,
+    "Description": "A family must live in silence to avoid blind monsters with acute hearing.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/nAU74GmpUk7t5iklEp3bufwDq4n.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=WR7cc5t7tv8"
+  },
+  {
+    "Id": "c1a00018-0000-4000-8000-000000000018",
+    "Title": "Avatar: The Way of Water",
+    "Genre": "Sci-Fi",
+    "ReleaseDate": "2022-12-16T00:00:00",
+    "Director": "James Cameron",
+    "Duration": 192,
+    "Description": "Jake Sully and Neytiri face new threats in Pandora's oceans.",
+    "ImageUrl": "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+    "TrailerUrl": "https://www.youtube.com/watch?v=d9MyW72ELq0"
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]

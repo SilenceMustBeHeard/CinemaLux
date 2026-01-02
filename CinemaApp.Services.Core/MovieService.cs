@@ -1,27 +1,24 @@
-﻿using CinemaApp.Data;
-using CinemaApp.Data.Models;
+﻿using CinemaApp.Data.Models;
+using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Interfaces;
 using CinemaApp.Web.ViewModels.Movie;
 using CinemaApp.Web.ViewModels.Movies;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CinemaApp.Services.Core
 {
     public class MovieService : IMovieService
     {
-        private readonly CinemaAppDbContext _context;
+        private readonly IMovieRepository _movieRepository;
 
-        private readonly IWatchListService _watchListService;
-
-        public MovieService(
-            CinemaAppDbContext context,
-            IWatchListService watchListService)
+        public MovieService(IMovieRepository movieRepository)
         {
-            _context = context;
-            _watchListService = watchListService;
+            _movieRepository = movieRepository;
         }
-
 
         // -------------------- ADD --------------------
         public async Task AddMovieAsync(MovieFormModelCreate model)
@@ -40,15 +37,15 @@ namespace CinemaApp.Services.Core
                 IsDeleted = false
             };
 
-            await _context.Movies.AddAsync(movie);
-            await _context.SaveChangesAsync();
+            await _movieRepository.AddAsync(movie);
         }
 
         // -------------------- ALL --------------------
         public async Task<IEnumerable<AllMoviesIndexViewModel>> GetAllMoviesAsync()
         {
-            return await _context.Movies
+            return await _movieRepository.GetAllAttached()
                 .AsNoTracking()
+                .Where(m => !m.IsDeleted)
                 .Select(m => new AllMoviesIndexViewModel
                 {
                     Id = m.Id.ToString(),
@@ -65,16 +62,12 @@ namespace CinemaApp.Services.Core
         }
 
         // -------------------- DETAILS --------------------
-        public async Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(
-      string movieId,
-      string? userId)
+        public async Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string movieId, string? userId)
         {
             if (!Guid.TryParse(movieId, out Guid guid))
-            {
                 return null;
-            }
 
-            var model = await _context.Movies
+            return await _movieRepository.GetAllAttached()
                 .AsNoTracking()
                 .Where(m => m.Id == guid && !m.IsDeleted)
                 .Select(m => new MovieDetailsViewModel
@@ -88,35 +81,23 @@ namespace CinemaApp.Services.Core
                     Description = m.Description,
                     ImageUrl = m.ImageUrl,
                     TrailerUrl = m.TrailerUrl,
-                    IsInWatchList = false // default
+                    IsInWatchList = false // default it can be used with connection for AppUserMovie
                 })
                 .FirstOrDefaultAsync();
-
-            if (model == null || string.IsNullOrEmpty(userId))
-            {
-                return model;
-            }
-
-            model.IsInWatchList =
-                await _watchListService.IsMovieInWatchListAsync(userId, model.Id);
-
-            return model;
         }
-
 
         // -------------------- EDIT (GET) --------------------
         public async Task<MovieFormModelEdit?> GetMovieForEditByIdAsync(string id)
         {
             if (!Guid.TryParse(id, out Guid movieId))
-            {
                 return null;
-            }
 
-            return await _context.Movies
+            return await _movieRepository.GetAllAttached()
                 .AsNoTracking()
-                .Where(m => m.Id == movieId)
+                .Where(m => m.Id == movieId && !m.IsDeleted)
                 .Select(m => new MovieFormModelEdit
                 {
+                    Id = m.Id.ToString(),
                     Title = m.Title,
                     Genre = m.Genre,
                     ReleaseDate = m.ReleaseDate,
@@ -128,7 +109,6 @@ namespace CinemaApp.Services.Core
                 })
                 .FirstOrDefaultAsync();
         }
-      
 
         // -------------------- EDIT (POST) --------------------
         public async Task EditMovieAsync(MovieFormModelEdit model)
@@ -136,7 +116,7 @@ namespace CinemaApp.Services.Core
             if (!Guid.TryParse(model.Id, out Guid movieId))
                 throw new ArgumentException("Invalid ID", nameof(model.Id));
 
-            var movie = await _context.Movies.FindAsync(movieId);
+            var movie = await _movieRepository.GetByIdAsync(movieId);
             if (movie == null || movie.IsDeleted)
                 throw new InvalidOperationException("Movie not found or deleted");
 
@@ -149,7 +129,7 @@ namespace CinemaApp.Services.Core
             movie.ImageUrl = model.ImageUrl;
             movie.TrailerUrl = model.TrailerUrl;
 
-            await _context.SaveChangesAsync();
+            await _movieRepository.UpdateAsync(movie);
         }
 
         // -------------------- SOFT DELETE --------------------
@@ -158,15 +138,11 @@ namespace CinemaApp.Services.Core
             if (!Guid.TryParse(id, out var movieId))
                 return false;
 
-            var movie = await _context.Movies
-                .FirstOrDefaultAsync(m => m.Id == movieId && !m.IsDeleted);
-
-            if (movie == null)
+            var movie = await _movieRepository.GetByIdAsync(movieId);
+            if (movie == null || movie.IsDeleted)
                 return false;
 
-            movie.IsDeleted = true;
-            await _context.SaveChangesAsync();
-            return true;
+            return await _movieRepository.DeleteAsync(movie); // soft delete
         }
 
         // -------------------- HARD DELETE --------------------
@@ -175,20 +151,11 @@ namespace CinemaApp.Services.Core
             if (!Guid.TryParse(id, out var movieId))
                 return false;
 
-            var movie = await _context.Movies
-                .IgnoreQueryFilters()
-                .FirstOrDefaultAsync(m => m.Id == movieId);
-
-            if (movie == null)
+            var movie = await _movieRepository.GetByIdAsync(movieId);
+            if (movie == null || !movie.IsDeleted) // hard delete only if already soft-deleted
                 return false;
 
-            // Hard delete само ако вече е soft-deleted
-            if (!movie.IsDeleted)
-                return false;
-
-            _context.Movies.Remove(movie);
-            await _context.SaveChangesAsync();
-            return true;
+            return await _movieRepository.HardDeleteAsync(movie);
         }
 
         // -------------------- GET FOR DELETE VIEW --------------------
@@ -197,9 +164,9 @@ namespace CinemaApp.Services.Core
             if (!Guid.TryParse(id, out Guid movieId))
                 return null;
 
-            return await _context.Movies
+            return await _movieRepository.GetAllAttached()
                 .AsNoTracking()
-                .Where(m => m.Id == movieId)
+                .Where(m => m.Id == movieId && !m.IsDeleted)
                 .Select(m => new MovieFormModelDelete
                 {
                     Id = m.Id.ToString(),
@@ -207,9 +174,5 @@ namespace CinemaApp.Services.Core
                 })
                 .FirstOrDefaultAsync();
         }
-
-
     }
 }
-
-    
