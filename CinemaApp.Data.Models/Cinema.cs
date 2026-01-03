@@ -21,6 +21,8 @@ namespace CinemaApp.Data.Models
 
         public bool IsDeleted { get; set; } = false;
 
+        public Guid? ManagerId { get; set; }
+        public virtual Manager? Manager { get; set; } 
         public virtual ICollection<CinemaMovie> CinemaMovies { get; set; }
             = new HashSet<CinemaMovie>();
 

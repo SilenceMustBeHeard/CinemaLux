@@ -1,4 +1,10 @@
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_CinemaApp.Web.Tests
+C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.csproj.AssemblyReference.cache
+C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.AssemblyInfoInputs.cache
+C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.AssemblyInfo.cs
+C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.csproj.CoreCompileInputs.cache
+C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.sourcelink.json
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\bin\Debug\net8.0\testhost.dll
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\bin\Debug\net8.0\CinemaApp.Web.deps.json
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\bin\Debug\net8.0\CinemaApp.Web.runtimeconfig.json
@@ -669,12 +675,6 @@ C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\bin\Debug
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\bin\Debug\net8.0\CinemaApp.Services.Core.pdb
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\bin\Debug\net8.0\CinemaApp.Web.Infrastructure.pdb
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\bin\Debug\net8.0\CinemaApp.Web.ViewModels.pdb
-C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.csproj.AssemblyReference.cache
-C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.AssemblyInfoInputs.cache
-C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.AssemblyInfo.cs
-C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.csproj.CoreCompileInputs.cache
-C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.sourcelink.json
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaAp.2937B90F.Up2Date
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\CinemaApp.Web.Tests.dll
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp.Web.Tests\obj\Debug\net8.0\refint\CinemaApp.Web.Tests.dll

@@ -35,7 +35,15 @@ namespace CinemaApp.Data.Configuration
                 .HasForeignKey(t => t.CinemaId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasQueryFilter(c => c.IsDeleted == false);
+            builder.HasOne(c => c.Manager)
+                .WithMany(m => m.ManagedCinemas)
+                .HasForeignKey(c => c.ManagerId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+
+
+
+            builder.HasQueryFilter(c => !c.IsDeleted );
 
             builder.HasIndex(c => new { c.Name, c.Location })
                 .IsUnique(true);
