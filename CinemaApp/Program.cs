@@ -62,13 +62,13 @@ namespace CinemaApp.Web
 
             // ====== Repositories & Services ======
             builder.Services.AddScoped<IMovieRepository, MovieRepository>();
-            builder.Services.AddScoped<IMovieService, MovieService>();
 
             builder.Services.AddScoped<IWatchListRepository, WatchListRepository>();
-            builder.Services.AddScoped<IWatchListService, WatchListService>();
-
             builder.Services.AddScoped<IManagerRepository, ManagerRepository>();
-            builder.Services.AddScoped<IManagerService, ManagerService>();
+           
+          
+
+         builder.Services.RegisterUserServices(typeof(IMovieService).Assembly);
 
             // ====== Authorization Policy ======
             builder.Services.AddAuthorization(options =>
