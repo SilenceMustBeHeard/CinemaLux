@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CinemaApp.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3998af5e4d9c1d25beae41072a92812077f687f4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+139ddcc1407fa3f0a09e2eac7a6c6bcb7c123a89")]
 [assembly: System.Reflection.AssemblyProductAttribute("CinemaApp.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CinemaApp.Web.ViewModels")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

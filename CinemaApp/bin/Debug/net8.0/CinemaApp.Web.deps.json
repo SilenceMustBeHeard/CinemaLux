@@ -2739,6 +2739,7 @@
       "CinemaApp.Web.Infrastructure/1.0.0": {
         "dependencies": {
           "CinemaApp.GCommon": "1.0.0",
+          "CinemaApp.Services.Core": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "8.0.0"
         },
         "runtime": {

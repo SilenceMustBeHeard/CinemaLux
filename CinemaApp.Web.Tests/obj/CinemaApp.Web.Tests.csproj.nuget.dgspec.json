@@ -644,6 +644,9 @@
             "projectReferences": {
               "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.GCommon\\CinemaApp.GCommon.csproj": {
                 "projectPath": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.GCommon\\CinemaApp.GCommon.csproj"
+              },
+              "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj": {
+                "projectPath": "C:\\Users\\samae\\source\\Projects\\CinemaLux\\CinemaLux\\CinemaApp.Services.Core\\CinemaApp.Services.Core.csproj"
               }
             }
           }

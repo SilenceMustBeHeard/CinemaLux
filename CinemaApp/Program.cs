@@ -5,20 +5,20 @@ using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Data.Seeding;
 using CinemaApp.Services.Core;
 using CinemaApp.Services.Core.Interfaces;
+using CinemaApp.Web.Authorization.Handlers;
+using CinemaApp.Web.Authorization.Requirements;
+using CinemaApp.Web.Infrastructure.Extensions;
+using CinemaApp.Web.Infrastructure.MiddleWare;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace CinemaApp.Web
 {
-
-
     public class Program
     {
         public static async Task Main(string[] args)
         {
-           
-
             var builder = WebApplication.CreateBuilder(args);
 
             // ====== Connection string ======
@@ -56,17 +56,31 @@ namespace CinemaApp.Web
             .AddEntityFrameworkStores<CinemaAppDbContext>()
             .AddDefaultTokenProviders();
 
-            // ====== Add services ======
+            // ====== Add Controllers / Razor ======
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
             builder.Services.AddRazorPages();
 
-            builder.Services.AddScoped<IMovieService, MovieService>();
+            // ====== Repositories & Services ======
             builder.Services.AddScoped<IMovieRepository, MovieRepository>();
-
+            builder.Services.AddScoped<IMovieService, MovieService>();
 
             builder.Services.AddScoped<IWatchListRepository, WatchListRepository>();
             builder.Services.AddScoped<IWatchListService, WatchListService>();
-            builder.Services.AddDatabaseDeveloperPageExceptionFilter(); 
+
+            builder.Services.AddScoped<IManagerRepository, ManagerRepository>();
+            builder.Services.AddScoped<IManagerService, ManagerService>();
+
+            // ====== Authorization Policy ======
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ManagerOnly", policy =>
+                    policy.Requirements.Add(new ManagerRequirement()));
+            });
+
+            builder.Services.AddScoped<IAuthorizationHandler, ManagerRequirementHandler>();
+
+            // ====== Developer Tools ======
+            builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             var app = builder.Build();
 
@@ -79,10 +93,10 @@ namespace CinemaApp.Web
 
                 await dbContext.Database.MigrateAsync();
 
-                // Seed Admin
-                await IdentitySeeder.SeedAdminAsync(userManager, roleManager);
+                // ======Seed Roles + Admin=====
+                await IdentitySeeder.SeedRolesAndUsersAsync(userManager, roleManager);
 
-                // Seed Movies
+                // =====Seed Movies====
                 if (!await dbContext.Movies.AnyAsync())
                 {
                     await DbSeeder.SeedMoviesAsync(dbContext);
@@ -106,6 +120,10 @@ namespace CinemaApp.Web
             app.UseRouting();
 
             app.UseAuthentication();
+
+        
+             app.UseManagerAccessRestriction();
+
             app.UseAuthorization();
 
             // ====== Routing ======
@@ -115,7 +133,6 @@ namespace CinemaApp.Web
             app.MapRazorPages();
 
             await app.RunAsync();
-
         }
     }
 }
