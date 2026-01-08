@@ -49,7 +49,7 @@ public class MoviesController : BaseController
     [AllowAnonymous]
     public async Task<IActionResult> Details(string id)
     {
-        string? userId = GetUserId(); // от BaseController
+        string? userId = GetUserId();
 
         var model = await _movieService.GetMovieDetailsByIdAsync(id, userId);
 
