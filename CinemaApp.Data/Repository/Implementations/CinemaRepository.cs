@@ -11,7 +11,7 @@ namespace CinemaApp.Data.Repository.Implementations
     public class CinemaRepository :
         BaseRepository<Cinema, Guid>, ICinemaRepository
     {
-        protected CinemaRepository(CinemaAppDbContext context) 
+        public CinemaRepository(CinemaAppDbContext context) 
             : base(context)
         {
         }

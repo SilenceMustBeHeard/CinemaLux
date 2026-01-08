@@ -40,6 +40,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Content Update="wwwroot\data\cinemas.json">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
 		<Content Update="wwwroot\data\movies.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>

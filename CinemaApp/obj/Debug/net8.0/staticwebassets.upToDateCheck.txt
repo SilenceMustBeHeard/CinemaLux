@@ -2,8 +2,11 @@ wwwroot\Images\cinema.png
 wwwroot\css\hero.css
 wwwroot\css\site.css
 wwwroot\css\user.css
+wwwroot\data\cinemas.json
 wwwroot\data\movies.json
 wwwroot\favicon.ico
+wwwroot\js\cinemas.js
+wwwroot\js\pagination.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\LICENSE
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css

@@ -12,6 +12,7 @@ using CinemaApp.Web.Infrastructure.MiddleWare;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace CinemaApp.Web
 {
@@ -94,6 +95,7 @@ namespace CinemaApp.Web
 
                 await dbContext.Database.MigrateAsync();
 
+
                 // ======Seed Roles + Admin=====
                 await IdentitySeeder.SeedRolesAndUsersAsync(userManager, roleManager);
 
@@ -102,6 +104,8 @@ namespace CinemaApp.Web
                 {
                     await DbSeeder.SeedMoviesAsync(dbContext);
                 }
+
+                await DbSeeder.SeedCinemasAsync(dbContext);
             }
 
             // ====== Middleware ======

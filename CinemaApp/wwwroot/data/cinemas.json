@@ -1,0 +1,88 @@
+[
+  {
+    "Name": "Arena Mladost",
+    "Location": "Sofia"
+  },
+  {
+    "Name": "Cinema City Paradise",
+    "Location": "Sofia"
+  },
+  {
+    "Name": "Cinema City Mall Sofia",
+    "Location": "Sofia"
+  },
+  {
+    "Name": "Arena The Mall",
+    "Location": "Sofia"
+  },
+
+  {
+    "Name": "Cinema City Plovdiv",
+    "Location": "Plovdiv"
+  },
+  {
+    "Name": "Lucky Cinema Plovdiv",
+    "Location": "Plovdiv"
+  },
+
+  {
+    "Name": "Cinema City Varna",
+    "Location": "Varna"
+  },
+  {
+    "Name": "Arena Grand Mall",
+    "Location": "Varna"
+  },
+
+  {
+    "Name": "Cinema City Burgas",
+    "Location": "Burgas"
+  },
+  {
+    "Name": "Arena Burgas",
+    "Location": "Burgas"
+  },
+
+  {
+    "Name": "Cinema City Stara Zagora",
+    "Location": "Stara Zagora"
+  },
+  {
+    "Name": "Cinema City Ruse",
+    "Location": "Ruse"
+  },
+  {
+    "Name": "Arena Ruse",
+    "Location": "Ruse"
+  },
+
+  {
+    "Name": "Cinema City Pleven",
+    "Location": "Pleven"
+  },
+  {
+    "Name": "Cinema City Veliko Tarnovo",
+    "Location": "Veliko Tarnovo"
+  },
+
+  {
+    "Name": "Cinema City Blagoevgrad",
+    "Location": "Blagoevgrad"
+  },
+  {
+    "Name": "Cinema City Pernik",
+    "Location": "Pernik"
+  },
+  {
+    "Name": "Cinema City Shumen",
+    "Location": "Shumen"
+  },
+  {
+    "Name": "Cinema City Haskovo",
+    "Location": "Haskovo"
+  },
+  {
+    "Name": "Cinema City Yambol",
+    "Location": "Yambol"
+  }
+]
