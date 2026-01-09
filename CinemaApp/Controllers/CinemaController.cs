@@ -28,6 +28,15 @@ namespace CinemaApp.Web.Controllers
 
             return View(allCinemaUserView);
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> Program(string? Id)
+        {
+
+        }
+
+
     }
 }
     

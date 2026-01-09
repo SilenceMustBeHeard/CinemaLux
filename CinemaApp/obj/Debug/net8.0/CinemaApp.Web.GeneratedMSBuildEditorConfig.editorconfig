@@ -74,6 +74,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/samae/source/Projects/CinemaLux/CinemaLux/CinemaApp/Views/Cinema/Program.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hXFByb2dyYW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/samae/source/Projects/CinemaLux/CinemaLux/CinemaApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -104,6 +108,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/samae/source/Projects/CinemaLux/CinemaLux/CinemaApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samae/source/Projects/CinemaLux/CinemaLux/CinemaApp/Views/Shared/_BuyTicketModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9CdXlUaWNrZXRNb2RhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/samae/source/Projects/CinemaLux/CinemaLux/CinemaApp/Views/Shared/_CinemaSearchAndFilter.cshtml]
