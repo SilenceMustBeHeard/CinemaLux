@@ -33,7 +33,14 @@ namespace CinemaApp.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Program(string? Id)
         {
+            var program = await _cinemaService
+                .GetProgramAsync(Id);
 
+            if(program == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(program);
         }
 
 

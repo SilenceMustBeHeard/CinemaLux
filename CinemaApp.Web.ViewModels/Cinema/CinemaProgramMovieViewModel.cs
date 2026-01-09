@@ -14,8 +14,8 @@ namespace CinemaApp.Web.ViewModels.Cinema
 
         public string Title { get; set; } = null!;
 
-        public string Director { get; set; } = null!;   
-        public string ImageUrl { get; set; } = null!
+        public string Director { get; set; } = null!;
+        public string ImageUrl { get; set; } = null!;
 
 
     }

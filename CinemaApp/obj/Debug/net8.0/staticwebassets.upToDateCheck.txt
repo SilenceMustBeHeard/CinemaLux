@@ -6,6 +6,7 @@ wwwroot\data\cinemas.json
 wwwroot\data\movies.json
 wwwroot\favicon.ico
 wwwroot\js\cinemas.js
+wwwroot\js\movies.js
 wwwroot\js\pagination.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\LICENSE
