@@ -43,7 +43,19 @@ namespace CinemaApp.Web.Controllers
             return View(program);
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> Details (string id)
+        {
+            var program = await _cinemaService
+               .GetCinemaDetailsAsync(id);
 
+            if (program == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(program);
+        }
     }
 }
     

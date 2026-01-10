@@ -14,5 +14,8 @@ namespace CinemaApp.Services.Core.Interfaces
 
 
         Task<CinemaProgramViewModel?> GetProgramAsync(string? cinemaId);
+
+
+        Task<CinemaDetailsViewModel> GetCinemaDetailsAsync(string? cinemaId);   
     }
 }
