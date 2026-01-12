@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.1.11312.151 d18.0
+VisualStudioVersion = 18.1.11312.151
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaApp.Web", "CinemaApp\CinemaApp.Web.csproj", "{17F82044-4AD7-4113-94C9-7E24C28D5F5D}"
 EndProject
@@ -36,6 +36,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaApp.Web.Infrastructure", "CinemaApp.Web.Infrastructure\CinemaApp.Web.Infrastructure.csproj", "{3DDA2216-F3A3-49AC-A6BB-FC8103CDE50E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaApp.Web.ViewModels", "CinemaApp.Web.ViewModels\CinemaApp.Web.ViewModels.csproj", "{C9D77A74-05B7-4F4F-BB89-E20CBAB4780F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaApp.WebApi", "CinemaApp.WebApi\CinemaApp.WebApi.csproj", "{68F1BAFA-2ECA-4104-9417-411CC0A1F1B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +97,10 @@ Global
 		{C9D77A74-05B7-4F4F-BB89-E20CBAB4780F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9D77A74-05B7-4F4F-BB89-E20CBAB4780F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9D77A74-05B7-4F4F-BB89-E20CBAB4780F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68F1BAFA-2ECA-4104-9417-411CC0A1F1B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68F1BAFA-2ECA-4104-9417-411CC0A1F1B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68F1BAFA-2ECA-4104-9417-411CC0A1F1B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68F1BAFA-2ECA-4104-9417-411CC0A1F1B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

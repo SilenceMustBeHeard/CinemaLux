@@ -3342,9 +3342,9 @@
           "CinemaApp.Data.Common": "1.0.0",
           "CinemaApp.Data.Models": "1.0.0",
           "CinemaApp.GCommon": "1.0.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.16",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.22",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "8.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.16",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.22",
           "Newtonsoft.Json": "13.0.3"
         },
         "compile": {
@@ -3373,7 +3373,7 @@
         "dependencies": {
           "CinemaApp.Data.Common": "1.0.0",
           "CinemaApp.GCommon": "1.0.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.16",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.22",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "8.0.0"
         },
         "compile": {

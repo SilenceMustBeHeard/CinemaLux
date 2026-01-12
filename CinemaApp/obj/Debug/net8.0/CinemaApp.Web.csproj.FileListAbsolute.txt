@@ -1,3 +1,4 @@
+C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp\bin\Debug\net8.0\wwwroot\data\cinemas.json
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp\bin\Debug\net8.0\wwwroot\data\movies.json
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp\bin\Debug\net8.0\appsettings.json
@@ -611,4 +612,3 @@ C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp\obj\Debug\net8.0\re
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp\obj\Debug\net8.0\CinemaApp.Web.pdb
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp\obj\Debug\net8.0\CinemaApp.Web.genruntimeconfig.cache
 C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp\obj\Debug\net8.0\ref\CinemaApp.Web.dll
-C:\Users\samae\source\Projects\CinemaLux\CinemaLux\CinemaApp\bin\Debug\net8.0\wwwroot\data\cinemas.json

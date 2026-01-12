@@ -1,18 +1,14 @@
 using CinemaApp.Data;
 using CinemaApp.Data.Models;
-using CinemaApp.Data.Repository.Implementations;
 using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Data.Seeding;
-using CinemaApp.Services.Core;
 using CinemaApp.Services.Core.Interfaces;
 using CinemaApp.Web.Authorization.Handlers;
 using CinemaApp.Web.Authorization.Requirements;
 using CinemaApp.Web.Infrastructure.Extensions;
-using CinemaApp.Web.Infrastructure.MiddleWare;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace CinemaApp.Web
 {
