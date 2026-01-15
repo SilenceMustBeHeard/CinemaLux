@@ -10,31 +10,20 @@ namespace CinemaApp.Data.Models
     {
         public Guid Id { get; set; }
 
-        public Guid MovieId {  get; set; }
+        public Guid MovieId { get; set; }
         public virtual Movie Movie { get; set; } = null!;
-
 
         public Guid CinemaId { get; set; }
         public virtual Cinema Cinema { get; set; } = null!;
-  
-     public int AvailableTickets {  get; set; }
+
+        public DateTime ShowTime { get; set; }
+
+        public int AvailableTickets { get; set; }
+
         public bool IsDeleted { get; set; } = false;
 
-
-        // represent indicationg showtime 
-        public int ShowTimes { get; set; }
-
-
-
         public virtual ICollection<Ticket> Tickets { get; set; }
-        = new HashSet<Ticket>();    
-
-
-
-
-
-
-
-
+            = new HashSet<Ticket>();
     }
+
 }

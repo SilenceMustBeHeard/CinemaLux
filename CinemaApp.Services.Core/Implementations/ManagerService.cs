@@ -3,7 +3,7 @@ using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace CinemaApp.Services.Core
+namespace CinemaApp.Services.Core.Implementations
 {
     public class ManagerService : IManagerService
     {

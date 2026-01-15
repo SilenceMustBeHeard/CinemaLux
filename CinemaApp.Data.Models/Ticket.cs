@@ -10,20 +10,17 @@ namespace CinemaApp.Data.Models
     {
         public Guid Id { get; set; }
 
-
-        public Guid CinemaId { get; set; }
-        public virtual Cinema Cinema { get; set; } = null!;
-
-        public decimal Price { get; set; }
         public Guid CinemaMovieId { get; set; }
         public virtual CinemaMovie CinemaMovieProjections { get; set; } = null!;
 
+        public int Quantity { get; set; }
+
+        public decimal PricePerTicket { get; set; }
 
         public string UserId { get; set; } = null!;
         public AppUser User { get; set; } = null!;
-
-
-
     }
+
+
 }
 

@@ -30,10 +30,6 @@ namespace CinemaApp.Data.Configuration
                 .HasForeignKey(cm => cm.CinemaId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(c => c.Tickets)
-                .WithOne(t => t.Cinema)
-                .HasForeignKey(t => t.CinemaId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(c => c.Manager)
                 .WithMany(m => m.ManagedCinemas)

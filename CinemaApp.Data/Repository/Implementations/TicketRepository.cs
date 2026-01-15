@@ -11,7 +11,7 @@ namespace CinemaApp.Data.Repository.Implementations
     public class TicketRepository:
         BaseRepository<Ticket, Guid>, ITicketRepository
     {
-        protected TicketRepository(CinemaAppDbContext context)
+        public TicketRepository(CinemaAppDbContext context)
             : base(context)
         {
         }

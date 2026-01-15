@@ -1,5 +1,4 @@
-﻿
-using CinemaApp.Data.Repository.Interfaces;
+﻿using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Interfaces;
 using CinemaApp.Web.ViewModels.Cinema;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +10,7 @@ using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaApp.Services.Core
+namespace CinemaApp.Services.Core.Implementations
 {
     public class CinemaService : ICinemaService
     {

@@ -19,6 +19,7 @@ builder.Services.AddDbContext<CinemaAppDbContext>(options =>
 
 // Add services to the container.
 builder.Services.AddAuthorization();
+
 builder.Services.AddIdentityApiEndpoints<IdentityUser>()
     .AddEntityFrameworkStores<CinemaAppDbContext>();
 
@@ -48,4 +49,4 @@ app.UseAuthorization();
 app.MapIdentityApi<IdentityUser>();
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();

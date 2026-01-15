@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CinemaApp.Services.Core
+namespace CinemaApp.Services.Core.Implementations
 {
     public class MovieService : IMovieService
     {

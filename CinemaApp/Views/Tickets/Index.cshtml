@@ -1,0 +1,50 @@
+﻿@using CinemaApp.Web.ViewModels.Ticket
+@model IEnumerable<TicketIndexViewModel>
+
+@{
+    ViewData["Title"] = "My Tickets";
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/user.css">
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="text-light fw-bold">My Tickets</h1>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary fw-bold">
+            <i class="bi bi-arrow-left"></i> Back to Home Page
+        </a>
+    </div>
+
+    <div class="ticket-list">
+        @if (!Model.Any())
+        {
+            <div class="text-light fw-bold">You have no tickets yet.</div>
+        }
+        else
+        {
+            @foreach (var ticket in Model)
+            {
+                <div class="ticket-card">
+                    <img src="@ticket.MovieImageUrl" alt="@ticket.MovieTitle" class="ticket-poster" />
+                    <div class="ticket-content">
+                        <div class="ticket-title">@ticket.MovieTitle</div>
+                        <div class="ticket-meta">
+                            <strong>Cinema:</strong> @ticket.CinemaName<br />
+                            <strong>Show Time:</strong> @ticket.ShowTime<br />
+                            <strong>Ticket Price:</strong> $@ticket.TicketPrice.ToString("F2")<br />
+                            <strong>Total Price:</strong> $@ticket.TotalPrice.ToString("F2")
+                        </div>
+                    </div>
+                    <div class="ticket-count">@ticket.TicketCount x</div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/tickets.js"></script>
+}

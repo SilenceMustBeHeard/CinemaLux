@@ -1,3 +1,5 @@
+using CinemaApp.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaApp.WebApi.Controllers
@@ -12,12 +14,22 @@ namespace CinemaApp.WebApi.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly CinemaAppDbContext _context;
+        private readonly IAuthorizationService _authorizationService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+
+
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,
+            IAuthorizationService authorizationService, CinemaAppDbContext context)
         {
             _logger = logger;
+            this._authorizationService = authorizationService;
+            _context = context;
         }
 
+
+
+        [Authorize]
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {

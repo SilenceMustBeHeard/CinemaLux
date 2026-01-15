@@ -173,16 +173,14 @@ namespace CinemaApp.Data.Migrations
                     b.Property<Guid>("MovieId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ShowTimes")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
+                    b.Property<DateTime>("ShowTime")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CinemaId");
 
-                    b.HasIndex("MovieId", "CinemaId", "ShowTimes")
+                    b.HasIndex("MovieId", "CinemaId", "ShowTime")
                         .IsUnique();
 
                     b.ToTable("CinemaMovies");
@@ -265,15 +263,18 @@ namespace CinemaApp.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CinemaId")
+                    b.Property<Guid?>("CinemaId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CinemaMovieId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal>("PricePerTicket")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -484,25 +485,21 @@ namespace CinemaApp.Data.Migrations
 
             modelBuilder.Entity("CinemaApp.Data.Models.Ticket", b =>
                 {
-                    b.HasOne("CinemaApp.Data.Models.Cinema", "Cinema")
+                    b.HasOne("CinemaApp.Data.Models.Cinema", null)
                         .WithMany("Tickets")
-                        .HasForeignKey("CinemaId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("CinemaId");
 
                     b.HasOne("CinemaApp.Data.Models.CinemaMovie", "CinemaMovieProjections")
                         .WithMany("Tickets")
                         .HasForeignKey("CinemaMovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("CinemaApp.Data.Models.AppUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Cinema");
 
                     b.Navigation("CinemaMovieProjections");
 
