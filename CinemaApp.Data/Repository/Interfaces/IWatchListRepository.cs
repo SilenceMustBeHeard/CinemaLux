@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace CinemaApp.Data.Repository.Interfaces
 {
-    public interface IWatchListRepository
+    public interface IWatchlistRepository
     {
         IQueryable<AppUserMovie> GetAllAttached();
 

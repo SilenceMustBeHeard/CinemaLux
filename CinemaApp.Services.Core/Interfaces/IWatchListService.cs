@@ -13,5 +13,11 @@ namespace CinemaApp.Services.Core.Interfaces
         Task ToggleWatchListAsync(string userId, string movieId);
 
         Task<bool> IsMovieInWatchListAsync(string userId, string movieId);
+
+
+
+
+
+
     }
 }

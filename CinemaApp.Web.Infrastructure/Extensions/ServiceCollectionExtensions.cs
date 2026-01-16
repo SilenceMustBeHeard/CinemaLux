@@ -1,4 +1,5 @@
-﻿using CinemaApp.Services.Core;
+﻿using CinemaApp.Data.Repository.Implementations;
+using CinemaApp.Services.Core;
 using CinemaApp.Services.Core.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -46,7 +47,10 @@ namespace CinemaApp.Web.Infrastructure.Extensions
 
                 if (serviceInterface == null)
                 {
-                    continue;
+                    throw new RepositoryRegistrationException(
+      string.Format(RepoInterfaceNotFound, implementation.Name)
+  );
+
                 }
 
                 services.AddScoped(serviceInterface, implementation);
@@ -75,10 +79,12 @@ namespace CinemaApp.Web.Infrastructure.Extensions
                     .FirstOrDefault(i => i.Name == $"{InterfacePreffix}{implementation.Name}");
                 if (repoInterface == null)
                 {
-                    throw new ArgumentException(string.Format(RepoInterfaceNotFound, implementation.Name));
+                    throw new RepositoryRegistrationException(
+               string.Format(RepoInterfaceNotFound, implementation.Name));
+
                 }
 
-               serviceCollection.AddScoped(repoInterface, implementation);  
+                serviceCollection.AddScoped(repoInterface, implementation);  
                
                
             }

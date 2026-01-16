@@ -1,10 +1,12 @@
 wwwroot\Images\cinema.png
+wwwroot\Images\errors\dead-robot2.png
 wwwroot\css\hero.css
 wwwroot\css\site.css
 wwwroot\css\user.css
 wwwroot\data\cinemas.json
 wwwroot\data\movies.json
 wwwroot\favicon.ico
+wwwroot\js\buytickets.js
 wwwroot\js\cinemas.js
 wwwroot\js\movies.js
 wwwroot\js\pagination.js

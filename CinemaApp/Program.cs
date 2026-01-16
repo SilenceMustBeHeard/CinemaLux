@@ -112,7 +112,7 @@ namespace CinemaApp.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error/NotImplemented");
                 app.UseHsts();
             }
 

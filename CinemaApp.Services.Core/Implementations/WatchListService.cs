@@ -12,9 +12,9 @@ namespace CinemaApp.Services.Core.Implementations
 {
     public class WatchListService : IWatchListService
     {
-        private readonly IWatchListRepository _watchListRepository;
+        private readonly IWatchlistRepository _watchListRepository;
 
-        public WatchListService(IWatchListRepository watchListRepository)
+        public WatchListService(IWatchlistRepository watchListRepository)
         {
             _watchListRepository = watchListRepository;
         }

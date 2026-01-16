@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace CinemaApp.Data.Repository.Implementations
 {
-    public class WatchListRepository : IWatchListRepository
+    public class WatchlistRepository : Interfaces.IWatchlistRepository
     {
         private readonly CinemaAppDbContext _context;
 
-        public WatchListRepository(CinemaAppDbContext context)
+        public WatchlistRepository(CinemaAppDbContext context)
         {
             _context = context;
         }
