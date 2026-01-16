@@ -1,40 +1,51 @@
 using CinemaApp.Data;
+using CinemaApp.Data.Models;
 using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Interfaces;
 using CinemaApp.Web.Infrastructure.Extensions;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ====== Connection string ======
+// ===== Connection string =====
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-
-// ====== Add DbContext ======
+// ===== DbContext =====
 builder.Services.AddDbContext<CinemaAppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-
-// Add services to the container.
+// ===== Identity (API) =====
+builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 
-builder.Services.AddIdentityApiEndpoints<IdentityUser>()
+builder.Services.AddIdentityApiEndpoints<AppUser>()
     .AddEntityFrameworkStores<CinemaAppDbContext>();
 
+// ===== Controllers =====
 builder.Services.AddControllers();
+
+// ===== DI =====
 builder.Services.RegisterRepositories(typeof(IMovieRepository).Assembly);
 builder.Services.RegisterServices(typeof(IMovieService).Assembly);
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.WithOrigins("https://localhost:7180")
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowCredentials();
+    });
+});
 
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// ===== Swagger =====
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ===== Pipeline =====
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -42,11 +53,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("AllowAll");
+app.UseAuthentication(); 
 app.UseAuthorization();
 
-
-app.MapIdentityApi<IdentityUser>();
+app.MapIdentityApi<AppUser>();
 app.MapControllers();
 
 await app.RunAsync();

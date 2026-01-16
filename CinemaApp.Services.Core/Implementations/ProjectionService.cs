@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,6 +30,36 @@ namespace CinemaApp.Services.Core.Implementations
                     .ToListAsync();
             }
             return showtimes;
+        }
+
+        public async Task<int> GetAvailableTickets(string cinemaId, string movieId, string showtime)
+        {
+            var availableTickets = 0;
+            if(string.IsNullOrWhiteSpace(cinemaId) 
+                || string.IsNullOrWhiteSpace(movieId) 
+                || string.IsNullOrWhiteSpace(showtime))
+            {
+                return await Task.FromResult(availableTickets);
+            }
+            var projection = await _cinemaMovieRepository.GetAllAttached()
+                .SingleOrDefaultAsync(cm => cm.CinemaId.ToString().ToLower() == cinemaId.ToLower()
+                             && cm.MovieId.ToString().ToLower() == movieId.ToLower()
+                             && cm.ShowTime.ToString() == showtime);
+
+            if(projection != null)
+            {
+
+             availableTickets =projection.AvailableTickets;
+            }
+            return await Task.FromResult(availableTickets);
+
+
+
+        }
+
+        public Task<bool> PurchaseTickets(string cinemaId, string movieId, int quantity, string showtime)
+        {
+            throw new NotImplementedException();
         }
     }
 }

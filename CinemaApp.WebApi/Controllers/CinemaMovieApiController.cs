@@ -18,8 +18,7 @@ namespace CinemaApp.WebApi.Controllers
 
 
 
-        [HttpGet]
-        [Route("api/[showtimes]")]
+        [HttpGet("showtimes")]
         public async Task<ActionResult<IEnumerable<string>>> GetProjectionShowtimes(string? cinemaId, string? movieId)
         {
             var showtimes = await _projectionService.GetAllProjectionShowTimesAsync(cinemaId, movieId);
