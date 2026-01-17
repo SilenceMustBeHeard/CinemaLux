@@ -31,7 +31,17 @@ namespace CinemaApp.WebApi.Controllers
         }
 
 
-
-
+        [HttpGet("AvailableTickets")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<int>> GetAvailableTickets(string cinemaId, string movieId, string showtime)
+        {
+            var availableTickets = await _projectionService.GetAvailableTickets(cinemaId, movieId, showtime);
+            if (availableTickets == null)
+            {
+                return NotFound();
+            }
+            return Ok(availableTickets);
+        }
     }
 }

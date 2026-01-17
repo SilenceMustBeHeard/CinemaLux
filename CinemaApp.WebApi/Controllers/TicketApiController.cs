@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CinemaApp.Services.Core.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaApp.WebApi.Controllers
@@ -7,20 +8,35 @@ namespace CinemaApp.WebApi.Controllers
     [ApiController]
     public class TicketApiController : ControllerBase
     {
+        private readonly ITicketService _ticketService;
+        private readonly IProjectionService _projectionService;
 
 
-
-        [HttpGet("AvailableTickets")]
-
-        public async Task<ActionResult<int>> GetAvailableTickets(string cinemaId, string movieId, string showtime)
-        {
-            return 0;
+        public TicketApiController(IProjectionService projectionService, ITicketService ticketService)
+        {  
+            _ticketService = ticketService;
+            _projectionService = projectionService;
         }
 
+
         [HttpPost("PurchaseTickets")]
-        public async Task<ActionResult<int>> BuyTicket(string cinemaId, string movieId, int quantity, string showtime)
+        public async Task<ActionResult<int>> BuyTicket(string cinemaId, string movieId, int quantity, string showtime, string userId)
         {
-            return 0;
+
+            var availableTickets = await _projectionService.GetAvailableTickets(cinemaId, movieId, showtime);
+            if (availableTickets < quantity)
+            {
+                return BadRequest("Not enough tickets available.");
+            }
+      
+
+            var result = await _ticketService.PurchaseTickets(cinemaId, movieId, quantity, showtime, userId);
+            if (!result)
+            {
+                return StatusCode(500, "Error purchasing tickets.");
+            }
+
+            return Ok("Tickets purchased successfully.");
         }
     }
 }

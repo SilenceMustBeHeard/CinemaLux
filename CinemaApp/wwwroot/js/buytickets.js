@@ -1,97 +1,116 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // open buy ticket modal
+    const modalEl = document.getElementById("buyTicketModal");
+    const showtimeSelect = document.getElementById("showtimeSelect");
+    const quantityInput = document.getElementById("quantity");
+    const availableTicketsSpan = document.getElementById("availableTickets");
+    const errorMessage = document.getElementById("errorMessage");
+
+    // OPEN MODAL
     document.querySelectorAll(".buy-ticket-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
+        btn.addEventListener("click", async () => {
 
             const cinemaId = btn.dataset.cinemaId;
             const cinemaName = btn.dataset.cinemaName;
             const movieId = btn.dataset.movieId;
-            const showtimes = btn.dataset.showtimes ? JSON.parse(btn.dataset.showtimes) : [];
 
-            document.getElementById("cinemaNamePlaceholder").textContent = cinemaName;
             document.getElementById("cinemaId").value = cinemaId;
             document.getElementById("movieId").value = movieId;
+            document.getElementById("cinemaNamePlaceholder").textContent = cinemaName;
 
-            // fill showtime options
-            const showtimeSelect = document.getElementById("showtimeSelect");
-            showtimeSelect.innerHTML = ""; // Clear previous options
+            errorMessage.classList.add("d-none");
+            quantityInput.value = 1;
+            quantityInput.disabled = true;
+            availableTicketsSpan.textContent = "–";
 
-            if (showtimes.length === 0) {
-                const option = document.createElement("option");
-                option.value = "";
-                option.textContent = "No showtimes available";
-                showtimeSelect.appendChild(option);
-                showtimeSelect.disabled = true;
-            } else {
-                showtimeSelect.disabled = false;
-                showtimes.forEach(st => {
-                    const option = document.createElement("option");
-                    option.value = st;
-                    option.textContent = new Date(st).toLocaleString();
-                    showtimeSelect.appendChild(option);
-                });
-            }
+            await loadShowtimes(cinemaId, movieId);
 
-            document.getElementById("quantity").value = 1;
-            document.getElementById("errorMessage").classList.add("d-none");
-
-            const ticketModal = new bootstrap.Modal(document.getElementById("buyTicketModal"));
-            ticketModal.show();
+            new bootstrap.Modal(modalEl).show();
         });
     });
 
-    // Confirm purchase
-    const buyButton = document.getElementById("buyTicketButton");
-    buyButton.addEventListener("click", async () => {
+    // LOAD SHOWTIMES
+    async function loadShowtimes(cinemaId, movieId) {
+        showtimeSelect.innerHTML = `<option value="">Loading...</option>`;
+        showtimeSelect.disabled = true;
+
+        try {
+            const res = await fetch(`/api/CinemaMovieApi/showtimes?cinemaId=${cinemaId}&movieId=${movieId}`);
+
+            if (!res.ok) {
+                showtimeSelect.innerHTML = `<option>No showtimes available</option>`;
+                return;
+            }
+
+            const showtimes = await res.json();
+            showtimeSelect.innerHTML = `<option value="">Select showtime</option>`;
+
+            showtimes.forEach(st => {
+                const opt = document.createElement("option");
+                opt.value = st;
+                opt.textContent = new Date(st).toLocaleString();
+                showtimeSelect.appendChild(opt);
+            });
+
+            showtimeSelect.disabled = false;
+        }
+        catch {
+            showtimeSelect.innerHTML = `<option>Error loading showtimes</option>`;
+        }
+    }
+
+    // ON SHOWTIME CHANGE ? LOAD AVAILABLE TICKETS
+    showtimeSelect.addEventListener("change", async () => {
 
         const cinemaId = document.getElementById("cinemaId").value;
         const movieId = document.getElementById("movieId").value;
-        const quantity = parseInt(document.getElementById("quantity").value);
-        const showtime = document.getElementById("showtimeSelect").value;
-        const errorMessage = document.getElementById("errorMessage");
+        const showtime = showtimeSelect.value;
+
+        if (!showtime) return;
+
+        quantityInput.disabled = true;
+        availableTicketsSpan.textContent = "…";
+
+        try {
+            const res = await fetch(
+                `/api/CinemaMovieApi/AvailableTickets?cinemaId=${cinemaId}&movieId=${movieId}&showtime=${encodeURIComponent(showtime)}`
+            );
+
+            if (!res.ok) {
+                availableTicketsSpan.textContent = "0";
+                return;
+            }
+
+            const available = await res.json();
+            availableTicketsSpan.textContent = available;
+            quantityInput.max = available;
+            quantityInput.disabled = available <= 0;
+        }
+        catch {
+            availableTicketsSpan.textContent = "–";
+        }
+    });
+
+    // CONFIRM PURCHASE
+    document.getElementById("buyTicketButton").addEventListener("click", async () => {
+
+        const cinemaId = document.getElementById("cinemaId").value;
+        const movieId = document.getElementById("movieId").value;
+        const showtime = showtimeSelect.value;
+        const quantity = Number(quantityInput.value);
+        const available = Number(quantityInput.max);
 
         errorMessage.classList.add("d-none");
 
-        if (!cinemaId || !movieId || !showtime || isNaN(quantity) || quantity < 1) {
-            errorMessage.textContent = "Please select a showtime and valid ticket quantity.";
+        if (!showtime || quantity < 1 || quantity > available) {
+            errorMessage.textContent = "Invalid ticket quantity.";
             errorMessage.classList.remove("d-none");
             return;
         }
 
-        try {
-            const response = await fetch("/api/tickets/buy", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    cinemaId: cinemaId,
-                    movieId: movieId,
-                    showtime: showtime,
-                    quantity: quantity
-                })
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                errorMessage.textContent = errorData.message || "Failed to purchase tickets.";
-                errorMessage.classList.remove("d-none");
-                return;
-            }
-
-            // Successful purchase
-            const ticketModalEl = document.getElementById("buyTicketModal");
-            const ticketModal = bootstrap.Modal.getInstance(ticketModalEl);
-            ticketModal.hide();
-
-            alert("Tickets purchased successfully!");
-        }
-        catch (err) {
-            console.error(err);
-            errorMessage.textContent = "An error occurred. Please try again.";
-            errorMessage.classList.remove("d-none");
-        }
+        // TODO: POST /api/tickets/buy
+        alert("Tickets purchased successfully!");
+        bootstrap.Modal.getInstance(modalEl).hide();
     });
 
 });
