@@ -70,19 +70,35 @@ namespace CinemaApp.Services.Core.Implementations
                                 && cm.MovieId.ToString().ToLower() == movieId.ToLower()
                                 && cm.ShowTime.ToString() == showtime);
 
-            if (projection != null || projection.AvailableTickets >= quantity)
-            {
-                var ticket = new Ticket()
-                {
-            
-                    CinemaMovieProjections = projection,
-                    UserId = userId,
-                    Quantity = quantity,
-                    PricePerTicket = 10.0m // assumed price per ticket
-                };
-                projection.AvailableTickets -= quantity;
-                await _ticketRepository.AddAsync(ticket);
+            if (projection != null
+                || projection.AvailableTickets >= quantity)
 
+            {
+
+                var projectionTicket = await _ticketRepository.GetAllAttached()
+                     .SingleOrDefaultAsync(cm => cm.CinemaMovieId.ToString().ToLower() == projection.Id.ToString().ToLower()
+                     && cm.User.Id.ToString().ToLower() == userId.ToLower());
+
+                if (projectionTicket != null)
+                {
+                    projectionTicket.Quantity += quantity;
+                    await _ticketRepository.UpdateAsync(projectionTicket);
+                }
+
+                else
+                {
+                    var ticket = new Ticket()
+                    {
+
+                        CinemaMovieProjections = projection,
+                        UserId = userId,
+                        Quantity = quantity,
+                        PricePerTicket = 10.0m // assumed price per ticket
+                    };
+                 
+                    await _ticketRepository.AddAsync(ticket);
+                }
+                projection.AvailableTickets -= quantity;
                 result = await _cinemaMovieRepository.UpdateAsync(projection);
 
               
