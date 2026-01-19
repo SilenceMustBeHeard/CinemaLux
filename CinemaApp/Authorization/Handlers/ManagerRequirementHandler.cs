@@ -27,7 +27,7 @@ namespace CinemaApp.Web.Authorization.Handlers
 
             var userId = context.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            if (await _managerService.ExistsByUserIdAsync(userId))
+            if (await _managerService.ExistsByUserIdAsync(Guid.Parse(userId)))
             {
                 context.Succeed(requirement);
             }

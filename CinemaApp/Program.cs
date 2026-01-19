@@ -27,28 +27,14 @@ namespace CinemaApp.Web
                 options.UseSqlServer(connectionString));
 
             // ====== Add Identity ======
-            builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+            builder.Services.AddIdentity<AppUser, IdentityRole<Guid>>(options =>
             {
-                // ====== Identity options ======
-                // ====== Less restrictive options ======
                 options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequiredLength = 3;
-
-
-
-                // ====== More restrictive options (commented out) ======
-
-                //options.SignIn.RequireConfirmedAccount = true;
-                //options.Password.RequireDigit = true;
-                //options.Password.RequireLowercase = true;
-                //options.Password.RequireUppercase = true;
-
-                //options.Password.RequireNonAlphanumeric = true;
-                //options.Password.RequiredLength = 16;
             })
             .AddEntityFrameworkStores<CinemaAppDbContext>()
             .AddDefaultTokenProviders();
@@ -58,15 +44,8 @@ namespace CinemaApp.Web
             builder.Services.AddRazorPages();
 
             // ====== Repositories & Services ======
-            //builder.Services.AddScoped<IMovieRepository, MovieRepository>();
-
-            //builder.Services.AddScoped<IWatchListRepository, WatchListRepository>();
-            //builder.Services.AddScoped<IManagerRepository, ManagerRepository>();
-
-           builder.Services.RegisterRepositories(typeof(IMovieRepository).Assembly);
-           builder.Services.RegisterServices(typeof(IMovieService).Assembly);
-          
-
+            builder.Services.RegisterRepositories(typeof(IMovieRepository).Assembly);
+            builder.Services.RegisterServices(typeof(IMovieService).Assembly);
 
             // ====== Authorization Policy ======
             builder.Services.AddAuthorization(options =>
@@ -87,15 +66,12 @@ namespace CinemaApp.Web
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<CinemaAppDbContext>();
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
 
                 await dbContext.Database.MigrateAsync();
 
-
-                // ======Seed Roles + Admin=====
                 await IdentitySeeder.SeedRolesAndUsersAsync(userManager, roleManager);
 
-                // =====Seed Movies====
                 if (!await dbContext.Movies.AnyAsync())
                 {
                     await DbSeeder.SeedMoviesAsync(dbContext);
@@ -121,10 +97,7 @@ namespace CinemaApp.Web
             app.UseRouting();
 
             app.UseAuthentication();
-
-        
-             app.UseManagerAccessRestriction();
-
+            app.UseManagerAccessRestriction();
             app.UseAuthorization();
 
             // ====== Routing ======

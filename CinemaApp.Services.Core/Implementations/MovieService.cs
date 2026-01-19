@@ -60,7 +60,7 @@ namespace CinemaApp.Services.Core.Implementations
                 .ToListAsync();
 
         // -------------------- DETAILS --------------------
-        public async Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string movieId, string? userId)
+        public async Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string movieId, Guid? userId)
         {
             if (!Guid.TryParse(movieId, out Guid guid))
                 return null;

@@ -21,9 +21,9 @@ namespace CinemaApp.Services.Core.Implementations
                 .AnyAsync(m => m.Id == id);
         }
 
-        public async Task<bool> ExistsByUserIdAsync(string userId)
+        public async Task<bool> ExistsByUserIdAsync(Guid userId)
         {
-            if (string.IsNullOrWhiteSpace(userId))
+            if (userId == Guid.Empty)
                 return false;
 
             return await _managerRepository
@@ -33,12 +33,13 @@ namespace CinemaApp.Services.Core.Implementations
 
       
 
-        public async Task<Guid?> GetIdByUserIdAsync(string? userId)
+        public async Task<Guid?> GetIdByUserIdAsync(Guid? userId)
         {
             Guid? managerId = null;
 
-            if(!string.IsNullOrWhiteSpace(userId))
-           { var manager = await _managerRepository.FirstOrDefaultAsync(m => m.UserId == userId);
+            if (userId != Guid.Empty)
+            {
+                var manager = await _managerRepository.FirstOrDefaultAsync(m => m.UserId == userId);
 
                 if (manager != null)
                 {

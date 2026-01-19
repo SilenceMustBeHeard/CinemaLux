@@ -21,7 +21,7 @@ namespace CinemaApp.Web.Controllers
 
         private readonly UserManager<AppUser> _userManager;
 
-        protected string GetUserId() => _userManager.GetUserId(User);
+        protected Guid GetUserId() => Guid.Parse(_userManager.GetUserId(User));
         protected async Task<AppUser?> GetCurrentUserAsync()
         {
             return await _userManager.GetUserAsync(User);

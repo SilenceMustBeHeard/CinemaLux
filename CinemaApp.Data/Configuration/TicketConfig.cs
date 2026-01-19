@@ -32,7 +32,7 @@ namespace CinemaApp.Data.Configuration
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(t => t.User)
-                .WithMany()
+                .WithMany(u => u.Tickets)
                 .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
         }

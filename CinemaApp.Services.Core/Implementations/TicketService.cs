@@ -24,16 +24,16 @@ namespace CinemaApp.Services.Core.Implementations
 
 
 
-        public async Task<IEnumerable<TicketIndexViewModel>> GetUserTicketsAsync(string? userId)
+        public async Task<IEnumerable<TicketIndexViewModel>> GetUserTicketsAsync(Guid? userId)
         {
-            if (string.IsNullOrWhiteSpace(userId))
+            if (userId == null)
             {
                 return Enumerable.Empty<TicketIndexViewModel>();
             }
 
             var tickets = await _ticketRepository
                 .GetAllAttached()
-                .Where(t => t.UserId.ToLower() == userId.ToLower())
+                .Where(t => t.UserId == userId)
                 .Select(t => new TicketIndexViewModel
                 {
                     MovieTitle = t.CinemaMovieProjections.Movie.Title,
@@ -54,13 +54,13 @@ namespace CinemaApp.Services.Core.Implementations
 
         }
 
-        public async Task<bool> PurchaseTickets(string cinemaId, string movieId, int quantity, string showtime, string userId)
+        public async Task<bool> PurchaseTickets(string cinemaId, string movieId, int quantity, string showtime, Guid userId)
         {
             var result = false;
             if (string.IsNullOrWhiteSpace(cinemaId)
                 || string.IsNullOrWhiteSpace(movieId)
                 || string.IsNullOrWhiteSpace(showtime)
-                || string.IsNullOrWhiteSpace(userId)
+                || userId == Guid.Empty
                 || quantity <= 0)
             {
                 return await Task.FromResult(result);
@@ -76,8 +76,8 @@ namespace CinemaApp.Services.Core.Implementations
             {
 
                 var projectionTicket = await _ticketRepository.GetAllAttached()
-                     .SingleOrDefaultAsync(cm => cm.CinemaMovieId.ToString().ToLower() == projection.Id.ToString().ToLower()
-                     && cm.User.Id.ToString().ToLower() == userId.ToLower());
+                     .SingleOrDefaultAsync(cm => cm.CinemaMovieId == projection.Id
+                     && cm.User.Id == userId);
 
                 if (projectionTicket != null)
                 {

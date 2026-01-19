@@ -20,7 +20,7 @@ namespace CinemaApp.WebApi.Controllers
 
 
         [HttpPost("PurchaseTickets")]
-        public async Task<ActionResult<int>> BuyTicket(string cinemaId, string movieId, int quantity, string showtime, string userId)
+        public async Task<ActionResult<int>> BuyTicket(string cinemaId, string movieId, int quantity, string showtime, Guid userId)
         {
 
             var availableTickets = await _projectionService.GetAvailableTickets(cinemaId, movieId, showtime);

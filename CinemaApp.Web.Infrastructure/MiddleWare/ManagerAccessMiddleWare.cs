@@ -20,82 +20,84 @@ namespace CinemaApp.Web.Infrastructure.MiddleWare
 
         public async Task InvokeAsync(HttpContext context, IManagerService managerService)
         {
-            var path = context.Request.Path.Value?.ToLower();
+            var path = context.Request.Path.Value?.ToLowerInvariant();
 
-            if (path != null && path.StartsWith("/manager"))
+            // Only protect /manager routes
+            if (path == null || !path.StartsWith("/manager"))
             {
-                var user = context.User;
+                await _next(context);
+                return;
+            }
 
-             // check if user is authenticated
-                if (user?.Identity?.IsAuthenticated != true || !user.IsInRole("Manager"))
+            var user = context.User;
+
+            // Must be authenticated + Manager role
+            if (user?.Identity?.IsAuthenticated != true || !user.IsInRole("Manager"))
+            {
+                context.Response.Redirect("/Home/AccessDenied");
+                return;
+            }
+
+            //  UserId MUST be GUID
+            string? userIdClaim = user.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (!Guid.TryParse(userIdClaim, out Guid userId))
+            {
+                context.Response.Redirect("/Home/AccessDenied");
+                return;
+            }
+
+            // Get managerId from DB
+            Guid? managerId = await managerService.GetIdByUserIdAsync(userId);
+
+            if (managerId == null)
+            {
+                context.Response.Redirect("/Home/AccessDenied");
+                return;
+            }
+
+            //  Cookie validation
+            if (!context.Request.Cookies.TryGetValue(ManagerCookie, out string? cookieValue))
+            {
+                BuildManagerCookie(context, managerId.Value);
+            }
+            else
+            {
+                string expectedHash = HashManagerId(managerId.Value);
+
+                if (!string.Equals(expectedHash, cookieValue, StringComparison.OrdinalIgnoreCase))
                 {
                     context.Response.Redirect("/Home/AccessDenied");
                     return;
-                }
-
-                var userId = user.FindFirstValue(ClaimTypes.NameIdentifier);
-
-              // check for cookie
-                if (!context.Request.Cookies.TryGetValue(ManagerCookie, out var cookieValue))
-                {
-                    // take managerId from db
-                    Guid? managerId = await managerService.GetIdByUserIdAsync(userId);
-
-                    if (managerId == null)
-                    {
-                        context.Response.Redirect("/Home/AccessDenied");
-                        return;
-                    }
-
-                    BuildManagerCookie(context, managerId.Value);
-                }
-                else
-                {
-                    // tale managerId from claims
-                    string? managerIdClaim = user.FindFirstValue(ClaimTypes.Name);
-                    if (managerIdClaim == null)
-                    {
-                        context.Response.Redirect("/Home/AccessDenied");
-                        return;
-                    }
-
-                    string hashedManagerId = Sha512ManagerId(managerIdClaim);
-
-                    // Compare hash from claim to db
-                    if (!string.Equals(hashedManagerId, cookieValue, StringComparison.OrdinalIgnoreCase))
-                    {
-                        context.Response.Redirect("/Home/AccessDenied");
-                        return;
-                    }
                 }
             }
 
             await _next(context);
         }
 
-        private void BuildManagerCookie(HttpContext context, Guid managerId)
+        //  Helpers 
+
+        private static void BuildManagerCookie(HttpContext context, Guid managerId)
         {
-            var cookieBuilder = new CookieBuilder
+            var cookieOptions = new CookieOptions
             {
-                Name = ManagerCookie,
-                SameSite = SameSiteMode.Strict,
                 HttpOnly = true,
-                SecurePolicy = CookieSecurePolicy.SameAsRequest,
+                Secure = context.Request.IsHttps,
+                SameSite = SameSiteMode.Strict,
                 MaxAge = TimeSpan.FromHours(4)
             };
 
-            var options = cookieBuilder.Build(context);
-            string hashed = Sha512ManagerId(managerId.ToString());
+            string hashedManagerId = HashManagerId(managerId);
 
-            context.Response.Cookies.Append(ManagerCookie, hashed, options);
+            context.Response.Cookies.Append(ManagerCookie, hashedManagerId, cookieOptions);
         }
 
-        private string Sha512ManagerId(string managerId)
+        private static string HashManagerId(Guid managerId)
         {
             using var sha512 = SHA512.Create();
-            byte[] bytes = Encoding.UTF8.GetBytes(managerId);
+            byte[] bytes = Encoding.UTF8.GetBytes(managerId.ToString());
             byte[] hash = sha512.ComputeHash(bytes);
-            return Convert.ToHexString(hash).ToLower();
+            return Convert.ToHexString(hash).ToLowerInvariant();
         }
     }
 }

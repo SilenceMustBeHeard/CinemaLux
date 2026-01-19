@@ -20,7 +20,7 @@ namespace CinemaApp.Data.Configuration
                 .HasDefaultValue(false);
 
             builder.HasOne(x => x.User)
-                .WithOne()
+                .WithOne(u => u.Manager)
                 .HasForeignKey<Manager>(x => x.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 

@@ -28,6 +28,8 @@ builder.Services.AddControllers();
 // ===== DI =====
 builder.Services.RegisterRepositories(typeof(IMovieRepository).Assembly);
 builder.Services.RegisterServices(typeof(IMovieService).Assembly);
+
+// ===== CORS =====
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
@@ -54,7 +56,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
-app.UseAuthentication(); 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapIdentityApi<AppUser>();

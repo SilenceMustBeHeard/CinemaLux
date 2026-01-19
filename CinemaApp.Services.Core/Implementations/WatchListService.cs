@@ -20,7 +20,7 @@ namespace CinemaApp.Services.Core.Implementations
         }
 
         // -------------------- GET WATCHLIST --------------------
-        public async Task<IEnumerable<WatchListViewModel>> GetWatchListByUserIdAsync(string userId)
+        public async Task<IEnumerable<WatchListViewModel>> GetWatchListByUserIdAsync(Guid userId)
             => await _watchListRepository.GetAllAttached()
                 .AsNoTracking()
                 .Where(um => um.AppUserId == userId && um.IsActive && !um.Movie.IsDeleted)
@@ -36,7 +36,7 @@ namespace CinemaApp.Services.Core.Implementations
                 .ToListAsync();
 
         // -------------------- TOGGLE WATCHLIST --------------------
-        public async Task ToggleWatchListAsync(string userId, string movieId)
+        public async Task ToggleWatchListAsync(Guid userId, string movieId)
         {
             if (!Guid.TryParse(movieId, out var movieGuid))
                 return;
@@ -45,12 +45,14 @@ namespace CinemaApp.Services.Core.Implementations
 
             if (entry == null)
             {
-                await _watchListRepository.AddAsync(new AppUserMovie
+                entry = new AppUserMovie
                 {
                     AppUserId = userId,
                     MovieId = movieGuid,
                     IsActive = true
-                });
+                };
+
+                await _watchListRepository.AddAsync(entry);
             }
             else
             {
@@ -60,13 +62,17 @@ namespace CinemaApp.Services.Core.Implementations
             await _watchListRepository.SaveChangesAsync();
         }
 
+
         // -------------------- CHECK IF EXISTS --------------------
-        public async Task<bool> IsMovieInWatchListAsync(string userId, string movieId)
+        public async Task<bool> IsMovieInWatchListAsync(Guid userId, string movieId)
         {
             if (!Guid.TryParse(movieId, out var movieGuid))
                 return false;
 
-            return await _watchListRepository.ExistsAsync(userId, movieGuid);
+            var entry = await _watchListRepository.GetByCompositeKeyAsync(userId, movieGuid);
+
+            return entry != null && entry.IsActive;
         }
+
     }
 }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CinemaApp.Data.Repository.Implementations
 {
-    public class WatchlistRepository : Interfaces.IWatchlistRepository
+    public class WatchlistRepository :IWatchlistRepository
     {
         private readonly CinemaAppDbContext _context;
 
@@ -27,15 +27,15 @@ namespace CinemaApp.Data.Repository.Implementations
                 .Where(um => um.IsActive)
                 .Include(um => um.Movie);
 
-        public async Task<bool> ExistsAsync(string userId, Guid movieId)
+        public async Task<bool> ExistsAsync(Guid userId, Guid movieId)
             => await _context.AppUserMovies
                 .AnyAsync(um =>
                     um.AppUserId == userId &&
                     um.MovieId == movieId &&
                     um.IsActive);
 
-        public async Task<AppUserMovie?> GetByCompositeKeyAsync(string userId, Guid movieId)
-          =>   await _context.AppUserMovies
+        public async Task<AppUserMovie?> GetByCompositeKeyAsync(Guid userId, Guid movieId)
+            => await _context.AppUserMovies
                 .FirstOrDefaultAsync(um =>
                     um.AppUserId == userId &&
                     um.MovieId == movieId);

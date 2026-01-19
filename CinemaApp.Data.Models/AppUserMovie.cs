@@ -9,7 +9,7 @@ namespace CinemaApp.Data.Models
 {
     public class AppUserMovie
     {
-        public string AppUserId { get; set; } = null!;
+        public Guid AppUserId { get; set; } 
         public virtual AppUser AppUser { get; set; } = null!;
         public Guid MovieId { get; set; } 
         public virtual Movie Movie { get; set; } = null!;

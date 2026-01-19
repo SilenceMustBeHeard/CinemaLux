@@ -24,7 +24,7 @@ namespace CinemaApp.Services.Core.Interfaces
 
         Task<bool> SoftDeleteMovieAsync(string? id);
         Task<bool> DeleteMovieAsync(string? id);
-        Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string movieId, string? userId);
+        Task<MovieDetailsViewModel?> GetMovieDetailsByIdAsync(string movieId, Guid? userId);
 
 
     }

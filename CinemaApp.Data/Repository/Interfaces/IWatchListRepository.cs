@@ -7,12 +7,13 @@ namespace CinemaApp.Data.Repository.Interfaces
     {
         IQueryable<AppUserMovie> GetAllAttached();
 
-        Task<AppUserMovie?> GetByCompositeKeyAsync(string userId, Guid movieId);
+        Task<AppUserMovie?> GetByCompositeKeyAsync(Guid userId, Guid movieId);
 
-        Task<bool> ExistsAsync(string userId, Guid movieId);
+        Task<bool> ExistsAsync(Guid userId, Guid movieId);
 
         Task AddAsync(AppUserMovie entity);
 
         Task SaveChangesAsync();
     }
+
 }

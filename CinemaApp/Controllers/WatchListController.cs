@@ -21,7 +21,7 @@ namespace CinemaApp.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            string userId = GetUserId();
+            var userId = GetUserId();
 
             IEnumerable<WatchListViewModel> watchList =
                 await _watchListService.GetWatchListByUserIdAsync(userId);
@@ -39,7 +39,7 @@ namespace CinemaApp.Web.Controllers
                 return BadRequest();
             }
 
-            string userId = GetUserId();
+            Guid userId = GetUserId();
 
             await _watchListService.ToggleWatchListAsync(userId, movieId);
 

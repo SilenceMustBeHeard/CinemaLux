@@ -6,7 +6,7 @@
     using Microsoft.EntityFrameworkCore;
     using System.Reflection;
 
-    public class CinemaAppDbContext : IdentityDbContext<AppUser>
+    public class CinemaAppDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
     {
         public CinemaAppDbContext(DbContextOptions<CinemaAppDbContext> options)
             : base(options)

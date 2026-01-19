@@ -1,64 +1,30 @@
-# ==============================
+# Build folders
+bin/
+obj/
+
 # Visual Studio
-# ==============================
 .vs/
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
-*.VC.db
-*.VC.opendb
 
-# ==============================
-# Build Folders
-# ==============================
-bin/
-obj/
-**/bin/
-**/obj/
-
-# ==============================
-# Rider / JetBrains
-# ==============================
+# Rider
 .idea/
-*.sln.iml
 
-# ==============================
-# EF Core Migrations Designer files
-# ==============================
-*.Designer.cs
-
-# ==============================
-# Logs & Database
-# ==============================
+# Logs
 *.log
-*.sql
+
+# Database
+*.mdf
+*.ldf
+*.sqlite
 *.db
-*.db-journal
 
-# ==============================
-# Node / NPM (if used)
-# ==============================
-node_modules/
+# Publish output
+publish/
 
-# ==============================
-# VS Code
-# ==============================
-.vscode/
-.history/
-
-# ==============================
-# Publish / Deployment
-# ==============================
-*.publish.xml
-*.zip
-*.tar.gz
-
-# ==============================
-# Misc binaries
-# ==============================
-*.vsix
-*.nupkg
-*.userprefs
-*.dll
-*.exe
+# User secrets
+secrets.json
+appsettings.Development.json
+appsettings.Local.json
