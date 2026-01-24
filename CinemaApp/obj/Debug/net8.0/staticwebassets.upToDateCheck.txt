@@ -11,6 +11,7 @@ wwwroot\js\cinemas.js
 wwwroot\js\movies.js
 wwwroot\js\pagination.js
 wwwroot\js\site.js
+wwwroot\js\userManagement.js
 wwwroot\lib\bootstrap\LICENSE
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
