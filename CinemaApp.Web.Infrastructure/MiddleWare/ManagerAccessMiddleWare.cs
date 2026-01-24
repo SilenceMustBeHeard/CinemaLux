@@ -22,7 +22,6 @@ namespace CinemaApp.Web.Infrastructure.MiddleWare
         {
             var path = context.Request.Path.Value?.ToLowerInvariant();
 
-            // Only protect /manager routes
             if (path == null || !path.StartsWith("/manager"))
             {
                 await _next(context);
@@ -31,14 +30,20 @@ namespace CinemaApp.Web.Infrastructure.MiddleWare
 
             var user = context.User;
 
-            // Must be authenticated + Manager role
+            //  Admin bypass
+            if (user?.IsInRole("Admin") == true)
+            {
+                await _next(context);
+                return;
+            }
+
+            // Must be authenticated + Manager
             if (user?.Identity?.IsAuthenticated != true || !user.IsInRole("Manager"))
             {
                 context.Response.Redirect("/Home/AccessDenied");
                 return;
             }
 
-            //  UserId MUST be GUID
             string? userIdClaim = user.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (!Guid.TryParse(userIdClaim, out Guid userId))
@@ -47,7 +52,6 @@ namespace CinemaApp.Web.Infrastructure.MiddleWare
                 return;
             }
 
-            // Get managerId from DB
             Guid? managerId = await managerService.GetIdByUserIdAsync(userId);
 
             if (managerId == null)
@@ -56,7 +60,6 @@ namespace CinemaApp.Web.Infrastructure.MiddleWare
                 return;
             }
 
-            //  Cookie validation
             if (!context.Request.Cookies.TryGetValue(ManagerCookie, out string? cookieValue))
             {
                 BuildManagerCookie(context, managerId.Value);

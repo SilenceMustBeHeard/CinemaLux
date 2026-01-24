@@ -9,24 +9,22 @@
 <div class="row justify-content-center">
     <div class="col-md-4">
         <section>
-            <form id="account" method="post">
+            <form id="account" method="post" asp-route-returnUrl="@Model.ReturnUrl">
                 <h2>Use a local account to log in.</h2>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
                 <!-- Email -->
-                <div class="form-floating mb-3 mx-auto" style="max-width: 100px;">
+                <div class="form-floating mb-3 mx-auto" style="max-width: 400px;">
                     <input asp-for="Input.Email" class="form-control" placeholder="Email" />
                     <label asp-for="Input.Email">Email address</label>
                 </div>
 
-
                 <!-- Password -->
-                <div class="form-floating mb-3 mx-auto" style="max-width: 100px;">
+                <div class="form-floating mb-3 mx-auto" style="max-width: 400px;">
                     <input asp-for="Input.Password" class="form-control" placeholder="Password" />
                     <label asp-for="Input.Password">Password</label>
                 </div>
-
 
                 <!-- Remember me -->
                 <div class="form-check mb-3">

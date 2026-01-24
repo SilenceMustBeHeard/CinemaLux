@@ -17,6 +17,8 @@
         public virtual DbSet<Movie> Movies { get; set; } = null!;
         public virtual DbSet<CinemaMovie> CinemaMovies { get; set; } = null!;
         public virtual DbSet<Cinema> Cinemas { get; set; } = null!;
+        public virtual DbSet<AppUser> AppUsers { get; set; } = null!;
+        public virtual DbSet<Manager> Managers { get; set; } = null!;
 
         public virtual DbSet<Ticket> Tickets { get; set; } = null!;
 

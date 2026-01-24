@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 
     <style>
-            z-index: 1050;
+        z-index: 1050;
         }
 
         .dropdown-menu {
@@ -57,8 +57,19 @@
                         <!-- Theme toggle -->
                         <button id="themeToggle" class="btn btn-sm btn-outline-light me-2">🌙</button>
 
+                        <!-- Admin Dashboard button (ONLY visible to Admins) -->
+                        @if (User.Identity?.IsAuthenticated ?? false)
+                        {
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a class="btn btn-sm btn-warning me-2" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                                    Admin Dashboard
+                                </a>
+                            }
+                        }
+
                         <!-- User dropdown / Login -->
-                        @if (User.Identity?.IsAuthenticated ?? false)   // Check if user is logged in
+                        @if (User.Identity?.IsAuthenticated ?? false)
                         {
                             <div class="dropdown">
                                 <a class="btn btn-outline-light dropdown-toggle" href="#" role="button"
@@ -68,7 +79,9 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                     <li><a class="dropdown-item" asp-controller="Profile" asp-action="Index">Profile</a></li>
                                     <li><a class="dropdown-item" asp-controller="WatchList" asp-action="Index">Watchlist</a></li>
+
                                     <li><hr class="dropdown-divider"></li>
+
                                     <li>
                                         <form method="post" asp-controller="Account" asp-action="Logout">
                                             @Html.AntiForgeryToken()
@@ -78,7 +91,7 @@
                                 </ul>
                             </div>
                         }
-                        else   // if not - show register
+                        else
                         {
                             <div class="dropdown">
                                 <a class="btn btn-outline-light dropdown-toggle" href="#" role="button" id="guestDropdown"

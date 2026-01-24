@@ -97,10 +97,17 @@ namespace CinemaApp.Web
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseManagerAccessRestriction();
+          //  app.UseManagerAccessRestriction();
             app.UseAuthorization();
 
+
             // ====== Routing ======
+
+            app.MapControllerRoute(
+                name: "areas",
+                pattern: "{area}/{controller=Home}/{action=Index}/{id?}");
+
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
