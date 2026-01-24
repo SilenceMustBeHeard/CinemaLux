@@ -30,18 +30,23 @@ namespace CinemaApp.Web.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<AppUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole<Guid>> _roleManager;
+
+
 
         public RegisterModel(
-            UserManager<AppUser> userManager,
-            IUserStore<AppUser> userStore,
-            SignInManager<AppUser> signInManager,
-            ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+      UserManager<AppUser> userManager,
+      IUserStore<AppUser> userStore,
+      SignInManager<AppUser> signInManager,
+      RoleManager<IdentityRole<Guid>> roleManager,
+      ILogger<RegisterModel> logger,
+      IEmailSender emailSender)
         {
             _userManager = userManager;
             _userStore = userStore;
             _emailStore = GetEmailStore();
             _signInManager = signInManager;
+            _roleManager = roleManager;
             _logger = logger;
             _emailSender = emailSender;
         }
@@ -122,6 +127,19 @@ namespace CinemaApp.Web.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    bool userRoleExist = await _roleManager.RoleExistsAsync("User");
+                    if (userRoleExist)
+                    {
+                       result = await _userManager.AddToRoleAsync(user, "User");
+
+
+                        if(!result.Succeeded)
+                        {
+                            ModelState.AddModelError(string.Empty, "Failed to assign 'User' role.");
+                            return Page();
+                        }
+                    }
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
