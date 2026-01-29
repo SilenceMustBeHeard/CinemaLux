@@ -56,11 +56,12 @@
                                     </a>
 
                                     <form id="toggleDeleteForm-@cinema.Id" asp-action="ToggleDelete" asp-route-id="@cinema.Id" method="post" class="d-inline">
-                                        <button type="button" class="btn @(cinema.IsDeleted ? "btn-warning" : "btn-danger") btn-sm fw-bold"
-                                                onclick="confirmToggleDelete('@cinema.Id', '@(cinema.IsDeleted ? "restore" : "delete")')">
+                                        <button type="submit"
+                                                class="btn @(cinema.IsDeleted ? "btn-warning" : "btn-danger") btn-sm fw-bold">
                                             <i class="bi @(cinema.IsDeleted ? "bi-arrow-clockwise" : "bi-trash")"></i>
                                             @(cinema.IsDeleted ? "Restore" : "Delete")
                                         </button>
+
                                     </form>
 
                                 </div>

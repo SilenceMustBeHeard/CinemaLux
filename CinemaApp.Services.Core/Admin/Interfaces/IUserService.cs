@@ -1,4 +1,5 @@
 ﻿using CinemaApp.Web.ViewModels.Admin.UserManagment;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,6 @@ namespace CinemaApp.Services.Core.Admin.Interfaces
         Task<IEnumerable<UserManagmentIndexViewModel>> GetUserManagmentBoardDataAsync(Guid userId);
 
 
-        Task<IEnumerable<string>> GetManagerEmailsAsync();
+        Task<IEnumerable<SelectListItem>> GetManagerEmailsAsync();
     }
 }

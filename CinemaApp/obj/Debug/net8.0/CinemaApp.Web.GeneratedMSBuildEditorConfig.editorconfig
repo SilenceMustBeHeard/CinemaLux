@@ -38,6 +38,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2luZW1hTWFuYWdlbWVudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/samae/source/Projects/CinemaLux/CinemaLux/CinemaApp/Areas/Admin/Views/CinemaManagement/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2luZW1hTWFuYWdlbWVudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/samae/source/Projects/CinemaLux/CinemaLux/CinemaApp/Areas/Admin/Views/CinemaManagement/Manage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2luZW1hTWFuYWdlbWVudFxNYW5hZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

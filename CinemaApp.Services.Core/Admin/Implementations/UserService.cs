@@ -3,6 +3,7 @@ using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Admin.Interfaces;
 using CinemaApp.Web.ViewModels.Admin.UserManagment;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace CinemaApp.Services.Core.Admin.Implementations
                 result.Add(new UserManagmentIndexViewModel
                 {
                     Id = user.Id,
-                    Email = user.Email,
+                    Email = user.Email!,
                     Roles = roles
                 });
             }
@@ -47,12 +48,19 @@ namespace CinemaApp.Services.Core.Admin.Implementations
 
 
 
-        public async Task<IEnumerable<string>> GetManagerEmailsAsync()
-          => await _managerRepository.GetAllAttached()
-              .Where(m => m.User.Email != null)
-              .Select(m => m.User.Email)
-              .ToArrayAsync();
+        public async Task<IEnumerable<SelectListItem>> GetManagerEmailsAsync()
+        {
+            var emails = await _managerRepository.GetAllAttached()
+                .Where(m => m.User.Email != null)
+                .Select(m => m.User.Email!)
+                .ToArrayAsync();
 
-
+            return emails.Select(e => new SelectListItem
+            {
+                Text = e,
+                Value = e
+            });
+        }
     }
+
 }
