@@ -3,12 +3,6 @@
 @model IEnumerable<UserManagmentIndexViewModel>
 @inject RoleManager<IdentityRole<Guid>> RoleManager;
 
-
-
-
-
-
-
 <div class="container mt-5">
     <h1 class="text-center mb-4 text-warning fw-bold">User Management</h1>
 
@@ -40,36 +34,42 @@
                         </td>
                         <td class="text-center align-middle">
                             <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap">
+
                                 @if (!user.Roles.Contains("Admin"))
                                 {
+                                    <!-- Dropdown to select new role -->
                                     <select id="roleDropdown-@user.Id" class="form-select form-select-sm w-auto me-2">
-
                                         @foreach (var role in RoleManager.Roles)
                                         {
-                                            <option value="@role.Name" selected="@(user.Roles.Contains(role.Name) ? "selected" : null)">@role.Name</option>
+                                            <option value="@role.Name" selected="@(user.Roles.Contains(role.Name) ? "selected" : null)">
+                                                @role.Name
+                                            </option>
                                         }
                                     </select>
 
+                                    <!-- Assign Role Form -->
                                     <form method="post" asp-action="AssignRole" asp-controller="UserManagement" asp-area="Admin" class="d-inline">
-                                        <input type="hidden" name="userId" value="@user.Id" />
-                                        <input type="hidden" name="role" id="assignRoleInput-@user.Id" />
+                                        <input type="hidden" name="UserId" value="@user.Id" />
+                                        <input type="hidden" name="NewRole" id="assignRoleInput-@user.Id" />
                                         <button type="submit" class="btn btn-primary btn-sm fw-bold px-3 py-2"
                                                 onclick="setRoleValue('@user.Id', 'assignRoleInput')">
                                             <i class="bi bi-person-plus-fill"></i> Assign
                                         </button>
                                     </form>
 
+                                    <!-- Remove Role Form -->
                                     <form method="post" asp-action="RemoveRole" asp-controller="UserManagement" asp-area="Admin" class="d-inline">
-                                        <input type="hidden" name="userId" value="@user.Id" />
-                                        <input type="hidden" name="role" id="removeRoleInput-@user.Id" />
+                                        <input type="hidden" name="UserId" value="@user.Id" />
+                                        <input type="hidden" name="Role" id="removeRoleInput-@user.Id" />
                                         <button type="submit" class="btn btn-warning btn-sm fw-bold px-3 py-2"
                                                 onclick="setRoleValue('@user.Id', 'removeRoleInput')">
                                             <i class="bi bi-person-x-fill"></i> Remove
                                         </button>
                                     </form>
 
+                                    <!-- Delete User Form -->
                                     <form method="post" asp-action="DeleteUser" asp-controller="UserManagement" asp-area="Admin" class="d-inline">
-                                        <input type="hidden" name="userId" value="@user.Id" />
+                                        <input type="hidden" name="UserId" value="@user.Id" />
                                         <button type="submit" class="btn btn-danger btn-sm fw-bold px-3 py-2">
                                             <i class="bi bi-trash-fill"></i> Delete
                                         </button>
@@ -87,5 +87,13 @@
         </table>
     </div>
 </div>
-
-<script src="~/js/userManagement.js" asp-append-version="true"></script>
+<!-- JS to set hidden input values -->
+<script>
+    function setRoleValue(userId, inputIdPrefix) {
+        const dropdown = document.getElementById(`roleDropdown-${userId}`);
+        const input = document.getElementById(`${inputIdPrefix}-${userId}`);
+        if (dropdown && input) {
+            input.value = dropdown.value;
+        }
+    }
+</script>

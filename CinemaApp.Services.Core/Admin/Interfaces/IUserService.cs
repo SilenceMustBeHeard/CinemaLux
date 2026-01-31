@@ -14,5 +14,9 @@ namespace CinemaApp.Services.Core.Admin.Interfaces
 
 
         Task<IEnumerable<SelectListItem>> GetManagerEmailsAsync();
+
+        Task<(bool Failed, string ErrorMessage)> ChangeUserRoleAsync(
+            ChangeUserRoleViewModel model,
+            Guid adminId);
     }
 }

@@ -1,17 +1,12 @@
 ﻿using CinemaApp.Data.Models;
 using CinemaApp.Services.Core.Admin.Interfaces;
 using CinemaApp.Web.ViewModels.Admin.UserManagment;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 
-using CinemaApp.Data.Models;
-using CinemaApp.Services.Core.Admin.Interfaces;
-using CinemaApp.Web.ViewModels.Admin.UserManagment;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaApp.Web.Areas.Admin.Controllers
 {
@@ -27,7 +22,7 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
         {
             _userService = userService;
         }
-
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var allUsers = await _userService
@@ -35,6 +30,38 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
 
             return View(allUsers);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AssignRole(ChangeUserRoleViewModel model)
+        {
+            if (!ModelState.IsValid 
+                || string.IsNullOrWhiteSpace(model.NewRole))
+            {
+                TempData["ErrorMessage"] = "Please select a valid role.";
+                return RedirectToAction("Index");
+            }
+
+            var result = await _userService.ChangeUserRoleAsync(model, this.GetUserId());
+
+            if (result.Failed)
+                TempData["ErrorMessage"] = result.ErrorMessage;
+            else
+                TempData["SuccessMessage"] = "User role changed successfully.";
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
 

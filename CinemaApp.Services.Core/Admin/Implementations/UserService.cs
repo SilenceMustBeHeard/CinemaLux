@@ -61,6 +61,30 @@ namespace CinemaApp.Services.Core.Admin.Implementations
                 Value = e
             });
         }
+
+
+        public async Task<(bool Failed, string ErrorMessage)> ChangeUserRoleAsync(
+            ChangeUserRoleViewModel model,
+            Guid adminId)
+        {
+            var user = await _userManager.FindByIdAsync(model.UserId.ToString());
+            if (user == null)
+            {
+                return (true, "User not found.");
+            }
+            var currentRoles = await _userManager.GetRolesAsync(user);
+            var removeResult = await _userManager.RemoveFromRolesAsync(user, currentRoles);
+            if (!removeResult.Succeeded)
+            {
+                return (true, "Failed to remove existing roles.");
+            }
+            var addResult = await _userManager.AddToRoleAsync(user, model.NewRole);
+            if (!addResult.Succeeded)
+            {
+                return (true, "Failed to assign new role.");
+            }
+            return (false, string.Empty);
+        }
     }
 
 }
