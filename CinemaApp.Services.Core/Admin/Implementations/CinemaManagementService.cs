@@ -1,6 +1,7 @@
 ﻿using CinemaApp.Data.Models;
 using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Admin.Interfaces;
+using CinemaApp.Services.Core.Implementations;
 using CinemaApp.Web.ViewModels.Admin.CinemaManagement;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,16 +12,18 @@ using System.Threading.Tasks;
 
 namespace CinemaApp.Services.Core.Admin.Implementations
 {
-    public class CinemaManagementService : ICinemaManagementService
+    public class CinemaManagementService :CinemaService, ICinemaManagementService
     {
         private readonly ICinemaRepository _cinemaRepository;
         private readonly IUserService _userService;
         private readonly IManagerRepository _managerRepository;
 
-        public CinemaManagementService(
+     public CinemaManagementService(
             ICinemaRepository cinemaRepository,
             IUserService userService,
-            IManagerRepository managerRepository)
+            IManagerRepository managerRepository
+         )
+            : base(cinemaRepository )
         {
             _cinemaRepository = cinemaRepository;
             _userService = userService;

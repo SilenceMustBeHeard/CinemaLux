@@ -1,4 +1,5 @@
-﻿using CinemaApp.Web.ViewModels.Movie;
+﻿using CinemaApp.Web.ViewModels.Admin.MovieManagement;
+using CinemaApp.Web.ViewModels.Movie;
 using CinemaApp.Web.ViewModels.Movies;
 using System;
 using System.Collections.Generic;

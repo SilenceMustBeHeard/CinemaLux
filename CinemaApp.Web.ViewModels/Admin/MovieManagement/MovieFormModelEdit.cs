@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaApp.Web.ViewModels.Movie
+namespace CinemaApp.Web.ViewModels.Admin.MovieManagement
 {
     public class MovieFormModelEdit
     {
