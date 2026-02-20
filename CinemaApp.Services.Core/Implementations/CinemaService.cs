@@ -92,11 +92,14 @@ namespace CinemaApp.Services.Core.Implementations
                 return null;
             }
 
+            if (!Guid.TryParse(cinemaId, out Guid guid))
+                return null;
+
             var cinema = await _cinemaRepo
                 .GetAllAttached()
                 .Include(c => c.CinemaMovies)
                     .ThenInclude(cm => cm.Movie)
-                .SingleOrDefaultAsync(c => c.Id.ToString() == cinemaId);
+              .SingleOrDefaultAsync(c => c.Id == guid);
 
             if (cinema == null)
             {
