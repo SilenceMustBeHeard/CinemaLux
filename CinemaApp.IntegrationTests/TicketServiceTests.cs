@@ -84,7 +84,7 @@ namespace CinemaApp.IntegrationTests
             _context.Dispose();
         }
 
-        // -------------------- GetUserTicketsAsync --------------------
+        //  GetUserTicketsAsync 
         [Test]
         public async Task GetUserTicketsAsync_ReturnsEmpty_WhenUserHasNoTickets()
         {
@@ -120,7 +120,7 @@ namespace CinemaApp.IntegrationTests
             Assert.AreEqual(20.0m, result.First().TotalPrice);
         }
 
-        // -------------------- PurchaseTickets --------------------
+        //  PurchaseTickets 
         [Test]
         public async Task PurchaseTickets_AddsNewTicket_WhenUserHasNoExistingTicket()
         {
@@ -148,14 +148,14 @@ namespace CinemaApp.IntegrationTests
         {
             var projection = _context.CinemaMovies.First();
 
-            // Seed existing ticket
+          
             var ticket = new Ticket
             {
                 Id = Guid.NewGuid(),
                 CinemaMovieProjections = projection,
                 CinemaMovieId = projection.Id,
                 UserId = _userId,
-                Quantity = 2,
+                Quantity = 5,
                 PricePerTicket = 10.0m
             };
             _context.Tickets.Add(ticket);
