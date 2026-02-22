@@ -1,27 +1,14 @@
 /* =====================================================
-   CINEMA APP – HERO SECTION (Adaptive)
-   Luxury Dark Theme – Fullscreen Hero with Shimmer
+   CINEMALUX - PREMIUM HERO SECTION
+   Cinema marquee inspired with golden age elegance
    ===================================================== */
 
-/* =========================
-   Full viewport coverage
-   ========================= */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-/* =========================
-   Hero Section Background
-   ========================= */
 .hero-section {
     position: relative;
-    width: 100%; /* Full width of parent */
-    height: 100vh; /* Full height of viewport */
-
+    width: 100%;
+    height: 100vh;
     background-image: url('/Images/cinema.png');
-    background-position: center center;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -30,142 +17,217 @@ html, body {
     overflow: hidden;
 }
 
-/* Overlay for semi-transparency */
+/* Enhanced overlay with gradient */
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(11, 15, 20, 0.6); /* 60% opacity black overlay */
+    background: linear-gradient( 135deg, rgba(10, 12, 15, 0.85) 0%, rgba(10, 12, 15, 0.7) 50%, rgba(10, 12, 15, 0.85) 100% );
     z-index: 1;
 }
 
-/* =========================
-   Text Styling with Luxury Shimmer
-   ========================= */
+.light-mode .hero-overlay {
+    background: linear-gradient( 135deg, rgba(248, 246, 242, 0.85) 0%, rgba(248, 246, 242, 0.7) 50%, rgba(248, 246, 242, 0.85) 100% );
+}
+
+/* Main title - Cinema marquee effect */
 .hero-text {
     position: relative;
     z-index: 2;
     text-align: center;
-    font-weight: 800;
-    font-size: 3rem;
-    color: #0b0f14;
-    background: linear-gradient(90deg, #d4af37 30%, #e6c75b 50%, #d4af37 70%);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 5rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: transparent;
+    background: linear-gradient( 135deg, #c5a059 0%, #e4c580 30%, #f3e3b0 50%, #e4c580 70%, #c5a059 100% );
     -webkit-background-clip: text;
-    -webkit-text-fill-color: white;
-    animation: shimmer 2.5s infinite linear, fadeInUp 1.2s ease forwards;
+    background-clip: text;
+    background-size: 300% auto;
+    animation: shine 8s linear infinite, fadeInDown 1.2s ease forwards;
     opacity: 0;
+    text-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
+    margin-bottom: 1.5rem;
 }
 
-
+/* Subtitle with elegant touch */
 .hero-subtext {
     position: relative;
     z-index: 2;
     text-align: center;
     font-size: 1.4rem;
-    margin-top: 1.5rem;
-    line-height: 1.8rem;
-    color: #0b0f14;
-    background: linear-gradient(90deg, #d4af37 30%, #e6c75b 50%, #d4af37 70%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-     animation: shimmer 5s infinite linear, fadeInUp 1.8s ease forwards;
-
-    opacity: 0;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 2.5rem;
+    line-height: 2;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease 0.3s forwards;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* =========================
-   Fade-in Animation
-   ========================= */
-@keyframes fadeInUp {
+/* Luxury button - VIP treatment */
+.hero-button {
+    position: relative;
+    z-index: 2;
+    padding: 1.2rem 3.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #c5a059, #9e7e4c);
+    color: #0a0c0f;
+    border: none;
+    box-shadow: 0 10px 30px -5px rgba(197, 160, 89, 0.4);
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease 0.6s forwards;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+    .hero-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.7s ease;
+    }
+
+    .hero-button:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 20px 40px -5px rgba(197, 160, 89, 0.6);
+        background: linear-gradient(135deg, #d4b27c, #c5a059);
+    }
+
+        .hero-button:hover::before {
+            left: 100%;
+        }
+
+    .hero-button:active {
+        transform: translateY(0) scale(0.98);
+    }
+
+/* Light mode adjustments */
+.light-mode .hero-button {
+    color: #1e1b16;
+    background: linear-gradient(135deg, #b08e4f, #8f6f3c);
+}
+
+.light-mode .hero-text {
+    text-shadow: 0 0 30px rgba(176, 142, 79, 0.3);
+}
+
+/* Animations */
+@keyframes shine {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeInDown {
     from {
-        opacity: 0.3;
-        transform: translateY(20px);
+        opacity: 0;
+        transform: translateY(-30px);
     }
 
     to {
-        opacity: 0.8;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
         transform: translateY(0);
     }
 }
 
 /* =========================
-   Shimmer effect
+   RESPONSIVE LUXURY
    ========================= */
-@keyframes shimmer {
-    0% {
-        background-position: -500px 0;
-    }
-
-    100% {
-        background-position: 500px 0;
-    }
-}
-/*
-=========================
-Luxury Glow Button
-=========================
-*/
-.hero-button {
-    border-radius: 999px;
-    padding: 0.8rem 2.2rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: none;
-    background: linear-gradient(135deg, #d4af37, #b8962e);
-    color: #000000;
-    box-shadow: 0 10px 25px rgba(212,175,55,0.35);
-    cursor: pointer;
-    opacity: 0.5;
-    transition: all 0.3s ease;
-}
-
-    .hero-button:hover {
-        opacity: 0.9;
-        color: #000000;
-        transform: translateY(-2px);
-        box-shadow: 0 0 0 3px rgba(212,175,55,0.12), 0 12px 30px rgba(212,175,55,0.45);
-    }
-    .hero-button:active {
-        transform: scale(0.80);
-        box-shadow: 0 0 15px rgba(212,175,55,0.6), 0 5px 20px rgba(212,175,55,0.35);
-    }
-
-
-
-/* =========================
-   =========================
-   Adaptive / Responsive for Mobile
-   ========================= */
-@media (max-width: 992px) { /* Tablet */
+@media (max-width: 1200px) {
     .hero-text {
-        font-size: 2.5rem;
+        font-size: 4rem;
+        letter-spacing: 6px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-text {
+        font-size: 3.5rem;
+        letter-spacing: 4px;
     }
 
     .hero-subtext {
         font-size: 1.2rem;
-        max-width: 90%;
+        padding: 0 2rem;
     }
 
     .hero-button {
-        padding: 0.7rem 2rem;
+        padding: 1rem 2.8rem;
         font-size: 1rem;
     }
 }
 
-@media (max-width: 576px) { /* Mobile */
+@media (max-width: 768px) {
+    .hero-text {
+        font-size: 2.8rem;
+        letter-spacing: 3px;
+    }
+
+    .hero-subtext {
+        font-size: 1.1rem;
+        letter-spacing: 1.5px;
+    }
+}
+
+@media (max-width: 576px) {
     .hero-text {
         font-size: 2rem;
+        letter-spacing: 2px;
     }
 
     .hero-subtext {
         font-size: 1rem;
-        max-width: 90%;
+        padding: 0 1rem;
     }
 
     .hero-button {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.95rem;
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
     }
+}
+
+/* Add a subtle overlay pattern for texture */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient( 45deg, transparent, transparent 20px, rgba(197, 160, 89, 0.02) 20px, rgba(197, 160, 89, 0.02) 40px );
+    pointer-events: none;
+    z-index: 2;
 }
