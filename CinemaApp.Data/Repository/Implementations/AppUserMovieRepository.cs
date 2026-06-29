@@ -1,9 +1,6 @@
 ﻿using CinemaApp.Data.Models;
 using CinemaApp.Data.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Data.Repository.Implementations
 {
@@ -14,22 +11,22 @@ namespace CinemaApp.Data.Repository.Implementations
 
         public bool Exists(Guid userId, Guid movieId)
             => GetAllAttached()
-            .Any(um => um.AppUserId == userId 
+            .Any(um => um.AppUserId == userId
             && um.MovieId == movieId);
 
         public Task<bool> ExistsAsync(Guid userId, Guid movieId)
             => GetAllAttached().
-            AnyAsync(um => um.AppUserId == userId 
+            AnyAsync(um => um.AppUserId == userId
             && um.MovieId == movieId);
 
         public AppUserMovie? GetByCompositeKey(Guid userId, Guid movieId)
             => GetAllAttached().
-            SingleOrDefault(um => um.AppUserId == userId 
+            SingleOrDefault(um => um.AppUserId == userId
             && um.MovieId == movieId);
 
         public Task<AppUserMovie?> GetByCompositeKeyAsync(Guid userId, Guid movieId)
             => GetAllAttached()
-            .SingleOrDefaultAsync(um => um.AppUserId == userId 
+            .SingleOrDefaultAsync(um => um.AppUserId == userId
             && um.MovieId == movieId);
     }
 }

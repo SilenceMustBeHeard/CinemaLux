@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     const modalEl = document.getElementById("buyTicketModal");
     const showtimeSelect = document.getElementById("showtimeSelect");
     const quantityInput = document.getElementById("quantity");
@@ -9,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // OPEN MODAL
     document.querySelectorAll(".buy-ticket-btn").forEach(btn => {
         btn.addEventListener("click", async () => {
-
             const cinemaId = btn.dataset.cinemaId;
             const cinemaName = btn.dataset.cinemaName;
             const movieId = btn.dataset.movieId;
@@ -61,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ON SHOWTIME CHANGE ? LOAD AVAILABLE TICKETS
     showtimeSelect.addEventListener("change", async () => {
-
         const cinemaId = document.getElementById("cinemaId").value;
         const movieId = document.getElementById("movieId").value;
         const showtime = showtimeSelect.value;
@@ -93,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // CONFIRM PURCHASE
     document.getElementById("buyTicketButton").addEventListener("click", async () => {
-
         const cinemaId = document.getElementById("cinemaId").value;
         const movieId = document.getElementById("movieId").value;
         const showtime = showtimeSelect.value;
@@ -112,5 +108,4 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Tickets purchased successfully!");
         bootstrap.Modal.getInstance(modalEl).hide();
     });
-
 });

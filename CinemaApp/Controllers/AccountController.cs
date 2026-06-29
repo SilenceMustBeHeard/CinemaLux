@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-using CinemaApp.Data.Models;
+﻿using CinemaApp.Data.Models;
 using CinemaApp.Web.ViewModels.Account;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Web.Controllers
 {
@@ -75,4 +72,3 @@ namespace CinemaApp.Web.Controllers
         }
     }
 }
-

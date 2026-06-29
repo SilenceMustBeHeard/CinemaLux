@@ -1,7 +1,7 @@
 ﻿using CinemaApp.Services.Core.Interfaces;
+using CinemaApp.Web.Authorization.Requirements;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
-using CinemaApp.Web.Authorization.Requirements;
 
 namespace CinemaApp.Web.Authorization.Handlers
 {

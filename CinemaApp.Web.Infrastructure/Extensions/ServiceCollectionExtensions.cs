@@ -1,15 +1,8 @@
 ﻿using CinemaApp.Data.Repository.Implementations;
-using CinemaApp.Services.Core;
-using CinemaApp.Services.Core.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using static CinemaApp.GCommon.ExceptionMessages;
+
 namespace CinemaApp.Web.Infrastructure.Extensions
 {
     public static class ServiceCollectionExtensions
@@ -50,7 +43,6 @@ namespace CinemaApp.Web.Infrastructure.Extensions
                     throw new RepositoryRegistrationException(
       string.Format(RepoInterfaceNotFound, implementation.Name)
   );
-
                 }
 
                 services.AddScoped(serviceInterface, implementation);
@@ -59,16 +51,12 @@ namespace CinemaApp.Web.Infrastructure.Extensions
             return services;
         }
 
-
-
         public static IServiceCollection RegisterRepositories
-            (this IServiceCollection serviceCollection, Assembly repositoryAssembly) 
+            (this IServiceCollection serviceCollection, Assembly repositoryAssembly)
         {
-
-
             Type[] repoClasses = repositoryAssembly
                 .GetTypes()
-                .Where(r=>r.Name.EndsWith(RepoTypeSuffix) 
+                .Where(r => r.Name.EndsWith(RepoTypeSuffix)
                 && !r.IsInterface
                 && !r.IsAbstract)
                 .ToArray();
@@ -81,28 +69,12 @@ namespace CinemaApp.Web.Infrastructure.Extensions
                 {
                     throw new RepositoryRegistrationException(
                string.Format(RepoInterfaceNotFound, implementation.Name));
-
                 }
 
-                serviceCollection.AddScoped(repoInterface, implementation);  
-               
-               
+                serviceCollection.AddScoped(repoInterface, implementation);
             }
 
-           return serviceCollection;
+            return serviceCollection;
         }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-

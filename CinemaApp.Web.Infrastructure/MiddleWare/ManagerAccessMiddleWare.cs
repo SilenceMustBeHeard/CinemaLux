@@ -1,10 +1,8 @@
 ﻿using CinemaApp.Services.Core.Interfaces;
 using Microsoft.AspNetCore.Http;
-using System;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using static CinemaApp.GCommon.AppConstants;
 
 namespace CinemaApp.Web.Infrastructure.MiddleWare
@@ -78,7 +76,7 @@ namespace CinemaApp.Web.Infrastructure.MiddleWare
             await _next(context);
         }
 
-        //  Helpers 
+        //  Helpers
 
         private static void BuildManagerCookie(HttpContext context, Guid managerId)
         {

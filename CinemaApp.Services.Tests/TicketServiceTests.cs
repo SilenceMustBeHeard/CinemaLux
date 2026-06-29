@@ -1,15 +1,8 @@
 ﻿using CinemaApp.Data.Models;
 using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Implementations;
-using CinemaApp.Web.ViewModels.Ticket;
 using MockQueryable;
-using MockQueryable.Moq;
 using Moq;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.ServiceTests
 {
@@ -93,7 +86,7 @@ namespace CinemaApp.ServiceTests
             Assert.IsEmpty(result);
         }
 
-        #endregion
+        #endregion GetUserTicketsAsync
 
         #region PurchaseTickets
 
@@ -118,7 +111,6 @@ namespace CinemaApp.ServiceTests
             _ticketRepoMock.Verify(r => r.AddAsync(It.IsAny<Ticket>()), Times.Once);
             _cinemaMovieRepoMock.Verify(r => r.UpdateAsync(It.IsAny<CinemaMovie>()), Times.Once);
         }
-
 
         // TO DO : Fix this test after implementing the update logic in PurchaseTickets method
 
@@ -152,6 +144,6 @@ namespace CinemaApp.ServiceTests
             Assert.IsFalse(result);
         }
 
-        #endregion
+        #endregion PurchaseTickets
     }
 }

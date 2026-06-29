@@ -1,18 +1,13 @@
 ﻿using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Services.Core.Implementations
 {
     public class ProjectionService : IProjectionService
     {
         private readonly ICinemaMovieRepository _cinemaMovieRepository;
+
         public ProjectionService(ICinemaMovieRepository cinemaMovieRepository)
         {
             _cinemaMovieRepository = cinemaMovieRepository;
@@ -21,7 +16,7 @@ namespace CinemaApp.Services.Core.Implementations
         public async Task<IEnumerable<string>> GetAllProjectionShowTimesAsync(string? cinemaId, string? movieId)
         {
             IEnumerable<string> showtimes = new List<string>();
-            if(!string.IsNullOrWhiteSpace(cinemaId) && !string.IsNullOrWhiteSpace(movieId))
+            if (!string.IsNullOrWhiteSpace(cinemaId) && !string.IsNullOrWhiteSpace(movieId))
             {
                 showtimes = await _cinemaMovieRepository.GetAllAttached()
                     .Where(cm => cm.CinemaId.ToString().ToLower() == cinemaId.ToLower()
@@ -35,8 +30,8 @@ namespace CinemaApp.Services.Core.Implementations
         public async Task<int> GetAvailableTickets(string cinemaId, string movieId, string showtime)
         {
             var availableTickets = 0;
-            if(string.IsNullOrWhiteSpace(cinemaId) 
-                || string.IsNullOrWhiteSpace(movieId) 
+            if (string.IsNullOrWhiteSpace(cinemaId)
+                || string.IsNullOrWhiteSpace(movieId)
                 || string.IsNullOrWhiteSpace(showtime))
             {
                 return await Task.FromResult(availableTickets);
@@ -46,15 +41,11 @@ namespace CinemaApp.Services.Core.Implementations
                              && cm.MovieId.ToString().ToLower() == movieId.ToLower()
                              && cm.ShowTime.ToString() == showtime);
 
-            if(projection != null)
+            if (projection != null)
             {
-
-             availableTickets =projection.AvailableTickets;
+                availableTickets = projection.AvailableTickets;
             }
             return await Task.FromResult(availableTickets);
-
-
-
         }
 
         public Task<bool> PurchaseTickets(string cinemaId, string movieId, int quantity, string showtime)

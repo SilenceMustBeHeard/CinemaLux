@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CinemaApp.Web.ViewModels.WatchList
+﻿namespace CinemaApp.Web.ViewModels.WatchList
 {
     public class WatchListViewModel
     {
@@ -16,8 +10,5 @@ namespace CinemaApp.Web.ViewModels.WatchList
         public string? ImageUrl { get; set; } = null!;
 
         public string? TrailerUrl { get; set; } = null!;
-
-
-
     }
 }

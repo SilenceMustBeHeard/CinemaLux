@@ -10,32 +10,21 @@ namespace CinemaApp.Web.Controllers
     {
         private readonly ITicketService _ticketService;
 
-        public TicketsController(UserManager<AppUser> userManager, ITicketService ticketService) 
+        public TicketsController(UserManager<AppUser> userManager, ITicketService ticketService)
             : base(userManager)
         {
             _ticketService = ticketService;
         }
-
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
             var userId = GetUserId();
 
-
             IEnumerable<TicketIndexViewModel> userTickets =
                 await _ticketService.GetUserTicketsAsync(userId);
-
 
             return View(userTickets);
         }
     }
 }
-
-
-
-
-
-
-
-

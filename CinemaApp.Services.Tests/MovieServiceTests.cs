@@ -2,16 +2,8 @@
 using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Implementations;
 using CinemaApp.Web.ViewModels.Admin.MovieManagement;
-using CinemaApp.Web.ViewModels.Movie;
-using CinemaApp.Web.ViewModels.Movies;
 using MockQueryable;
-using MockQueryable.Moq;
 using Moq;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.ServiceTests
 {
@@ -95,7 +87,7 @@ namespace CinemaApp.ServiceTests
             _movieRepoMock.Verify(r => r.AddAsync(It.Is<Movie>(m => m.Title == "New Movie")), Times.Once);
         }
 
-        #endregion
+        #endregion AddMovieAsync
 
         #region GetAllMoviesAsync
 
@@ -114,7 +106,7 @@ namespace CinemaApp.ServiceTests
             _movieRepoMock.Verify(r => r.GetAllAttached(), Times.Once);
         }
 
-        #endregion
+        #endregion GetAllMoviesAsync
 
         #region GetMovieDetailsByIdAsync
 
@@ -140,7 +132,7 @@ namespace CinemaApp.ServiceTests
             _movieRepoMock.Verify(r => r.GetAllAttached(), Times.Once);
         }
 
-        #endregion
+        #endregion GetMovieDetailsByIdAsync
 
         #region GetMovieForEditByIdAsync
 
@@ -165,7 +157,7 @@ namespace CinemaApp.ServiceTests
             _movieRepoMock.Verify(r => r.GetAllAttached(), Times.Once);
         }
 
-        #endregion
+        #endregion GetMovieForEditByIdAsync
 
         #region EditMovieAsync
 
@@ -199,7 +191,7 @@ namespace CinemaApp.ServiceTests
         //    _movieRepoMock.Verify(r => r.UpdateAsync(_movie1), Times.Once);
         //}
 
-        #endregion
+        #endregion EditMovieAsync
 
         #region SoftDeleteMovieAsync
 
@@ -235,7 +227,7 @@ namespace CinemaApp.ServiceTests
             _movieRepoMock.Verify(r => r.DeleteAsync(_movie1), Times.Once);
         }
 
-        #endregion
+        #endregion SoftDeleteMovieAsync
 
         #region DeleteMovieAsync
 
@@ -270,7 +262,7 @@ namespace CinemaApp.ServiceTests
             _movieRepoMock.Verify(r => r.HardDeleteAsync(_movie1), Times.Once);
         }
 
-        #endregion
+        #endregion DeleteMovieAsync
 
         #region GetMovieForDeleteByIdAsync
 
@@ -296,6 +288,6 @@ namespace CinemaApp.ServiceTests
             _movieRepoMock.Verify(r => r.GetAllAttached(), Times.Once);
         }
 
-        #endregion
+        #endregion GetMovieForDeleteByIdAsync
     }
 }

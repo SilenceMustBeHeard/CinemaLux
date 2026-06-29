@@ -5,10 +5,6 @@ using CinemaApp.Web.ViewModels.Admin.UserManagment;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Services.Core.Admin.Implementations
 {
@@ -16,6 +12,7 @@ namespace CinemaApp.Services.Core.Admin.Implementations
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly IManagerRepository _managerRepository;
+
         public UserService(UserManager<AppUser> userManager, IManagerRepository managerRepository)
         {
             _userManager = userManager;
@@ -46,8 +43,6 @@ namespace CinemaApp.Services.Core.Admin.Implementations
             return result;
         }
 
-
-
         public async Task<IEnumerable<SelectListItem>> GetManagerEmailsAsync()
         {
             var emails = await _managerRepository.GetAllAttached()
@@ -61,7 +56,6 @@ namespace CinemaApp.Services.Core.Admin.Implementations
                 Value = e
             });
         }
-
 
         public async Task<(bool Failed, string ErrorMessage)> ChangeUserRoleAsync(
             ChangeUserRoleViewModel model,
@@ -86,5 +80,4 @@ namespace CinemaApp.Services.Core.Admin.Implementations
             return (false, string.Empty);
         }
     }
-
 }

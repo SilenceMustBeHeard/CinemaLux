@@ -12,6 +12,7 @@ namespace CinemaApp.Web.Controllers
             : base(userManager)
         {
         }
+
         public IActionResult Index()
         {
             return Ok("You are logged as manager!");

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 
 namespace CinemaApp.Data.Repository.Interfaces
 {
@@ -16,7 +11,9 @@ namespace CinemaApp.Data.Repository.Interfaces
         Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
 
         Task<IEnumerable<TEntity>> GetAllAsync();
+
         Task<int> CountAsync();
+
         Task AddAsync(TEntity item);
 
         Task AddRangeAsync(IEnumerable<TEntity> items);
@@ -27,40 +24,8 @@ namespace CinemaApp.Data.Repository.Interfaces
 
         Task<bool> UpdateAsync(TEntity item);
 
-
         //Task<TEntity> FindByConditionAsync(Expression<Func<TEntity, bool>> predicate);
 
-
         Task SaveChangesAsync();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

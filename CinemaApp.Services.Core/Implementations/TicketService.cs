@@ -1,13 +1,8 @@
-﻿using CinemaApp.Data.Repository.Interfaces;
+﻿using CinemaApp.Data.Models;
+using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Interfaces;
 using CinemaApp.Web.ViewModels.Ticket;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using CinemaApp.Data.Models;
 
 namespace CinemaApp.Services.Core.Implementations
 {
@@ -21,8 +16,6 @@ namespace CinemaApp.Services.Core.Implementations
             _ticketRepository = ticketRepository;
             _cinemaMovieRepository = cinemaMovieRepository;
         }
-
-
 
         public async Task<IEnumerable<TicketIndexViewModel>> GetUserTicketsAsync(Guid? userId)
         {
@@ -44,14 +37,10 @@ namespace CinemaApp.Services.Core.Implementations
                     TicketCount = t.Quantity,
                     TicketPrice = t.PricePerTicket,
                     TotalPrice = (t.PricePerTicket * t.Quantity)
-
-
                 })
                 .ToListAsync();
 
             return tickets;
-
-
         }
 
         public async Task<bool> PurchaseTickets(string cinemaId, string movieId, int quantity, string showtime, Guid userId)
@@ -74,7 +63,6 @@ namespace CinemaApp.Services.Core.Implementations
                 || projection.AvailableTickets >= quantity)
 
             {
-
                 var projectionTicket = await _ticketRepository.GetAllAttached()
                      .SingleOrDefaultAsync(cm => cm.CinemaMovieId == projection.Id
                      && cm.User.Id == userId);
@@ -84,29 +72,22 @@ namespace CinemaApp.Services.Core.Implementations
                     projectionTicket.Quantity += quantity;
                     await _ticketRepository.UpdateAsync(projectionTicket);
                 }
-
                 else
                 {
                     var ticket = new Ticket()
                     {
-
                         CinemaMovieProjections = projection,
                         UserId = userId,
                         Quantity = quantity,
                         PricePerTicket = 10.0m // assumed price per ticket
                     };
-                 
+
                     await _ticketRepository.AddAsync(ticket);
                 }
                 projection.AvailableTickets -= quantity;
                 result = await _cinemaMovieRepository.UpdateAsync(projection);
-
-              
             }
             return await Task.FromResult(result);
-
-
         }
     }
-
 }

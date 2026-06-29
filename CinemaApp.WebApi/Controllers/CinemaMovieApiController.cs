@@ -1,5 +1,4 @@
 ﻿using CinemaApp.Services.Core.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaApp.WebApi.Controllers
@@ -15,9 +14,6 @@ namespace CinemaApp.WebApi.Controllers
             _projectionService = projectionService;
         }
 
-
-
-
         [HttpGet("showtimes")]
         public async Task<ActionResult<IEnumerable<string>>> GetProjectionShowtimes(string? cinemaId, string? movieId)
         {
@@ -29,7 +25,6 @@ namespace CinemaApp.WebApi.Controllers
             }
             return Ok(showtimes);
         }
-
 
         [HttpGet("AvailableTickets")]
         [ProducesResponseType(StatusCodes.Status200OK)]

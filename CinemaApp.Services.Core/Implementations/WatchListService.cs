@@ -3,10 +3,6 @@ using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Interfaces;
 using CinemaApp.Web.ViewModels.WatchList;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Services.Core.Implementations
 {
@@ -62,7 +58,6 @@ namespace CinemaApp.Services.Core.Implementations
             await _watchListRepository.SaveChangesAsync();
         }
 
-
         // -------------------- CHECK IF EXISTS --------------------
         public async Task<bool> IsMovieInWatchListAsync(Guid userId, string movieId)
         {
@@ -73,6 +68,5 @@ namespace CinemaApp.Services.Core.Implementations
 
             return entry != null && entry.IsActive;
         }
-
     }
 }

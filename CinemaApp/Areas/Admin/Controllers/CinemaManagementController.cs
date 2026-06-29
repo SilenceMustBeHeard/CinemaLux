@@ -4,7 +4,6 @@ using CinemaApp.Web.ViewModels.Admin.CinemaManagement;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Web.Areas.Admin.Controllers
 {
@@ -13,7 +12,6 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
     public class CinemaManagementController : BaseAdminController
 
     {
-
         private readonly ICinemaManagementService _cinemaManagementService;
         private readonly IUserService _userService;
 
@@ -27,7 +25,6 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
             _userService = userService;
         }
 
-
         [HttpGet]
         public async Task<IActionResult> Manage()
         {
@@ -37,13 +34,9 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
             return View(cinemas);
         }
 
-
-
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-
-
             var model = new CinemaManagementCreateViewModel()
             {
                 Managers = await _userService.GetManagerEmailsAsync(),
@@ -51,17 +44,6 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
 
             return View(model);
         }
-
-
-
-
-
-
-
-
-
-
-
 
         [HttpPost]
         public async Task<IActionResult> Create(CinemaManagementCreateViewModel model)
@@ -76,7 +58,6 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
             return RedirectToAction(nameof(Manage));
         }
 
-
         [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
@@ -84,8 +65,6 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
             model.Managers = await _userService.GetManagerEmailsAsync();
             return View(model);
         }
-
-
 
         [HttpPost]
         public async Task<IActionResult> Edit(CinemaManagementEditViewModel model)
@@ -100,23 +79,13 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
             return RedirectToAction(nameof(Manage));
         }
 
-
-
-
-
-
-
-
-
         [HttpPost]
         public async Task<IActionResult> ToggleDelete(string id)
         {
-
             bool success = await _cinemaManagementService.ToggleDeleteCinemaAsync(id);
-         if(!success)
+            if (!success)
             {
                 TempData["ErrorMessage"] = "An error occurred while trying to delete the cinema.";
-               
             }
             else
             {

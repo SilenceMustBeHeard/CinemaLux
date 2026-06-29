@@ -1,5 +1,4 @@
 ﻿using CinemaApp.Data.Models;
-using System.Linq;
 
 namespace CinemaApp.Data.Repository.Interfaces
 {
@@ -15,5 +14,4 @@ namespace CinemaApp.Data.Repository.Interfaces
 
         Task SaveChangesAsync();
     }
-
 }

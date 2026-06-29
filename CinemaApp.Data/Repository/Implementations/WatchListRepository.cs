@@ -1,17 +1,10 @@
 ﻿using CinemaApp.Data.Models;
 using CinemaApp.Data.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Data.Repository.Implementations
 {
-    public class WatchlistRepository :IWatchlistRepository
+    public class WatchlistRepository : IWatchlistRepository
     {
         private readonly CinemaAppDbContext _context;
 
@@ -19,7 +12,6 @@ namespace CinemaApp.Data.Repository.Implementations
         {
             _context = context;
         }
-
 
         public IQueryable<AppUserMovie> GetAllAttached()
             => _context.AppUserMovies
@@ -46,5 +38,4 @@ namespace CinemaApp.Data.Repository.Implementations
         public async Task SaveChangesAsync()
             => await _context.SaveChangesAsync();
     }
-
 }

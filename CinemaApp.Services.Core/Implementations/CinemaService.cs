@@ -1,14 +1,7 @@
 ﻿using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Interfaces;
 using CinemaApp.Web.ViewModels.Cinema;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.Xml;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Services.Core.Implementations
 {
@@ -59,16 +52,6 @@ namespace CinemaApp.Services.Core.Implementations
             };
         }
 
-
-
-
-
-
-
-
-
-
-
         public async Task<IEnumerable<UsersCinemaIndexViewModel>> GetUserCinemasAsync()
 
               => await _cinemaRepo.GetAllAttached()
@@ -79,11 +62,6 @@ namespace CinemaApp.Services.Core.Implementations
                     Location = c.Location
                 })
                 .ToArrayAsync();
-
-
-
-
-
 
         public async Task<CinemaDetailsViewModel?> GetCinemaDetailsAsync(string? cinemaId)
         {
@@ -120,6 +98,5 @@ namespace CinemaApp.Services.Core.Implementations
                     .ToArray()
             };
         }
-
     }
 }

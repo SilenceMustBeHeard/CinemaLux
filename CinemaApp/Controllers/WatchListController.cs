@@ -29,7 +29,6 @@ namespace CinemaApp.Web.Controllers
             return View(watchList);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Toggle(string movieId)

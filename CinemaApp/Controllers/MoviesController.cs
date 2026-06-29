@@ -1,7 +1,6 @@
 ﻿using CinemaApp.Data.Models;
 using CinemaApp.Services.Core.Interfaces;
 using CinemaApp.Web.Controllers;
-using CinemaApp.Web.ViewModels.Admin.MovieManagement;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,10 +9,8 @@ public class MoviesController : BaseController
 {
     private readonly IMovieService _movieService;
 
-    
-
     public MoviesController(IMovieService movieService, UserManager<AppUser> userManager)
-        : base(userManager) 
+        : base(userManager)
     {
         _movieService = movieService;
     }
@@ -25,8 +22,6 @@ public class MoviesController : BaseController
         var movies = await _movieService.GetAllMoviesAsync();
         return View(movies);
     }
-
-  
 
     [HttpGet]
     [AllowAnonymous]
@@ -43,7 +38,4 @@ public class MoviesController : BaseController
 
         return View(model);
     }
-
-
-  
 }

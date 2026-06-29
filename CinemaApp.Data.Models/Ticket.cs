@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CinemaApp.Data.Models
+﻿namespace CinemaApp.Data.Models
 {
     public class Ticket
     {
@@ -17,10 +11,7 @@ namespace CinemaApp.Data.Models
 
         public decimal PricePerTicket { get; set; }
 
-        public Guid UserId { get; set; } 
+        public Guid UserId { get; set; }
         public AppUser User { get; set; } = null!;
     }
-
-
 }
-

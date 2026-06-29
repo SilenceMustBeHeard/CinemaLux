@@ -1,11 +1,6 @@
 ﻿using CinemaApp.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Data.Configuration
 {
@@ -18,7 +13,6 @@ namespace CinemaApp.Data.Configuration
             builder.Property(c => c.Name)
                 .IsRequired();
 
-
             builder.Property(c => c.Location)
                 .IsRequired();
 
@@ -30,21 +24,15 @@ namespace CinemaApp.Data.Configuration
                 .HasForeignKey(cm => cm.CinemaId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
             builder.HasOne(c => c.Manager)
                 .WithMany(m => m.ManagedCinemas)
                 .HasForeignKey(c => c.ManagerId)
                 .OnDelete(DeleteBehavior.SetNull);
 
-
-
-
-            builder.HasQueryFilter(c => !c.IsDeleted );
+            builder.HasQueryFilter(c => !c.IsDeleted);
 
             builder.HasIndex(c => new { c.Name, c.Location })
                 .IsUnique(true);
         }
     }
 }
-    
-

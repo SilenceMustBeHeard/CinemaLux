@@ -3,41 +3,35 @@ using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Admin.Interfaces;
 using CinemaApp.Services.Core.Implementations;
 using CinemaApp.Web.ViewModels.Admin.CinemaManagement;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Services.Core.Admin.Implementations
 {
-    public class CinemaManagementService :CinemaService, ICinemaManagementService
+    public class CinemaManagementService : CinemaService, ICinemaManagementService
     {
         private readonly ICinemaRepository _cinemaRepository;
         private readonly IUserService _userService;
         private readonly IManagerRepository _managerRepository;
 
-     public CinemaManagementService(
-            ICinemaRepository cinemaRepository,
-            IUserService userService,
-            IManagerRepository managerRepository
-         )
-            : base(cinemaRepository )
+        public CinemaManagementService(
+               ICinemaRepository cinemaRepository,
+               IUserService userService,
+               IManagerRepository managerRepository
+            )
+               : base(cinemaRepository)
         {
             _cinemaRepository = cinemaRepository;
             _userService = userService;
             _managerRepository = managerRepository;
         }
 
-
         public async Task<IEnumerable<CinemaManagementIndexViewModel>> GetAllCinemaManagementAsync()
         {
             var cinemas = await _cinemaRepository
                 .GetAllAttached()
                 .IgnoreQueryFilters()
-                .Include(c => c.Manager) 
-                .ThenInclude(m => m.User) 
+                .Include(c => c.Manager)
+                .ThenInclude(m => m.User)
                 .Select(c => new CinemaManagementIndexViewModel
                 {
                     Id = c.Id.ToString(),
@@ -51,7 +45,6 @@ namespace CinemaApp.Services.Core.Admin.Implementations
             return cinemas;
         }
 
-
         public async Task CreateCinemaAsync(CinemaManagementCreateViewModel model)
         {
             if (model == null)
@@ -63,7 +56,7 @@ namespace CinemaApp.Services.Core.Admin.Implementations
             {
                 manager = await _managerRepository
                     .GetAllAttached()
-                    .Include(m => m.User) 
+                    .Include(m => m.User)
                     .SingleOrDefaultAsync(m => m.User.Email == model.ManagerEmail);
 
                 if (manager == null)
@@ -80,7 +73,6 @@ namespace CinemaApp.Services.Core.Admin.Implementations
             await _cinemaRepository.AddAsync(cinema);
         }
 
-       
         public async Task<CinemaManagementEditViewModel> GetCinemaForEditAsync(string cinemaId)
         {
             if (string.IsNullOrWhiteSpace(cinemaId))
@@ -88,8 +80,8 @@ namespace CinemaApp.Services.Core.Admin.Implementations
 
             var cinema = await _cinemaRepository
                 .GetAllAttached()
-                .Include(c => c.Manager) 
-                .ThenInclude(m => m.User) 
+                .Include(c => c.Manager)
+                .ThenInclude(m => m.User)
                 .SingleOrDefaultAsync(c => c.Id.ToString() == cinemaId);
 
             if (cinema == null)
@@ -107,13 +99,11 @@ namespace CinemaApp.Services.Core.Admin.Implementations
             return model;
         }
 
-
         public async Task UpdateCinemaAsync(CinemaManagementEditViewModel model)
         {
             if (model == null)
                 throw new ArgumentNullException(nameof(model));
 
-          
             var cinema = await _cinemaRepository
                 .GetAllAttached()
                 .Include(c => c.Manager)
@@ -134,14 +124,12 @@ namespace CinemaApp.Services.Core.Admin.Implementations
                     throw new InvalidOperationException("Selected manager does not exist.");
             }
 
-         
             cinema.Name = model.Name;
             cinema.Location = model.Location;
             cinema.ManagerId = manager?.Id;
 
             await _cinemaRepository.UpdateAsync(cinema);
         }
-
 
         public async Task<bool> ToggleDeleteCinemaAsync(string cinemaId)
         {
@@ -159,21 +147,7 @@ namespace CinemaApp.Services.Core.Admin.Implementations
             cinema.IsDeleted = !cinema.IsDeleted;
             await _cinemaRepository.UpdateAsync(cinema);
 
-            return true; 
+            return true;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
 }

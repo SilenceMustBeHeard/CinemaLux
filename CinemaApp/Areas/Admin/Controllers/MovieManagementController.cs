@@ -25,7 +25,6 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
             return View(model);
         }
 
-
         [HttpGet]
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
@@ -44,18 +43,6 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
             await _movieManagementService.AddMovieAsync(model);
             return RedirectToAction(nameof(Index));
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
@@ -96,5 +83,4 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
     }
-    
 }

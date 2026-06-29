@@ -6,6 +6,7 @@ namespace CinemaApp.Web.Controllers
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using System.Diagnostics;
+
     public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;

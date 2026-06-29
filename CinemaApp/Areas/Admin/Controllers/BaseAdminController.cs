@@ -18,11 +18,10 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
 
         protected bool IsUserAuthenticated() => User.Identity?.IsAuthenticated ?? false;
 
-
-
         private readonly UserManager<AppUser> _userManager;
 
         protected Guid GetUserId() => Guid.Parse(_userManager.GetUserId(User));
+
         protected async Task<AppUser?> GetCurrentUserAsync()
         {
             return await _userManager.GetUserAsync(User);

@@ -1,5 +1,4 @@
 ﻿using CinemaApp.Data.Models;
-using CinemaApp.Web.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

@@ -2,13 +2,7 @@
 using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Implementations;
 using MockQueryable;
-using MockQueryable.Moq;
 using Moq;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.ServiceTests
 {
@@ -67,7 +61,6 @@ namespace CinemaApp.ServiceTests
 
         #region GetAllProjectionShowTimesAsync
 
-
         //// TO DO : fix the test to check the format of the showtime string if needed, currently it just checks if the string contains the time part
         //[Test]
         //public async Task GetAllProjectionShowTimesAsync_Should_ReturnShowtimes_WhenExists()
@@ -98,7 +91,7 @@ namespace CinemaApp.ServiceTests
             _cinemaMovieRepoMock.Verify(r => r.GetAllAttached(), Times.Once);
         }
 
-        #endregion
+        #endregion GetAllProjectionShowTimesAsync
 
         #region GetAvailableTickets
 
@@ -139,7 +132,7 @@ namespace CinemaApp.ServiceTests
             Assert.AreEqual(0, result3);
         }
 
-        #endregion
+        #endregion GetAvailableTickets
 
         #region PurchaseTickets
 
@@ -150,6 +143,6 @@ namespace CinemaApp.ServiceTests
                 await _projectionService.PurchaseTickets(_cinemaId.ToString(), _movieId.ToString(), 1, DateTime.Now.ToString()));
         }
 
-        #endregion
+        #endregion PurchaseTickets
     }
 }

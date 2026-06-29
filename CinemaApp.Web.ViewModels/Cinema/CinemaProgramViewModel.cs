@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CinemaApp.Web.ViewModels.Cinema
+﻿namespace CinemaApp.Web.ViewModels.Cinema
 {
     public class CinemaProgramViewModel
     {
@@ -14,6 +8,5 @@ namespace CinemaApp.Web.ViewModels.Cinema
         public string CinemaData { get; set; } = null!;
 
         public IEnumerable<CinemaProgramMovieViewModel> Movies { get; set; } = null!;
-
     }
 }

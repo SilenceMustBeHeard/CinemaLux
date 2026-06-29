@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CinemaApp.Data.Models
+﻿namespace CinemaApp.Data.Models
 {
     public class CinemaMovie
     {
@@ -25,5 +19,4 @@ namespace CinemaApp.Data.Models
         public virtual ICollection<Ticket> Tickets { get; set; }
             = new HashSet<Ticket>();
     }
-
 }

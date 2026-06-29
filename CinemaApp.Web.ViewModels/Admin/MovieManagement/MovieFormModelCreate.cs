@@ -1,23 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CinemaApp.Web.ViewModels.Admin.MovieManagement
 {
     public class MovieFormModelCreate
     {
-
-       public MovieFormModelCreate()
+        public MovieFormModelCreate()
         {
             this.ReleaseDate = DateTime.Today;
-
         }
-
-
-       
 
         [Required(ErrorMessage = "Title is required.")]
         [MaxLength(200, ErrorMessage = "Title cannot exceed 200 characters.")]
@@ -50,10 +40,6 @@ namespace CinemaApp.Web.ViewModels.Admin.MovieManagement
         public string? ImageUrl { get; set; } // The URL of movie poster
 
         [Url(ErrorMessage = "Please enter a valid trailer URL.")]
-        
         public string? TrailerUrl { get; set; }
-
-
-
     }
 }

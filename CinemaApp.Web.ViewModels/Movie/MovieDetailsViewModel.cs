@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CinemaApp.Web.ViewModels.Movie
+﻿namespace CinemaApp.Web.ViewModels.Movie
 {
     public class MovieDetailsViewModel
     {
@@ -18,6 +12,5 @@ namespace CinemaApp.Web.ViewModels.Movie
         public string ImageUrl { get; set; } = null!;
         public string TrailerUrl { get; set; } = null!;
         public bool IsInWatchList { get; set; }
-
     }
 }

@@ -1,8 +1,7 @@
-
-﻿/* =====================================================
-   CINEMA APP – Luxury JS
-   Dark + Light Mode • Glass Buttons • Movie Cards
-   ===================================================== */
+/* =====================================================
+  CINEMA APP – Luxury JS
+  Dark + Light Mode • Glass Buttons • Movie Cards
+  ===================================================== */
 
 // -------------------------
 // Light / Dark Mode Toggle
@@ -82,4 +81,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-

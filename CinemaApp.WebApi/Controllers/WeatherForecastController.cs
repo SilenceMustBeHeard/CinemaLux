@@ -17,8 +17,6 @@ namespace CinemaApp.WebApi.Controllers
         private readonly CinemaAppDbContext _context;
         private readonly IAuthorizationService _authorizationService;
 
-
-
         public WeatherForecastController(ILogger<WeatherForecastController> logger,
             IAuthorizationService authorizationService, CinemaAppDbContext context)
         {
@@ -26,8 +24,6 @@ namespace CinemaApp.WebApi.Controllers
             this._authorizationService = authorizationService;
             _context = context;
         }
-
-
 
         [Authorize]
         [HttpGet(Name = "GetWeatherForecast")]

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CinemaApp.Web.ViewModels.Admin.CinemaManagement
+﻿namespace CinemaApp.Web.ViewModels.Admin.CinemaManagement
 {
     public class CinemaManagementIndexViewModel
     {
@@ -13,6 +7,6 @@ namespace CinemaApp.Web.ViewModels.Admin.CinemaManagement
         public string Location { get; set; }
         public bool IsDeleted { get; set; } = false;
 
-        public string? ManagerName { get; set; } 
+        public string? ManagerName { get; set; }
     }
 }

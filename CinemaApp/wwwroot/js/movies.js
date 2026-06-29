@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     const detailsModalElement = document.getElementById("movieDetailsModal");
     const detailsModal = new bootstrap.Modal(detailsModalElement);
 
@@ -9,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentMovieId = null;
 
- // view details
+    // view details
     document.querySelectorAll(".view-details-btn").forEach(btn => {
         btn.addEventListener("click", async () => {
             const movieId = btn.dataset.movieId;
@@ -50,10 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-  // add to watchlist
+    // add to watchlist
     if (addToWatchlistBtn) {
         addToWatchlistBtn.addEventListener("click", async () => {
-
             if (!currentMovieId) return;
 
             try {
@@ -82,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // buy tickets
     document.querySelectorAll(".buy-ticket-btn").forEach(btn => {
         btn.addEventListener("click", () => {
-
             const cinemaId = btn.dataset.cinemaId;
             const cinemaName = btn.dataset.cinemaName;
             const movieId = btn.dataset.movieId;
@@ -101,5 +98,4 @@ document.addEventListener("DOMContentLoaded", () => {
             ticketModal.show();
         });
     });
-
 });

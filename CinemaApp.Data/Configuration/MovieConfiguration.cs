@@ -1,11 +1,6 @@
 ﻿using CinemaApp.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Data.Configuration
 {
@@ -18,7 +13,6 @@ namespace CinemaApp.Data.Configuration
             builder.Property(m => m.Title)
                    .IsRequired()
                    .HasMaxLength(200);
-                  
 
             builder.Property(m => m.Genre)
                    .IsRequired()
@@ -41,9 +35,8 @@ namespace CinemaApp.Data.Configuration
             builder.Property(m => m.ImageUrl)
                    .IsRequired(false);
 
-          builder.Property(m=> m.TrailerUrl)
-                   .IsRequired(false);
-
+            builder.Property(m => m.TrailerUrl)
+                     .IsRequired(false);
 
             builder.Property(m => m.IsDeleted)
                    .HasDefaultValue(false);

@@ -1,10 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CinemaApp.Data.Models
 {
@@ -45,8 +39,6 @@ namespace CinemaApp.Data.Models
 
         public virtual ICollection<AppUserMovie> AppUserMovies { get; set; }
        = new HashSet<AppUserMovie>();
-
-
 
         public virtual ICollection<CinemaMovie> MovieProjections { get; set; }
         = new HashSet<CinemaMovie>();

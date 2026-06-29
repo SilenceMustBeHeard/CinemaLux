@@ -1,13 +1,6 @@
-﻿
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using CinemaApp.Data.Models;
+﻿using CinemaApp.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace CinemaApp.Data.Seeding
 {
@@ -17,7 +10,6 @@ namespace CinemaApp.Data.Seeding
         {
             if (await context.Movies.AnyAsync())
                 return;
-
 
             var jsonPath = Path.Combine(
       Directory.GetCurrentDirectory(),
@@ -31,7 +23,6 @@ namespace CinemaApp.Data.Seeding
                 throw new Exception($"movies.json NOT FOUND at: {jsonPath}");
             }
 
-
             var json = await File.ReadAllTextAsync(jsonPath);
             var movies = JsonSerializer.Deserialize<List<Movie>>(json);
 
@@ -42,13 +33,8 @@ namespace CinemaApp.Data.Seeding
             }
         }
 
-
-
-
-
         public static async Task SeedCinemasAsync(CinemaAppDbContext context)
         {
-            
             if (await context.Cinemas.AnyAsync())
             {
                 return;
@@ -89,4 +75,3 @@ namespace CinemaApp.Data.Seeding
         }
     }
 }
-

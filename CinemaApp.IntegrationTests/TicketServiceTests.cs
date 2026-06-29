@@ -3,13 +3,7 @@ using CinemaApp.Data.Models;
 using CinemaApp.Data.Repository.Implementations;
 using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Implementations;
-using CinemaApp.Web.ViewModels.Ticket;
 using Microsoft.EntityFrameworkCore;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.IntegrationTests
 {
@@ -84,7 +78,7 @@ namespace CinemaApp.IntegrationTests
             _context.Dispose();
         }
 
-        //  GetUserTicketsAsync 
+        //  GetUserTicketsAsync
         [Test]
         public async Task GetUserTicketsAsync_ReturnsEmpty_WhenUserHasNoTickets()
         {
@@ -120,7 +114,7 @@ namespace CinemaApp.IntegrationTests
             Assert.AreEqual(20.0m, result.First().TotalPrice);
         }
 
-        //  PurchaseTickets 
+        //  PurchaseTickets
         [Test]
         public async Task PurchaseTickets_AddsNewTicket_WhenUserHasNoExistingTicket()
         {
@@ -148,7 +142,6 @@ namespace CinemaApp.IntegrationTests
         {
             var projection = _context.CinemaMovies.First();
 
-          
             var ticket = new Ticket
             {
                 Id = Guid.NewGuid(),

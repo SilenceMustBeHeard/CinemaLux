@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CinemaApp.Web.ViewModels.Account
 {
@@ -24,5 +18,3 @@ namespace CinemaApp.Web.ViewModels.Account
         public string ConfirmPassword { get; set; } = null!;
     }
 }
-
-

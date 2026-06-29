@@ -4,9 +4,6 @@ using CinemaApp.Web.ViewModels.Admin.UserManagment;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-
-
 
 namespace CinemaApp.Web.Areas.Admin.Controllers
 {
@@ -22,6 +19,7 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
         {
             _userService = userService;
         }
+
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -34,7 +32,7 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> AssignRole(ChangeUserRoleViewModel model)
         {
-            if (!ModelState.IsValid 
+            if (!ModelState.IsValid
                 || string.IsNullOrWhiteSpace(model.NewRole))
             {
                 TempData["ErrorMessage"] = "Please select a valid role.";
@@ -50,18 +48,5 @@ namespace CinemaApp.Web.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
-

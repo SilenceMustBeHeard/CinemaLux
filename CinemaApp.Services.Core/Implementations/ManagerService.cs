@@ -1,5 +1,4 @@
-﻿using CinemaApp.Data.Models;
-using CinemaApp.Data.Repository.Interfaces;
+﻿using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,8 +30,6 @@ namespace CinemaApp.Services.Core.Implementations
                 .AnyAsync(m => m.UserId == userId);
         }
 
-      
-
         public async Task<Guid?> GetIdByUserIdAsync(Guid? userId)
         {
             Guid? managerId = null;
@@ -47,7 +44,6 @@ namespace CinemaApp.Services.Core.Implementations
                 }
             }
             return managerId;
-            
         }
     }
 }

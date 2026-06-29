@@ -4,14 +4,7 @@ using CinemaApp.Data.Repository.Implementations;
 using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Implementations;
 using CinemaApp.Web.ViewModels.Admin.MovieManagement;
-using CinemaApp.Web.ViewModels.Movie;
-using CinemaApp.Web.ViewModels.Movies;
 using Microsoft.EntityFrameworkCore;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.IntegrationTests
 {
@@ -76,7 +69,6 @@ namespace CinemaApp.IntegrationTests
             _context.Dispose();
         }
 
-        
         [Test]
         public async Task GetAllMoviesAsync_ReturnsAllNonDeletedMovies()
         {
@@ -88,7 +80,6 @@ namespace CinemaApp.IntegrationTests
             Assert.IsTrue(result.Any(m => m.Title == "Interstellar"));
         }
 
-        
         [Test]
         public async Task GetMovieDetailsByIdAsync_ReturnsMovie_WhenExists()
         {
@@ -130,7 +121,6 @@ namespace CinemaApp.IntegrationTests
             Assert.AreEqual("Nolan", added.Director);
         }
 
-  
         [Test]
         public async Task EditMovieAsync_UpdatesMovieSuccessfully()
         {
@@ -173,7 +163,6 @@ namespace CinemaApp.IntegrationTests
             Assert.IsFalse(result);
         }
 
-        
         [Test]
         public async Task DeleteMovieAsync_DeletesMovieSuccessfully()
         {

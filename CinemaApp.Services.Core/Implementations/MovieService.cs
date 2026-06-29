@@ -5,10 +5,6 @@ using CinemaApp.Web.ViewModels.Admin.MovieManagement;
 using CinemaApp.Web.ViewModels.Movie;
 using CinemaApp.Web.ViewModels.Movies;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Services.Core.Implementations
 {
@@ -80,11 +76,10 @@ namespace CinemaApp.Services.Core.Implementations
                     Description = m.Description,
                     ImageUrl = m.ImageUrl,
                     TrailerUrl = m.TrailerUrl,
-                    IsInWatchList = false 
+                    IsInWatchList = false
                 })
                 .FirstOrDefaultAsync();
         }
-
 
         // -------------------- EDIT --------------------
         public async Task<MovieFormModelEdit?> GetMovieForEditByIdAsync(string id)
@@ -157,7 +152,6 @@ namespace CinemaApp.Services.Core.Implementations
             return await _movieRepository.HardDeleteAsync(movie);
         }
 
-
         // -------------------- GET FOR DELETE VIEW --------------------
         public async Task<MovieFormModelDelete?> GetMovieForDeleteByIdAsync(string id)
         {
@@ -174,6 +168,5 @@ namespace CinemaApp.Services.Core.Implementations
                 })
                 .FirstOrDefaultAsync();
         }
-
     }
 }

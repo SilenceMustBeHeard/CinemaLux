@@ -36,7 +36,7 @@ namespace CinemaApp.Web.Controllers
             var program = await _cinemaService
                 .GetProgramAsync(Id);
 
-            if(program == null)
+            if (program == null)
             {
                 return RedirectToAction(nameof(Index));
             }
@@ -45,7 +45,7 @@ namespace CinemaApp.Web.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> Details (string id)
+        public async Task<IActionResult> Details(string id)
         {
             var program = await _cinemaService
                .GetCinemaDetailsAsync(id);
@@ -58,4 +58,3 @@ namespace CinemaApp.Web.Controllers
         }
     }
 }
-    

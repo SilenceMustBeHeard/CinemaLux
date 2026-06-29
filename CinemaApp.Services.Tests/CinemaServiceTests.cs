@@ -1,15 +1,8 @@
 ﻿using CinemaApp.Data.Models;
 using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Implementations;
-using CinemaApp.Web.ViewModels.Cinema;
 using MockQueryable;
-using MockQueryable.Moq;
 using Moq;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.ServiceTests
 {
@@ -112,7 +105,7 @@ namespace CinemaApp.ServiceTests
             _cinemaRepoMock.Verify(r => r.GetAllAttached(), Times.Once);
         }
 
-        #endregion
+        #endregion GetProgramAsync Tests
 
         #region GetUserCinemasAsync Tests
 
@@ -132,7 +125,7 @@ namespace CinemaApp.ServiceTests
             _cinemaRepoMock.Verify(r => r.GetAllAttached(), Times.Once);
         }
 
-        #endregion
+        #endregion GetUserCinemasAsync Tests
 
         #region GetCinemaDetailsAsync Tests
 
@@ -170,6 +163,6 @@ namespace CinemaApp.ServiceTests
             _cinemaRepoMock.Verify(r => r.GetAllAttached(), Times.Once);
         }
 
-        #endregion
+        #endregion GetCinemaDetailsAsync Tests
     }
 }

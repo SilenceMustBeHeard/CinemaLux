@@ -1,15 +1,8 @@
 ﻿using CinemaApp.Data.Models;
 using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Implementations;
-using CinemaApp.Web.ViewModels.WatchList;
 using MockQueryable;
-using MockQueryable.Moq;
 using Moq;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.ServiceTests
 {
@@ -89,7 +82,7 @@ namespace CinemaApp.ServiceTests
             Assert.IsEmpty(result);
         }
 
-        #endregion
+        #endregion GetWatchListByUserIdAsync
 
         #region ToggleWatchListAsync
 
@@ -136,7 +129,7 @@ namespace CinemaApp.ServiceTests
             _watchListRepoMock.Verify(r => r.SaveChangesAsync(), Times.Never);
         }
 
-        #endregion
+        #endregion ToggleWatchListAsync
 
         #region IsMovieInWatchListAsync
 
@@ -170,6 +163,6 @@ namespace CinemaApp.ServiceTests
             Assert.IsFalse(result);
         }
 
-        #endregion
+        #endregion IsMovieInWatchListAsync
     }
 }

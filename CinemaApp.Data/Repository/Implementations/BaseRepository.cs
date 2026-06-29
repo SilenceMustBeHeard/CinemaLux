@@ -1,17 +1,12 @@
 ﻿using CinemaApp.Data.Common;
 using CinemaApp.Data.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Data.Repository.Implementations
 {
-    public abstract class BaseRepository<TEntity, TKey> : 
+    public abstract class BaseRepository<TEntity, TKey> :
         IRepository<TEntity, TKey>, IRepositoryAsync<TEntity, TKey>
         where TEntity : class
 
@@ -26,37 +21,32 @@ namespace CinemaApp.Data.Repository.Implementations
             _dbSet = context.Set<TEntity>();
         }
 
-
-
-
-
-
-        public int Count() 
+        public int Count()
             => _dbSet.Count();
+
         public async Task<int> CountAsync()
             => await _dbSet.CountAsync();
 
         public void Add(TEntity item)
-      {
+        {
             _dbSet.Add(item);
             _context.SaveChanges();
         }
 
         public async Task AddAsync(TEntity item)
-       {
-            await _dbSet.AddAsync(item); 
+        {
+            await _dbSet.AddAsync(item);
             await _context.SaveChangesAsync();
-
         }
 
         public void AddRange(IEnumerable<TEntity> items)
-       {
-            _dbSet.AddRange(items); 
+        {
+            _dbSet.AddRange(items);
             _context.SaveChanges();
         }
 
         public async Task AddRangeAsync(IEnumerable<TEntity> items)
-       {
+        {
             await _dbSet.AddRangeAsync(items);
             await _context.SaveChangesAsync();
         }
@@ -66,7 +56,6 @@ namespace CinemaApp.Data.Repository.Implementations
 
         public async Task<bool> DeleteAsync(TEntity entity)
             => await SoftDeleteAsync(entity) > 0;
-
 
         //public Task<TEntity> FindByConditionAsync(Expression<Func<TEntity, bool>> predicate)
         //{
@@ -79,22 +68,19 @@ namespace CinemaApp.Data.Repository.Implementations
         public async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate)
             => await _dbSet.FirstOrDefaultAsync(predicate);
 
-
         public IEnumerable<TEntity> GetAll() => _dbSet.ToList();
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
           => await _dbSet.ToListAsync();
 
-        public IQueryable<TEntity> GetAllAttached() 
+        public IQueryable<TEntity> GetAllAttached()
             => _dbSet.AsQueryable();
 
-        public TEntity? GetById(TKey id) 
+        public TEntity? GetById(TKey id)
             => _dbSet.Find(id);
-         
 
         public async Task<TEntity?> GetByIdAsync(TKey id)
        => await _dbSet.FindAsync(id);
-
 
         public async Task<bool> HardDeleteAsync(TEntity entity)
         {
@@ -111,11 +97,10 @@ namespace CinemaApp.Data.Repository.Implementations
         public void SaveChanges()
        => _context.SaveChanges();
 
-
         public async Task SaveChangesAsync()
        => await _context.SaveChangesAsync();
 
-        public TEntity? SingleOrDefault(Func<TEntity, bool> predicate) 
+        public TEntity? SingleOrDefault(Func<TEntity, bool> predicate)
             => _dbSet.SingleOrDefault(predicate);
 
         public async Task<TEntity?> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate)
@@ -123,15 +108,15 @@ namespace CinemaApp.Data.Repository.Implementations
 
         public bool Update(TEntity item)
         {
-          try
-          {
+            try
+            {
                 _dbSet.Attach(item);
                 _dbSet.Entry(item).State = EntityState.Modified;
                 _context.SaveChanges();
                 return true;
-          }
-          catch
-          {
+            }
+            catch
+            {
                 return false;
             }
         }
@@ -150,7 +135,6 @@ namespace CinemaApp.Data.Repository.Implementations
                 return false;
             }
         }
-
 
         private int SoftDelete(TEntity entity)
         {
@@ -179,8 +163,7 @@ namespace CinemaApp.Data.Repository.Implementations
         }
 
         private PropertyInfo? GetFlagProperty()
-        
+
            => typeof(TEntity).GetProperty("IsDeleted");
-         
     }
 }

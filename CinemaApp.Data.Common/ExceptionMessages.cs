@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CinemaApp.Data.Common
+﻿namespace CinemaApp.Data.Common
 {
     public static class ExceptionMessages
     {
@@ -15,7 +9,5 @@ namespace CinemaApp.Data.Common
         public const string Forbidden = "Forbidden access.";
         public const string OperationFailed = "Operation failed.";
         public const string SoftDeleteNotSupported = "Soft delete not supported for this entity.";
-
-
     }
 }

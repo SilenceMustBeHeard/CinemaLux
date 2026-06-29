@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CinemaApp.Web.ViewModels.Admin.MovieManagement
 {
     public class MovieFormModelEdit
     {
-        public string Id { get; set; } = null!; 
+        public string Id { get; set; } = null!;
 
         [Required, MaxLength(200), MinLength(2)]
         public string Title { get; set; } = null!;
@@ -30,8 +25,8 @@ namespace CinemaApp.Web.ViewModels.Admin.MovieManagement
         public string Description { get; set; } = null!;
 
         public string? ImageUrl { get; set; }
+
         [Url]
         public string? TrailerUrl { get; set; }
     }
-
 }

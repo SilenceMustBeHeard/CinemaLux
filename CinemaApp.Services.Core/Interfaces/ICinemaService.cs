@@ -1,9 +1,4 @@
 ﻿using CinemaApp.Web.ViewModels.Cinema;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CinemaApp.Services.Core.Interfaces
 {
@@ -11,11 +6,8 @@ namespace CinemaApp.Services.Core.Interfaces
     {
         Task<IEnumerable<UsersCinemaIndexViewModel>> GetUserCinemasAsync();
 
-
-
         Task<CinemaProgramViewModel?> GetProgramAsync(string? cinemaId);
 
-
-        Task<CinemaDetailsViewModel> GetCinemaDetailsAsync(string? cinemaId);   
+        Task<CinemaDetailsViewModel> GetCinemaDetailsAsync(string? cinemaId);
     }
 }

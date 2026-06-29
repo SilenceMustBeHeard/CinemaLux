@@ -2,8 +2,6 @@
 
 namespace CinemaApp.Web.Controllers
 {
-   
-
     public class ErrorController : Controller
     {
         [Route("Error/NotImplemented")]
@@ -12,5 +10,4 @@ namespace CinemaApp.Web.Controllers
             return View();
         }
     }
-
 }

@@ -2,23 +2,16 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using CinemaApp.Data.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Text.Encodings.Web;
 
 namespace CinemaApp.Web.Areas.Identity.Pages.Account
 {
@@ -31,8 +24,6 @@ namespace CinemaApp.Web.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole<Guid>> _roleManager;
-
-
 
         public RegisterModel(
       UserManager<AppUser> userManager,
@@ -105,7 +96,6 @@ namespace CinemaApp.Web.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
         }
 
-
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
@@ -131,10 +121,9 @@ namespace CinemaApp.Web.Areas.Identity.Pages.Account
                     bool userRoleExist = await _roleManager.RoleExistsAsync("User");
                     if (userRoleExist)
                     {
-                       result = await _userManager.AddToRoleAsync(user, "User");
+                        result = await _userManager.AddToRoleAsync(user, "User");
 
-
-                        if(!result.Succeeded)
+                        if (!result.Succeeded)
                         {
                             ModelState.AddModelError(string.Empty, "Failed to assign 'User' role.");
                             return Page();

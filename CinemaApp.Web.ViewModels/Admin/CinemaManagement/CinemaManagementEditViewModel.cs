@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CinemaApp.Web.ViewModels.Admin.CinemaManagement
 {
@@ -11,8 +6,5 @@ namespace CinemaApp.Web.ViewModels.Admin.CinemaManagement
     {
         [Required]
         public string Id { get; set; } = null!;
-
-
-
     }
 }

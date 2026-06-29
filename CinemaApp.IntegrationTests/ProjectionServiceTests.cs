@@ -4,12 +4,6 @@ using CinemaApp.Data.Repository.Implementations;
 using CinemaApp.Data.Repository.Interfaces;
 using CinemaApp.Services.Core.Implementations;
 using Microsoft.EntityFrameworkCore;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CinemaApp.IntegrationTests
 {
@@ -75,7 +69,6 @@ namespace CinemaApp.IntegrationTests
                 AvailableTickets = 0
             };
 
-
             _context.CinemaMovies.AddRange(cinemaMovie1, cinemaMovie2, cinemaMovie3, cinemaMovie4);
             _context.SaveChanges();
         }
@@ -85,7 +78,6 @@ namespace CinemaApp.IntegrationTests
         {
             _context.Dispose();
         }
-
 
         // TO DO : Fix this test, it fails because of the way we seed the database, we need to seed more data for this test to pass
         //[Test]
